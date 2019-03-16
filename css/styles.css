@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  --color-primary: #f0b238;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  color: #e3dfd7;
+  font: normal 400 calc(2rem + .33vw)/1.7 Lora, Georgia, 'Times New Roman', serif;
+  background: #1f1d1a url('../images/bg.gif');
+}
+
+.top-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: .8em;
+  background-color: var(--color-primary);
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  width: 41.7vw;
+  margin: 0 auto;
+}
+
+main > div {
+  flex: 1 1 auto;
+  align-self: center;
+}
+
+strong {
+  color: var(--color-primary);
+  font-weight: 400;
+}
+
+h1 {
+  margin: 0;
+  font: inherit;
+  font-size: 1.5em;
+}
+
+h1 span {
+  color: var(--color-primary);
+}
+
+p {
+  margin: .8em 0;
+}
+
+button {
+  display: inline-block;
+  margin: 24px 16px 0 0;
+  padding: 6px 24px;
+  color: var(--color-primary);
+  font: inherit;
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+}
+
+a {
+  display: inline-block;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-primary);
+}
