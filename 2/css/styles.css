@@ -9,33 +9,30 @@ html, body {
 
 html {
   font-size: 62.5%;
-  --color-primary: #e95642;
+  --color-font: #747c7d;
+  --color-primary: #da4852;
+  --color-secondary: #e3e8e8;
+  /* --color-secondary: #e95642; */
+  /* --color-secondary: #e4b03e; */
 }
 
 body {
-  position: relative;
-  min-height: 100vh;
-  color: #fff;
-  font: normal 400 calc(2rem + .50vw)/1.7 'Source Sans Pro', sans-serif;
-  background-color: #120f0f;
+  color: var(--color-font);
+  font: normal 700 calc(2rem + .75vw)/1.7 'Source Sans Pro', sans-serif;
+  background-color: var(--color-secondary);
+  box-shadow: 0 0 0 30px inset #b6baba;
+  background: var(--color-secondary) url('../images/code.svg') no-repeat 100% 100%;
+  background-size: 858px 480px;
 }
 
 /* Main Structure */
 
-.top-bar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: .8em;
-  background-color: var(--color-primary);
-}
-
 .container {
   min-height: 100vh;
   display: flex;
-  width: 41vw;
+  width: calc(51.5vw + 20vw);
   margin: 0 auto;
+  padding-right: 20vw;
 }
 
 .container > div {
@@ -48,8 +45,9 @@ body {
 h1 {
   margin: 0;
   font: inherit;
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 1.6em;
+  font-weight: 900;
+  line-height: normal;
 }
 
 h1 span {
@@ -57,34 +55,49 @@ h1 span {
 }
 
 p {
-  margin: 0 0 2em 0;
+  margin: 1em 0;
 }
 
 button {
   display: inline-block;
-  margin: 24px 16px 0 0;
-  padding: 6px 24px;
+  margin: 24px 32px 0 0;
+  padding: 6px 24px 6px 72px;
   color: var(--color-primary);
   font: inherit;
-  background-color: transparent;
-  border: 1px solid var(--color-primary);
+  background: transparent url('../images/message.svg') no-repeat 24px 50%;
+  background-size: 30px 30px;
+  border: 3px solid var(--color-primary);
   transition: color 200ms, box-shadow 200ms;
-  box-shadow: 0 0 0 inset var(--color-primary);
+  box-shadow: 0 0 0 inset rgba(218, 72, 82, .2);
+}
+
+button span {
+  display: inline-block;
 }
 
 button:hover {
-  color: #1f1d1a;
-  box-shadow: 250px 0 0 inset var(--color-primary);
+  box-shadow: 350px 0 0 inset rgba(218, 72, 82, .2);
 }
 
 a {
   display: inline-block;
+  padding-left: 48px;
   color: var(--color-primary);
   text-decoration: none;
-  border-bottom: 2px solid var(--color-primary);
+  background: transparent url('../images/linkedin.svg') no-repeat 0 50%;
+  background-size: 30px 30px;
+}
+
+a span {
+  display: inline-block;
+  border-bottom: 3px solid var(--color-primary);
   transition: border-color 200ms;
 }
 
 a:hover {
+  border-color: transparent;
+}
+
+a:hover span {
   border-color: transparent;
 }
