@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="12 12 24 24" style="enable-background:new 12 12 24 24;" xml:space="preserve">
-	<g id="message">
-		<path fill="#747c7d" d="M24,28L12,16h24L24,28z M24,30l-5-5l-7,7h24l-7-7L24,30z M30,24l6,6V18L30,24z M12,18v12l6-6L12,18z"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30">
+	<g>
+		<path fill="#e8422c" d="M0,5l15,15l15,-15z M0,25l8.5,-8.5l6.5,6.5l6.5,-6.5l8.5,8.5z M0,8l7,7l-7,7z M30,8l-7,7l7,7z"/>
 	</g>
 </svg>

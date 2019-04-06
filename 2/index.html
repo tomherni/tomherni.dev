@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Tom Herni</title>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,900" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <style>/* Critical styles go here */</style>
   </head>
 
   <body>
@@ -15,9 +16,33 @@
           Passionate about designing and building creative solutions for the web.
           To exceed the client's and end-user's satisfaction and expectations — as well as my own. Let's do it :-)
         </p>
-        <button><span>Send message</span></button>
+        <button>Send message</button>
         <a href="#"><span>Visit my LinkedIn</span></a>
       </div>
     </div>
+
+    <script>
+      (function() {
+        /**
+          * Insert the non-critical JavaScript and CSS in the DOM.
+          * Script based on: http://www.feedthebot.com/pagespeed/defer-loading-javascript.html
+          */
+        function loadNonCriticals() {
+          var script = document.createElement('script');
+          // script.src = window.location.href + 'dist/js/script.non-critical.min.js';
+          script.src = 'js/script.non-critical.js';
+          document.body.appendChild(script);
+
+          var link = document.createElement('link');
+          // link.href = window.location.href + 'dist/css/style.non-critical.min.css';
+          link.href = 'css/style.non-critical.css';
+          link.rel = 'stylesheet';
+          document.body.appendChild(link);
+        }
+
+        // Load the non-criticals when the page finished loading.
+        window.addEventListener('load', loadNonCriticals, false);
+      })();
+    </script>
   </body>
 </html>
