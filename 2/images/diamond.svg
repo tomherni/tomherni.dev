@@ -5,15 +5,15 @@
 			background: #171515;
 		}
 
-		.t1 { fill: #ab1f0d; animation: t1 2s ease-in-out infinite; }
-		.t2 { fill: #f58d80; animation: t2 2s ease-in-out infinite; }
-		.t3 { fill: #f14e39; animation: t3 2s ease-in-out infinite; }
+		.t1 { fill: #AB1F0D; animation: t1 2s ease-in-out infinite; }
+		.t2 { fill: #F58D80; animation: t2 2s ease-in-out infinite; }
+		.t3 { fill: #F14E39; animation: t3 2s ease-in-out infinite; }
 		.t4 { fill: #942819; animation: t4 2s ease-in-out infinite; }
-		.t5 { fill: #f56653; animation: t5 2s ease-in-out infinite; }
-		.t6 { fill: #d03d2a; animation: t6 2s ease-in-out infinite; }
-		.t7 { fill: #f5a298; animation: t7 2s ease-in-out infinite; }
-		.t8 { fill: #f5897b; animation: t8 2s ease-in-out infinite; }
-		.t9 { fill: #7d2114; animation: t9 2s ease-in-out infinite; }
+		.t5 { fill: #F56653; animation: t5 2s ease-in-out infinite; }
+		.t6 { fill: #D03D2A; animation: t6 2s ease-in-out infinite; }
+		.t7 { fill: #F5A298; animation: t7 2s ease-in-out infinite; }
+		.t8 { fill: #F5897B; animation: t8 2s ease-in-out infinite; }
+		.t9 { fill: #7D2114; animation: t9 2s ease-in-out infinite; }
 		@keyframes t1 { 0% { fill: #AB1F0D } 20% { fill: #F86C5A } 40% { fill: #5F0000 } 60% { fill: #AB1F0D } }
 		@keyframes t2 { 5% { fill: #F58D80 } 25% { fill: #FFDACD } 45% { fill: #A94134 } 65% { fill: #F58D80 } }
 		@keyframes t3 { 10% { fill: #F14E39 } 30% { fill: #FF9B86 } 50% { fill: #A50200 } 70% { fill: #F14E39 } }
@@ -24,11 +24,11 @@
 		@keyframes t8 { 35% { fill: #F5897B } 55% { fill: #FFD6C8 } 75% { fill: #A93D2F } 95% { fill: #F5897B } }
 		@keyframes t9 { 40% { fill: #7D2114 } 60% { fill: #CA6E61 } 80% { fill: #310000 } 100% { fill: #7D2114 } }
 
-		.b1 { fill: #bb311e; animation: b1 2s ease-in-out infinite; }
-		.b2 { fill: #f16553; animation: b2 2s ease-in-out infinite; }
-		.b3 { fill: #d63924; animation: b3 2s ease-in-out infinite; }
-		.b4 { fill: #f98778; animation: b4 2s ease-in-out infinite; }
-		.b5 { fill: #9e2717; animation: b5 2s ease-in-out infinite; }
+		.b1 { fill: #BB311E; animation: b1 2s ease-in-out infinite; }
+		.b2 { fill: #F16553; animation: b2 2s ease-in-out infinite; }
+		.b3 { fill: #D63924; animation: b3 2s ease-in-out infinite; }
+		.b4 { fill: #F98778; animation: b4 2s ease-in-out infinite; }
+		.b5 { fill: #9E2717; animation: b5 2s ease-in-out infinite; }
 		@keyframes b1 { 0% { fill: #BB311E } 20% { fill: #FF7E6B } 40% { fill: #6F0000 } 60% { fill: #BB311E } }
 		@keyframes b2 { 10% { fill: #F16553 } 30% { fill: #FFB2A0 } 50% { fill: #A51907 } 70% { fill: #F16553 } }
 		@keyframes b3 { 20% { fill: #D63924 } 40% { fill: #FF8671 } 60% { fill: #8A0000 } 80% { fill: #D63924 } }
@@ -40,9 +40,9 @@
 	</style>
 
 	<g>
-		<path fill="#e8422c" d="M10,15h50l10,10l-35,30l-35,-30z"/>
+		<path fill="#E8422C" d="M10,15h50l10,10l-35,30l-35,-30z"/>
 
-		<!-- Top -->
+		<!-- Top shapes -->
 		<path class="t1" d="M0,25h14l-4,-10z"/>
 		<path class="t2" d="M10,15h11l-7,10z"/>
 		<path class="t3" d="M14,25h14l-7,-10z"/>
@@ -53,7 +53,7 @@
 		<path class="t8" d="M49,15h11l-4,10z"/>
 		<path class="t9" d="M56,25h14l-10,-10z"/>
 
-		<!-- Bottom -->
+		<!-- Bottom shapes -->
 		<path class="b1" d="M0,25h14l21,30z"/>
 		<path class="b2" d="M14,25h14l7,30z"/>
 		<path class="b3" d="M28,25h14l-7,30z"/>
