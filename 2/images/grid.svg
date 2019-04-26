@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 30 600 300">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 -100 600 300">
 	<style>
 		path {
 			fill: none;
@@ -11,10 +11,12 @@
 			opacity: .4;
 		}
 
+		/*
 		circle {
 			display: none;
 			r: 0;
 		}
+		*/
 
 		.highlight {
 			stroke: #e8422c;
@@ -42,34 +44,34 @@
 		<path d="M80,190L180,210 M70,170L195,175 M195,175L295,100 M500,105L600,105 M500,105L600,80 M500,105L600,40 M510,145L600,110 M570,230L600,210 M570,230L600,175 M430,195L510,145L600,30"/>
 		<path d="M0,170L30,175L80,190L140,185L150,220L195,175L320,185L340,165L400,130L470,160L500,105L510,145L560,40L600,100" class="highlight"/>
 
-		<circle cx="30" cy="175"/>
-		<circle cx="70" cy="170"/>
-		<circle cx="80" cy="190"/>
-		<circle cx="140" cy="185"/>
-		<circle cx="150" cy="220"/>
-		<circle cx="160" cy="140"/>
-		<circle cx="180" cy="210"/>
-		<circle cx="195" cy="175"/>
-		<circle cx="230" cy="200"/>
-		<circle cx="270" cy="160"/>
-		<circle cx="280" cy="215"/>
-		<circle cx="295" cy="100"/>
-		<circle cx="320" cy="185"/>
-		<circle cx="340" cy="165"/>
-		<circle cx="370" cy="120"/>
-		<circle cx="380" cy="225"/>
-		<circle cx="400" cy="130"/>
-		<circle cx="415" cy="90"/>
-		<circle cx="430" cy="195"/>
-		<circle cx="440" cy="115"/>
-		<circle cx="470" cy="160"/>
-		<circle cx="475" cy="260"/>
-		<circle cx="495" cy="280"/>
-		<circle cx="500" cy="105"/>
-		<circle cx="510" cy="145"/>
-		<circle cx="530" cy="215"/>
-		<circle cx="550" cy="150"/>
-		<circle cx="560" cy="40"/>
-		<circle cx="570" cy="230"/>
+<!--		<circle cx="30" cy="175"/>-->
+<!--		<circle cx="70" cy="170"/>-->
+<!--		<circle cx="80" cy="190"/>-->
+<!--		<circle cx="140" cy="185"/>-->
+<!--		<circle cx="150" cy="220"/>-->
+<!--		<circle cx="160" cy="140"/>-->
+<!--		<circle cx="180" cy="210"/>-->
+<!--		<circle cx="195" cy="175"/>-->
+<!--		<circle cx="230" cy="200"/>-->
+<!--		<circle cx="270" cy="160"/>-->
+<!--		<circle cx="280" cy="215"/>-->
+<!--		<circle cx="295" cy="100"/>-->
+<!--		<circle cx="320" cy="185"/>-->
+<!--		<circle cx="340" cy="165"/>-->
+<!--		<circle cx="370" cy="120"/>-->
+<!--		<circle cx="380" cy="225"/>-->
+<!--		<circle cx="400" cy="130"/>-->
+<!--		<circle cx="415" cy="90"/>-->
+<!--		<circle cx="430" cy="195"/>-->
+<!--		<circle cx="440" cy="115"/>-->
+<!--		<circle cx="470" cy="160"/>-->
+<!--		<circle cx="475" cy="260"/>-->
+<!--		<circle cx="495" cy="280"/>-->
+<!--		<circle cx="500" cy="105"/>-->
+<!--		<circle cx="510" cy="145"/>-->
+<!--		<circle cx="530" cy="215"/>-->
+<!--		<circle cx="550" cy="150"/>-->
+<!--		<circle cx="560" cy="40"/>-->
+<!--		<circle cx="570" cy="230"/>-->
 	</g>
 </svg>
