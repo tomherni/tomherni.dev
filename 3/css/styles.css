@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  --color-font: #efe9e3;
+  --color-primary: #e8422c;
+  --color-secondary: #171515;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--color-font);
+  font: normal 700 3.5rem/1.7 'Source Sans Pro', sans-serif;
+  background-color: var(--color-secondary);
+}
+
+.😎 {
+  width: 100%;
+  padding: 3rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 5rem;
+  font: inherit;
+  font-size: 1.6em;
+  font-weight: 900;
+  line-height: normal;
+}
+
+h1 span {
+  color: var(--color-primary);
+}
+
+@media (min-width: 900px) {
+  p span {
+    display: block;
+  }
+}
+
+a {
+  padding-left: 3.3rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  background: transparent url('../img/in.svg') 0 50% no-repeat;
+  background-size: 2.5rem;
+  border-bottom: .4rem solid var(--color-primary);
+  transition: border-bottom-color 150ms;
+}
+
+a:hover {
+  border-bottom-color: transparent;
+}
