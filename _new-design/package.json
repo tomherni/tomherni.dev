@@ -1,0 +1,71 @@
+{
+  "name": "tomherni",
+  "version": "1.0.0",
+  "description": "tomherni.nl",
+  "private": true,
+  "scripts": {
+    "start": "web-dev-server --app-index index.html --node-resolve --open --watch",
+    "build": "rimraf dist && node build.mjs",
+    "start:build": "npm run build && web-dev-server --root-dir dist --app-index index.html --open --compatibility none",
+    "format:eslint": "eslint \"**/*.{js,mjs,html}\" --fix --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.{js,mjs,html}\" --write --ignore-path .gitignore",
+    "format:stylelint": "stylelint \"**/*.{html,css}\" --fix --ignore-path .gitignore",
+    "format": "npm run format:eslint && npm run format:stylelint && npm run format:prettier"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.1.21",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-html": "^6.1.2",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomherni/tomherni.git"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint-config-airbnb-base",
+      "eslint-config-prettier"
+    ],
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true
+    },
+    "plugins": ["html", "babel"]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "overrides": [
+      {
+        "files": ["*.html"],
+        "options": {
+          "printWidth": 100
+        }
+      }
+    ]
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,mjs,html,css}": [
+      "npm run format",
+      "git add"
+    ]
+  }
+}
