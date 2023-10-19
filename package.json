@@ -1,0 +1,22 @@
+{
+  "name": "tomherni",
+  "version": "1.0.0",
+  "description": "Personal website of Tom Herni.",
+  "author": "Tom Herni",
+  "private": true,
+  "scripts": {
+    "start": "wds --node-resolve --watch --open",
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.3.0",
+    "fs-extra": "^11.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomherni/tomherni.git"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

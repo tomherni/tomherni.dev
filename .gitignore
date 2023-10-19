@@ -1,13 +1,13 @@
-## editors
+# Editors
 /.idea
 /.vscode
 
-## system files
+# System files
 .DS_Store
 
-## npm
+# npm
 /node_modules/
 /npm-debug.log
 
-# build
-/dist/
+# Build
+/dist
