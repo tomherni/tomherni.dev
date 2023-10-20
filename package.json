@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "wds --node-resolve --watch --open --app-index src/index.html",
-    "build": "node build.mjs",
+    "build": "node scripts/build.mjs",
     "start:build": "npm run build && wds --open --app-index dist/index.html"
   },
   "devDependencies": {
