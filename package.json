@@ -5,7 +5,7 @@
   "author": "Tom Herni",
   "private": true,
   "scripts": {
-    "start": "wds --node-resolve --watch --open",
+    "start": "wds --node-resolve --watch --open --app-index src/index.html",
     "build": "node build.mjs"
   },
   "devDependencies": {
