@@ -6,11 +6,14 @@
   "private": true,
   "scripts": {
     "start": "wds --node-resolve --watch --open --app-index src/index.html",
-    "build": "node build.mjs"
+    "build": "node build.mjs",
+    "start:build": "npm run build && wds --open --app-index dist/index.html"
   },
   "devDependencies": {
     "@web/dev-server": "^0.3.0",
-    "fs-extra": "^11.1.1"
+    "clean-css": "^5.3.2",
+    "fs-extra": "^11.1.1",
+    "html-minifier-terser": "^7.2.0"
   },
   "repository": {
     "type": "git",
