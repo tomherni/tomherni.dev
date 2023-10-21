@@ -23,7 +23,7 @@ body {
   min-height: 100vh;
   margin: 0;
   color: var(--color-font);
-  font: normal 300 3.5rem/1.7 'Source Sans Pro', sans-serif;
+  font: normal 300 3.5rem/1.6 'Source Sans Pro', sans-serif;
   background-color: var(--color-background);
   border-top: .3rem solid var(--color-highlight);
 }
@@ -53,9 +53,9 @@ main {
 }
 
 h1 {
-  margin: 2rem 0 0;
+  margin: 2.4rem 0 4rem;
   font: inherit;
-  font-size: 1.6em;
+  font-size: 5.6rem;
   font-weight: 700;
   line-height: normal;
 }
@@ -65,7 +65,7 @@ h1 span {
 }
 
 p {
-  margin: 4rem 0 0;
+  margin: 3.2rem 0 0;
 }
 
 @media (min-width: 768px) {
