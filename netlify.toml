@@ -1,0 +1,4 @@
+# Redirect non-existent pages to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
