@@ -1,4 +1,4 @@
 # Redirect non-existent pages to the homepage
 [[redirects]]
   from = "/*"
-  to = "/"
+  to = "https://tomherni.com"
