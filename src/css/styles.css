@@ -1,4 +1,5 @@
 :root {
+  color-scheme: dark;
   --color-font: hsl(30deg 27% 91%);
   --color-background: hsl(0deg 5% 9%);
   --color-highlight: hsl(7deg 80% 54%);
@@ -71,7 +72,7 @@ main {
 }
 
 h1 {
-  margin: 2.4rem 0 4rem;
+  margin: 2.4rem 0 0;
   font: inherit;
   font-size: 5.6rem;
   font-weight: 700;
