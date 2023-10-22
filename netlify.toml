@@ -1,5 +1,12 @@
+# Redirect .com domain (without www.) to .dev
 [[redirects]]
   from = "https://tomherni.com"
+  to = "https://tomherni.dev"
+  force = true
+
+# Redirect .com domain (with www.) to .dev
+[[redirects]]
+  from = "https://www.tomherni.com"
   to = "https://tomherni.dev"
   force = true
 
