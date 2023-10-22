@@ -14,7 +14,13 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 8px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 10px;
+  }
 }
 
 body {
@@ -30,8 +36,15 @@ body {
 
 main {
   width: 100%;
-  padding: 3rem 3rem 6rem;
+  padding: 3.2rem 1.6rem 5.6rem;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding-right: 3.2rem;
+    padding-left: 3.2rem;
+  }
 }
 
 .🦄 {
@@ -68,7 +81,7 @@ p {
   margin: 3.2rem 0 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   p span {
     display: block;
   }
