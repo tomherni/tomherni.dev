@@ -1,3 +1,8 @@
+[[redirects]]
+  from = "https://tomherni.com"
+  to = "https://tomherni.dev"
+  force = true
+
 # Redirect non-existent pages to the homepage
 [[redirects]]
   from = "/*"
