@@ -24,9 +24,6 @@ html {
 }
 
 body {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
   margin: 0;
   color: var(--color-font);
   font: normal 300 3.5rem/1.6 'Source Sans Pro', sans-serif;
@@ -34,9 +31,17 @@ body {
   border-top: .3rem solid var(--color-highlight);
 }
 
+@media (min-width: 550px) {
+  body {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+  }
+}
+
 main {
   width: 100%;
-  padding: 3.2rem 1.6rem 5.6rem;
+  padding: 4rem 1.6rem 6.4rem;
   text-align: center;
 }
 
