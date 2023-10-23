@@ -1,2 +1,3 @@
 # TODO
-- Linting & formatting
+
+- Code linting & formatting
