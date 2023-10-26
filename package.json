@@ -4,24 +4,36 @@
   "description": "Personal website of Tom Herni.",
   "author": "Tom Herni",
   "private": true,
+  "engines": {
+    "node": "^18.0.0"
+  },
   "scripts": {
-    "start": "wds --node-resolve --watch --open --app-index src/index.html",
+    "start": "wds --app-index src/index.html --node-resolve --watch --open",
     "build": "node scripts/build.mjs",
-    "start:build": "npm run build && wds --open --app-index dist/index.html"
+    "start:build": "npm run build && wds --app-index dist/index.html --open",
+    "lint": "npm run lint:eslint && npm run lint:stylelint",
+    "lint:eslint": "eslint \"**/*.js\" --fix --ignore-path .gitignore",
+    "lint:stylelint": "stylelint \"**/*.css\" --fix",
+    "format": "prettier \"**/*.{html,js,json,md}\" --write --ignore-path .gitignore",
+    "fix": "npm run lint && npm run format",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@web/dev-server": "^0.3.0",
     "clean-css": "^5.3.2",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
     "fs-extra": "^11.1.1",
     "html-minifier-terser": "^7.2.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tomherni/tomherni.git"
-  },
-  "engines": {
-    "node": ">=16.0.0"
+  "lint-staged": {
+    "**/*.css": "stylelint --fix",
+    "**/*.js": "eslint --fix",
+    "**/*.{html,js,json,md}": "prettier --write"
   }
 }

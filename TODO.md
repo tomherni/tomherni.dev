@@ -1,3 +1,4 @@
 # TODO
 
-- Code linting & formatting
+- Different picture for light/dark mode
+- See if I can change accent color, or browser color, etc. with fancy meta tags?
