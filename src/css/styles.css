@@ -1,6 +1,16 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light dark;
 
+  --font-weight-regular: 300;
+  --font-weight-bold: 700;
+
+  /* Theming */
+  --color-font: hsl(0deg 5% 9%);
+  --color-background: hsl(12.68deg 15.66% 91.81%);
+  --color-highlight: hsl(7deg 93.18% 48.13%);
+}
+
+:root[data-theme='dark'] {
   --color-font: hsl(30deg 27% 91%);
   --color-background: hsl(0deg 5% 9%);
   --color-highlight: hsl(7deg 80% 54%);
@@ -19,21 +29,24 @@ html {
   font-size: 8px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 650px) {
   html {
     font-size: 10px;
   }
 }
 
 body {
+  position: relative;
   margin: 0;
   color: var(--color-font);
-  font: normal 300 3.5rem/1.6 'Source Sans Pro', sans-serif;
+  font:
+    normal var(--font-weight-regular) 3.4rem/1.6 'Source Sans Pro',
+    sans-serif;
   background-color: var(--color-background);
-  border-top: .3rem solid var(--color-highlight);
+  border-top: 0.3rem solid var(--color-highlight);
 }
 
-@media (min-width: 550px) {
+@media (min-width: 500px) {
   body {
     display: flex;
     align-items: center;
@@ -41,14 +54,34 @@ body {
   }
 }
 
-main {
+.🌈 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.🌈 > * {
+  display: flex;
+  justify-content: end;
+  max-width: 57rem;
+  margin: 0 auto;
+  padding: 0.8rem; /* The remainder of the intended padding is on the theme-switch */
+}
+
+theme-switch {
+  padding: 0.8rem; /* Visual spacing as well as increased click area for the switch */
+  box-sizing: content-box;
+}
+
+.🚀 {
   width: 100%;
-  padding: 4rem 1.6rem 6.4rem;
+  padding: 4.8rem 1.6rem 9rem;
   text-align: center;
 }
 
-@media (min-width: 768px) {
-  main {
+@media (min-width: 650px) {
+  .🚀 {
     padding-right: 3.2rem;
     padding-left: 3.2rem;
   }
@@ -58,8 +91,8 @@ main {
   width: 15rem;
   height: 15rem;
   margin: 0 auto;
-  padding: .7rem;
-  border: .3rem solid var(--color-highlight);
+  padding: 0.7rem;
+  border: 0.3rem solid var(--color-highlight);
   border-radius: 50%;
   overflow: hidden;
 }
@@ -75,8 +108,8 @@ main {
 h1 {
   margin: 2.4rem 0 0;
   font: inherit;
-  font-size: 5.6rem;
-  font-weight: 700;
+  font-size: 1.6em;
+  font-weight: var(--font-weight-bold);
   line-height: normal;
 }
 
@@ -88,8 +121,8 @@ p {
   margin: 3.2rem 0 0;
 }
 
-@media (min-width: 550px) {
-  p span {
+@media (min-width: 500px) {
+  p > span {
     display: block;
   }
 }

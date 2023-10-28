@@ -5,6 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Personal website of Tom Herni. Feel free to reach out!" />
+    <base href="/" />
+    <script>
+      // Ensure the correct theming CSS variables are known before the CSS is loaded.
+      document.documentElement.setAttribute(
+        'data-theme',
+        window.matchMedia(`(prefers-color-scheme: dark)`).matches ? 'dark' : 'light',
+      );
+    </script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="preload"
@@ -12,16 +20,22 @@
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700&display=swap"
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700&display=swap" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/vnd.microsoft.icon" />
   </head>
   <body>
-    <main>
+    <div class="🚀">
+      <div class="🌈">
+        <div>
+          <theme-switch></theme-switch>
+        </div>
+      </div>
+
       <div class="🦄">
         <picture>
-          <source srcset="img/picture.webp" type="image/webp" />
+          <source srcset="./img/picture.webp" type="image/webp" />
           <img
-            src="img/picture.png"
+            src="./img/picture.png"
             width="150"
             height="150"
             alt="Picture of Tom sitting outside and smiling. He is happy you're here!"
@@ -44,6 +58,7 @@
           with me.
         </span>
       </p>
-    </main>
+    </div>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>
