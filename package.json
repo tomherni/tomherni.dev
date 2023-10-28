@@ -8,32 +8,40 @@
     "node": "^18.0.0"
   },
   "scripts": {
-    "start": "wds --app-index src/index.html --node-resolve --watch --open",
-    "build": "node scripts/build.mjs",
-    "start:build": "npm run build && wds --app-index dist/index.html --open",
+    "start": "wds --root-dir src --app-index index.html --watch --open",
+    "test": "wtr \"test/**/*.test.js\" --node-resolve --coverage",
+    "build": "rimraf dist && rollup -c rollup.config.js",
+    "start:build": "npm run build && wds --root-dir dist --app-index index.html --open",
     "lint": "npm run lint:eslint && npm run lint:stylelint",
     "lint:eslint": "eslint \"**/*.js\" --fix --ignore-path .gitignore",
-    "lint:stylelint": "stylelint \"**/*.css\" --fix",
-    "format": "prettier \"**/*.{html,js,json,md}\" --write --ignore-path .gitignore",
+    "lint:stylelint": "stylelint \"src/**/*.css\" --fix",
+    "format": "prettier \"**/*.{css,html,js,json,md}\" --write --ignore-path .gitignore",
     "fix": "npm run lint && npm run format",
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.16.4",
+    "@open-wc/building-rollup": "^2.0.2",
+    "@open-wc/testing": "^3.1.6",
+    "@rollup/plugin-terser": "^0.4.4",
     "@web/dev-server": "^0.3.0",
-    "clean-css": "^5.3.2",
+    "@web/rollup-plugin-html": "^1.11.0",
+    "@web/rollup-plugin-import-meta-assets": "^1.0.7",
+    "@web/test-runner": "^0.14.0",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
-    "fs-extra": "^11.1.1",
-    "html-minifier-terser": "^7.2.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
     "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "rollup": "^2.60.0",
+    "rollup-plugin-copy": "^3.5.0",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0"
   },
   "lint-staged": {
-    "**/*.css": "stylelint --fix",
+    "src/**/*.css": "stylelint --fix",
     "**/*.js": "eslint --fix",
-    "**/*.{html,js,json,md}": "prettier --write"
+    "**/*.{css,html,js,json,md}": "prettier --write"
   }
 }
