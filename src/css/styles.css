@@ -126,21 +126,3 @@ p {
     display: block;
   }
 }
-
-a {
-  padding-left: 3.2rem;
-  color: var(--color-highlight);
-  text-decoration: none;
-  background: transparent url('../img/in.svg') 0 60% no-repeat;
-  background-size: 2.5rem;
-  border-bottom: .2rem solid var(--color-highlight);
-  transition: border-bottom-color 150ms;
-}
-
-/* Some devices (mostly Samsung) have their touchscreen set up as a trackpad
-   (which implies hover capability), and need an additional (pointer) check. */
-@media (hover: hover) and (pointer: fine) {
-  a:hover {
-    border-bottom-color: transparent;
-  }
-}

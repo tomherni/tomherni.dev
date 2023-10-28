@@ -1,5 +1,6 @@
-import { THEME_TRANSITION_MS } from './constants.js';
 import { styles } from './styles.js';
+import { renderStylesToShadowRoot } from '../../utils/styles.js';
+import { THEME_TRANSITION_MS } from './constants.js';
 
 function renderTemplateToShadowRoot(shadowRoot) {
   shadowRoot.innerHTML = `
@@ -9,23 +10,6 @@ function renderTemplateToShadowRoot(shadowRoot) {
       <div class="handle"></div>
     </div>
   `;
-}
-
-const supportsAdoptedStyleSheets =
-  window.ShadowRoot &&
-  'adoptedStyleSheets' in Document.prototype &&
-  'replace' in CSSStyleSheet.prototype;
-
-function renderStylesToShadowRoot(shadowRoot, styles) {
-  if (supportsAdoptedStyleSheets) {
-    const stylesheet = new CSSStyleSheet();
-    stylesheet.replaceSync(styles);
-    shadowRoot.adoptedStyleSheets = [stylesheet];
-  } else {
-    const style = document.createElement('style');
-    style.textContent = styles;
-    shadowRoot.append(style);
-  }
 }
 
 export class ThemeSwitch extends HTMLElement {
