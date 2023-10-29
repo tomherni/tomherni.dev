@@ -9,11 +9,18 @@ export const styles = `
     --switch-handle-size: calc(
       var(--switch-height) - (var(--switch-handle-offset) * 4)
     );
+    --switch-extra-click-area: 0.8rem;
     --switch-transition-duration: ${THEME_TRANSITION_MS}ms;
 
     display: block;
     width: var(--switch-width);
     height: var(--switch-height);
+    padding: var(--switch-extra-click-area); /* Visual spacing as well as increased click area for the switch */
+  }
+
+  :host(:focus-visible) {
+    border-radius: calc(var(--switch-height) + var(--switch-extra-click-area));
+    outline: 0.2rem solid var(--color-highlight);
   }
 
   * {

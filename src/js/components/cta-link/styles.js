@@ -10,6 +10,13 @@ export const styles = `
     text-decoration: none;
     border-bottom: 0.3rem solid var(--color-highlight);
     transition: border-bottom-color 150ms;
+    outline: none;
+  }
+
+  a:focus-visible {
+    border-radius: 0.4rem;
+    outline: 0.2rem solid var(--color-highlight);
+    outline-offset: 0.2rem;
   }
 
   svg {

@@ -5,5 +5,4 @@
 - Replace open-wc en web rollup plugins with my own?
   - Look into CSS modules?
 - Look into Service Workers
-- Custom keyboard focus styles for theme switch? (and the LinkedIn link?)
 - The transition MS can be a CSS var.

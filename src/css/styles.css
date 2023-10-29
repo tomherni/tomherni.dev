@@ -70,7 +70,6 @@ body {
 }
 
 theme-switch {
-  padding: 0.8rem; /* Visual spacing as well as increased click area for the switch */
   box-sizing: content-box;
 }
 
