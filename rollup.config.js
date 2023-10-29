@@ -28,7 +28,7 @@ export default {
 
     /** Copy the favicon */
     copy({
-      targets: [{ src: `${SRC_DIR}/img/favicon.ico`, dest: `${DIST_DIR}/img` }],
+      targets: [{ src: `${SRC_DIR}/img/`, dest: DIST_DIR }],
     }),
   ],
 };
