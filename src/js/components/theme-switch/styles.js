@@ -1,5 +1,3 @@
-import { THEME_TRANSITION_MS } from './constants.js';
-
 export const styles = `
   :host {
     --switch-width: 6.4rem;
@@ -10,7 +8,7 @@ export const styles = `
       var(--switch-height) - (var(--switch-handle-offset) * 4)
     );
     --switch-extra-click-area: 0.8rem;
-    --switch-transition-duration: ${THEME_TRANSITION_MS}ms;
+    --switch-transition-duration: var(--theme-transition-duration);
 
     display: block;
     width: var(--switch-width);

@@ -1,6 +1,5 @@
 import { styles } from './styles.js';
 import { renderStylesToShadowRoot } from '../../utils/styles.js';
-import { THEME_TRANSITION_MS } from './constants.js';
 
 function renderTemplateToShadowRoot(shadowRoot) {
   shadowRoot.innerHTML = `
@@ -41,7 +40,8 @@ export class ThemeSwitch extends HTMLElement {
     // Enable a smooth theme transition only after the initial theme is applied.
     // Otherwise, the transition from browser defaults to the theme gets animated.
     requestAnimationFrame(() => {
-      document.body.style.transition = `color ${THEME_TRANSITION_MS}ms, background-color ${THEME_TRANSITION_MS}ms`;
+      document.body.style.transition =
+        'color var(--theme-transition-duration), background-color var(--theme-transition-duration)';
     });
   }
 

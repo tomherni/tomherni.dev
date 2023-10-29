@@ -5,4 +5,3 @@
 - Replace open-wc en web rollup plugins with my own?
   - Look into CSS modules?
 - Look into Service Workers
-- The transition MS can be a CSS var.

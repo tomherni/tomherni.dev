@@ -3,6 +3,7 @@
 
   --font-weight-regular: 300;
   --font-weight-bold: 700;
+  --theme-transition-duration: 250ms;
 
   /* Theming */
   --color-font: hsl(0deg 5% 9%);
