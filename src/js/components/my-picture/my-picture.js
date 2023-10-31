@@ -1,5 +1,5 @@
 import { renderStylesToShadowRoot } from '../../utils/styles.js';
-import { styles } from './styles.js';
+import styles from './my-picture.css';
 
 export class MyPicture extends HTMLElement {
   constructor() {

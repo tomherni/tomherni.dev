@@ -1,7 +1,7 @@
 import terser from '@rollup/plugin-terser';
-import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets';
 import html from '@web/rollup-plugin-html';
 import copy from 'rollup-plugin-copy';
+import importCss from './scripts/rollup-import-css.mjs';
 
 const SRC_DIR = 'src';
 const DIST_DIR = 'dist';
@@ -20,13 +20,12 @@ export default {
     /** Enable using HTML as rollup entrypoint */
     html({ minify: true }),
 
+    importCss({ cssForJsSrc: `${SRC_DIR}/js/` }),
+
     /** Generate minified JS bundle */
     terser(),
 
-    /** Bundle assets references via import.meta.url */
-    importMetaAssets(),
-
-    /** Copy the favicon */
+    /** Copy images */
     copy({
       targets: [{ src: `${SRC_DIR}/img/`, dest: DIST_DIR }],
     }),

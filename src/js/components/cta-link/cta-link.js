@@ -1,5 +1,5 @@
 import { renderStylesToShadowRoot } from '../../utils/styles.js';
-import { styles } from './styles.js';
+import styles from './cta-link.css';
 
 export class CtaLink extends HTMLElement {
   constructor() {

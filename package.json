@@ -26,7 +26,6 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@web/dev-server": "^0.3.0",
     "@web/rollup-plugin-html": "^1.11.0",
-    "@web/rollup-plugin-import-meta-assets": "^1.0.7",
     "@web/test-runner": "^0.14.0",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",

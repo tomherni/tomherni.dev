@@ -1,5 +1,5 @@
-import { styles } from './styles.js';
 import { renderStylesToShadowRoot } from '../../utils/styles.js';
+import styles from './theme-switch.css';
 
 function renderTemplateToShadowRoot(shadowRoot) {
   shadowRoot.innerHTML = `
