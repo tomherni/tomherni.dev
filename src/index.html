@@ -10,7 +10,7 @@
       // Ensure the correct theming CSS variables are known before the CSS is loaded.
       document.documentElement.setAttribute(
         'data-theme',
-        window.matchMedia(`(prefers-color-scheme: dark)`).matches ? 'dark' : 'light',
+        window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
       );
     </script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
