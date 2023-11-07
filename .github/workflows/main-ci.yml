@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Main CI
 
 on:
   push:
@@ -8,14 +8,15 @@ on:
     branches:
       - main
 
+env:
+  NODE_VERSION: '18.x'
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-      NODE_VERSION: '18.x'
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout branch
+        uses: actions/checkout@v3
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
