@@ -13,7 +13,7 @@
     "build": "rimraf dist && rollup -c rollup.config.js",
     "start:build": "npm run build && wds --root-dir dist --app-index index.html --open",
     "lint": "npm run lint:eslint && npm run lint:stylelint",
-    "lint:eslint": "eslint \"**/*.js\" --fix --ignore-path .gitignore",
+    "lint:eslint": "eslint \"**/*.{js,mjs}\" --fix --ignore-path .gitignore",
     "lint:stylelint": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier \"**/*.{css,html,js,json,md}\" --write --ignore-path .gitignore",
     "fix": "npm run lint && npm run format",
@@ -40,7 +40,7 @@
   },
   "lint-staged": {
     "src/**/*.css": "stylelint --fix",
-    "**/*.js": "eslint --fix",
-    "**/*.{css,html,js,json,md}": "prettier --write"
+    "**/*.{js,mjs}": "eslint --fix",
+    "**/*.{css,html,js,json,md,mjs}": "prettier --write"
   }
 }
