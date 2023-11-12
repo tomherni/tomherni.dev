@@ -19,7 +19,7 @@
 
 :host(:focus-visible) {
   border-radius: calc(var(--switch-height) + var(--switch-extra-click-area));
-  outline: 0.2rem solid var(--color-highlight);
+  outline: 0.2rem dashed var(--color-highlight);
 }
 
 * {

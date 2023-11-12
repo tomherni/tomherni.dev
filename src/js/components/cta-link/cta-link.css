@@ -14,7 +14,7 @@ a {
 
 a:focus-visible {
   border-radius: 0.4rem;
-  outline: 0.2rem solid var(--color-highlight);
+  outline: 0.2rem dashed var(--color-highlight);
   outline-offset: 0.2rem;
 }
 
