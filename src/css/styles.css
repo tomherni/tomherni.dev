@@ -63,14 +63,14 @@ body {
 }
 
 .🌈 > * {
-  display: flex;
-  justify-content: end;
   max-width: 57rem;
   margin: 0 auto;
   padding: 0.8rem; /* The remainder of the intended padding is on the theme-switch */
+  text-align: end;
 }
 
 theme-switch {
+  display: inline-block;
   box-sizing: content-box;
 }
 
