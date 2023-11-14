@@ -1,10 +1,27 @@
-export default function importCss(options) {
+import path from 'path';
+
+const cssImportsToTransform = new Set();
+
+export default function importCss() {
   return {
     name: 'custom-import-css',
+    buildStart() {
+      cssImportsToTransform.clear();
+    },
+    resolveId(source, importer) {
+      if (source?.endsWith('.css') && importer?.endsWith('.js')) {
+        const importerDirname = path.dirname(importer);
+        const file = path.join(importerDirname, source);
+        cssImportsToTransform.add(file);
+      }
+    },
     transform(code, id) {
-      if (id.includes(options.cssForJsSrc) && id.endsWith('.css')) {
+      if (cssImportsToTransform.has(id)) {
         return { code: `export default \`${code}\`` };
       }
+    },
+    buildEnd() {
+      cssImportsToTransform.clear();
     },
   };
 }

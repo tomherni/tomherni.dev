@@ -20,7 +20,8 @@ export default {
     /** Enable using HTML as rollup entrypoint */
     html({ minify: true }),
 
-    importCss({ cssForJsSrc: `${SRC_DIR}/js/` }),
+    /** Support CSS imports */
+    importCss(),
 
     /** Generate minified JS bundle */
     terser(),

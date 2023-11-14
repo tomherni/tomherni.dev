@@ -1,15 +1,27 @@
-function isCssRequestForJS(context) {
-  return (
-    context.request.url.startsWith('/js/') &&
-    context.request.url.endsWith('.css')
-  );
-}
+import path from 'path';
+
+const cssImportsToTransform = new Set();
 
 export default function importCss() {
   return {
-    name: 'import-css',
+    name: 'custom-import-css',
+    serverStart() {
+      cssImportsToTransform.clear();
+    },
+    resolveImport(args) {
+      const { source } = args;
+      const importer = args.context.request.url;
+
+      if (source.endsWith('.css') && importer.endsWith('.js')) {
+        const importerDirname = path.dirname(importer);
+        const file = path.join(importerDirname, source);
+        cssImportsToTransform.add(file);
+      }
+    },
     transform(context) {
-      if (isCssRequestForJS(context)) {
+      const file = context.request.url;
+
+      if (cssImportsToTransform.has(file)) {
         return {
           body: `export default \`${context.body}\``,
           headers: {
@@ -17,6 +29,9 @@ export default function importCss() {
           },
         };
       }
+    },
+    serverStop() {
+      cssImportsToTransform.clear();
     },
   };
 }
