@@ -9,11 +9,11 @@ const DIST_DIR = 'dist';
 export default {
   input: `${SRC_DIR}/index.html`,
   output: {
+    dir: DIST_DIR,
+    format: 'es',
     entryFileNames: '[hash].js',
     chunkFileNames: '[hash].js',
     assetFileNames: '[hash][extname]',
-    format: 'es',
-    dir: DIST_DIR,
   },
   preserveEntrySignatures: false,
   plugins: [
@@ -28,7 +28,7 @@ export default {
 
     /** Copy images */
     copy({
-      targets: [{ src: `${SRC_DIR}/img/`, dest: DIST_DIR }],
+      targets: [{ src: `${SRC_DIR}/assets/img/`, dest: `${DIST_DIR}/assets/` }],
     }),
   ],
 };

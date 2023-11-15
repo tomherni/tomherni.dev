@@ -10,9 +10,9 @@ export class MyPicture extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <div class="🐸">
         <picture>
-          <source srcset="./img/picture.webp" type="image/webp" />
+          <source srcset="./assets/img/picture.webp" type="image/webp" />
           <img
-            src="./img/picture.png"
+            src="./assets/img/picture.png"
             width="150"
             height="150"
             alt="Picture of Tom sitting outside and smiling. He is happy you're here!"
