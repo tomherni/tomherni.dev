@@ -1,6 +1,6 @@
-# tomherni
+# tomherni.dev
 
-Personal website of Tom Herni: tomherni.dev
+Personal website of [Tom Herni](https://tomherni.dev/).
 
 ## Installation
 
