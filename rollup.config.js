@@ -1,7 +1,7 @@
 import terser from '@rollup/plugin-terser';
 import html from '@web/rollup-plugin-html';
 import copy from 'rollup-plugin-copy';
-import importCss from './scripts/rollup-import-css.mjs';
+import { importCss } from './scripts/rollup-import-css.js';
 
 const SRC_DIR = 'src';
 const DIST_DIR = 'dist';

@@ -2,7 +2,7 @@ import path from 'path';
 
 const cssImportsToTransform = new Set();
 
-export default function importCss() {
+export function importCss() {
   return {
     name: 'custom-import-css',
     serverStart() {
