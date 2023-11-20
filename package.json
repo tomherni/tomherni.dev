@@ -9,7 +9,6 @@
   },
   "scripts": {
     "start": "wds --root-dir src --app-index index.html --watch --open",
-    "test": "wtr \"test/**/*.test.js\" --node-resolve --coverage",
     "build": "rimraf dist && rollup -c rollup.config.js",
     "start:build": "npm run build && wds --root-dir dist --app-index index.html --open",
     "lint": "eslint \"**/*.{js,mjs}\" --fix --ignore-path .gitignore && stylelint \"src/**/*.css\" --fix",
@@ -19,13 +18,9 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.16.4",
-    "@open-wc/building-rollup": "^2.0.2",
-    "@open-wc/testing": "^3.1.6",
     "@rollup/plugin-terser": "^0.4.4",
     "@web/dev-server": "^0.3.0",
     "@web/rollup-plugin-html": "^1.11.0",
-    "@web/test-runner": "^0.14.0",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",

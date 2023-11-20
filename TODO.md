@@ -1,5 +1,6 @@
 # TODO
 
+- Tests
+- Service Workers?
 - Different picture for light/dark mode
-- See if I can change accent color, or browser color, etc. with fancy meta tags?
-- Look into Service Workers
+- Minify CSS in the rollup build when transforming CSS imports to JS
