@@ -1,17 +1,22 @@
 # tomherni.dev
 
-Personal website of [Tom Herni](https://tomherni.dev/).
+Just my website: [tomherni.dev](https://tomherni.dev/).
 
-## Installation
+Yes—my class names are emojis. Why? Because why not? 😎
 
-```sh
-$ npm install
-```
+You can't stop me.
 
 ## Development
 
 ```sh
+$ npm ci
 $ npm start
 ```
 
-Run `npm run prepare` to set up Husky.
+## Build
+
+```sh
+$ npm run build
+```
+
+run `npm run start:build` to serve the build locally.
