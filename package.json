@@ -4,6 +4,7 @@
   "description": "Personal website of Tom Herni.",
   "author": "Tom Herni",
   "private": true,
+  "type": "module",
   "engines": {
     "node": "^18.0.0"
   },
