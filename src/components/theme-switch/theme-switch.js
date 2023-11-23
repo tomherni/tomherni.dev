@@ -28,6 +28,7 @@ export class ThemeSwitch extends HTMLElement {
     this.addEventListener('click', () => this.toggleTheme());
     this.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
         this.toggleTheme();
       }
     });
