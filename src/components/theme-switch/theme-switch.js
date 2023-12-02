@@ -20,9 +20,11 @@ export class ThemeSwitch extends HTMLElement {
     renderStylesToShadowRoot(this.shadowRoot, styles);
 
     // Set up host attributes.
+    const label = 'Enable dark mode';
     this.setAttribute('role', 'switch');
     this.setAttribute('tabindex', '0');
-    this.setAttribute('aria-label', 'Enable dark mode');
+    this.setAttribute('title', label);
+    this.setAttribute('aria-label', label);
 
     // Set up host event listeners.
     this.addEventListener('click', () => this.toggleTheme());
