@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "serve dist",
-    "build": "ts-node --esm src/generator/build-prod.ts",
+    "build": "node --loader ts-node/esm src/generator/build-prod.ts",
     "build:dev": "ts-node src/generator/build-dev.ts",
     "lint": "eslint \"**/*.{js,ts}\" --fix --ignore-path .gitignore && stylelint \"src/**/*.css\" --fix",
     "lint:check": "eslint \"**/*.{js,ts}\" --ignore-path .gitignore && stylelint \"src/**/*.css\"",
