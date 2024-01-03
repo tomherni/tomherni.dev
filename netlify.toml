@@ -1,22 +1,51 @@
-# Redirect Netlify domain to tomherni.dev
+# Standard caching policies
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
+    X-Frame-Options = "DENY"
+
+# Assets are hashed and save to cache.
+[[headers]]
+  for = "/**/*-cache.css"
+  [headers.values]
+    Cache-Control = "max-age=31536001"
+
+[[headers]]
+  for = "/**/*-cache.js"
+  [headers.values]
+    Cache-Control = "max-age=31536001"
+
+[[headers]]
+  for = "/**/*-cache.png"
+  [headers.values]
+    Cache-Control = "max-age=31536001"
+
+[[headers]]
+  for = "/**/*-cache.webp"
+  [headers.values]
+    Cache-Control = "max-age=31536001"
+
+# Custom 404 page
+[[redirects]]
+  from = "/*"
+  to = "/page-not-found/"
+  status = 404
+
+# Redirect Netlify domains to tomherni.dev
 [[redirects]]
   from = "https://tomherni.netlify.app"
   to = "https://tomherni.dev"
   force = true
 
-# Redirect .com domain (without www.) to tomherni.dev
 [[redirects]]
   from = "https://tomherni.com"
   to = "https://tomherni.dev"
   force = true
 
-# Redirect .com domain (with www.) to tomherni.dev
 [[redirects]]
   from = "https://www.tomherni.com"
   to = "https://tomherni.dev"
   force = true
-
-# Redirect non-existent pages to the homepage
-[[redirects]]
-  from = "/*"
-  to = "https://tomherni.dev"
