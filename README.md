@@ -1,8 +1,8 @@
 # tomherni.dev
 
-Just my website: [tomherni.dev](https://tomherni.dev/).
+Just my website, [tomherni.dev](https://tomherni.dev/).
 
-Yes—my class names are emojis. Why? Because why not? 😎
+Yes—some class names are emojis. Why? Because why not? 😎
 
 You can't stop me.
 
@@ -10,13 +10,6 @@ You can't stop me.
 
 ```sh
 $ npm ci
+$ npm run build:dev
 $ npm start
 ```
-
-## Build
-
-```sh
-$ npm run build
-```
-
-run `npm run start:build` to serve the build locally.

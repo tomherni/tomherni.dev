@@ -9,33 +9,45 @@
     "node": "^18.0.0"
   },
   "scripts": {
-    "start": "wds --root-dir src --app-index index.html --watch --open",
-    "build": "rimraf dist && rollup -c rollup.config.js",
-    "start:build": "npm run build && wds --root-dir dist --app-index index.html --open",
-    "lint": "eslint \"**/*.{js,mjs}\" --fix --ignore-path .gitignore && stylelint \"src/**/*.css\" --fix",
-    "lint:check": "eslint \"**/*.{js,mjs}\" --ignore-path .gitignore && stylelint \"src/**/*.css\"",
-    "format": "prettier \"**/*.{css,html,js,json,md}\" --write --ignore-path .gitignore",
-    "format:check": "prettier \"**/*.{css,html,js,json,md}\" --check --ignore-path .gitignore",
+    "start": "serve dist",
+    "build": "ts-node src/generator/build-prod.ts",
+    "build:dev": "ts-node src/generator/build-dev.ts",
+    "lint": "eslint \"**/*.{js,ts}\" --fix --ignore-path .gitignore && stylelint \"src/**/*.css\" --fix",
+    "lint:check": "eslint \"**/*.{js,ts}\" --ignore-path .gitignore && stylelint \"src/**/*.css\"",
+    "format": "prettier \"**/*.{css,html,js,json,ts}\" --write --ignore-path .gitignore",
+    "format:check": "prettier \"**/*.{css,html,js,json,ts}\" --check --ignore-path .gitignore",
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.4",
-    "@web/dev-server": "^0.3.0",
-    "@web/rollup-plugin-html": "^1.11.0",
+    "@babel/eslint-parser": "^7.23.3",
+    "@types/clean-css": "^4.2.11",
+    "@types/html-minifier-terser": "^7.0.2",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.10.4",
+    "@types/prismjs": "^1.26.3",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "clean-css": "^5.3.3",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
+    "html-minifier-terser": "^7.2.0",
     "husky": "^8.0.3",
+    "js-yaml": "^4.1.0",
     "lint-staged": "^15.0.2",
+    "marked": "^11.1.0",
     "prettier": "^3.0.3",
-    "rimraf": "^5.0.5",
-    "rollup": "^2.60.0",
-    "rollup-plugin-copy": "^3.5.0",
+    "prismjs": "^1.29.0",
+    "puppeteer": "^21.6.1",
+    "serve": "^14.2.1",
     "stylelint": "^15.11.0",
-    "stylelint-config-standard": "^34.0.0"
+    "stylelint-config-standard": "^34.0.0",
+    "terser": "^5.26.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   },
   "lint-staged": {
-    "src/**/*.css": "stylelint --fix",
-    "**/*.{js,mjs}": "eslint --fix",
-    "**/*.{css,html,js,json,md,mjs}": "prettier --write"
+    "**/*.css": "stylelint --fix",
+    "**/*.{js,ts}": "eslint --fix",
+    "**/*.{css,html,js,json,ts}": "prettier --write"
   }
 }
