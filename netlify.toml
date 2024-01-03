@@ -3,6 +3,9 @@
   for = "/*"
   [headers.values]
     Cache-Control = "no-cache"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
+    X-Frame-Options = "DENY"
 
 # Assets are hashed and save to cache.
 [[headers]]
