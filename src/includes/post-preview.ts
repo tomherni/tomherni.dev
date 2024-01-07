@@ -8,12 +8,9 @@ function showParagraphWithDate(post: Post): string {
     '<p>',
     (paragraphTag) => html`
       ${paragraphTag}
-      <span class="datetime">
-        <time datetime="${formatDateIso(post.meta.date)}">
-          ${formatDateShort(post.meta.date)}
-        </time>
-        —&nbsp;
-      </span>
+      <time datetime="${formatDateIso(post.meta.date)}">
+        ${formatDateShort(post.meta.date)} —&nbsp;
+      </time>
     `,
   );
 }

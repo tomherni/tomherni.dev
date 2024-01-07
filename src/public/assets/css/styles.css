@@ -226,10 +226,13 @@ a:hover:focus-visible .link-effect {
   text-decoration-thickness: 0.3rem;
 }
 
-.post-preview .datetime {
+.post-preview time {
   display: inline-block;
   color: var(--color-shade-55);
-  font-variant: all-small-caps;
+
+  /* font-variant:all-small-caps is bugged in iOS (spacing issue) */
+  font-size: 0.8em;
+  text-transform: uppercase;
 }
 
 .post-preview p {
