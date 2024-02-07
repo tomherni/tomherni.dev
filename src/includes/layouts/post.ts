@@ -26,7 +26,7 @@ const layout: LayoutPost = {
           </div>
         </header>
 
-        <div class="post-content">${content}</div>
+        <div class="formatted-content">${content}</div>
 
         ${when(post.meta.tags, () => tagList(post.meta.tags!))}
       </article>

@@ -20,7 +20,7 @@ export const postPreview = (post: Post) => html`
     <header>
       <h2><a href="${post.meta.url}">${post.meta.title}</a></h2>
     </header>
-    ${showParagraphWithDate(post)}
+    <div class="formatted-content">${showParagraphWithDate(post)}</div>
     ${when(post.meta.tags, () => tagList(post.meta.tags!, { condensed: true }))}
   </article>
 `;
