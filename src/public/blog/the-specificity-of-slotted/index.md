@@ -1,6 +1,6 @@
 ---
 title: The Specificity Of ::slotted()
-date: 2024-02-08 16:30:00
+date: 2024-02-08 15:34:00
 tags:
   - css
   - web components
@@ -102,5 +102,4 @@ It may be worth mentioning that the specificity of `::slotted()` still works as 
 ::slotted(p) {
   color: green;
 }
-
 ```

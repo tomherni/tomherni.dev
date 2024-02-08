@@ -381,6 +381,7 @@ a:hover:focus-visible .link-effect {
 .formatted-content hr {
   position: relative;
   margin: 4rem 0 5.6rem;
+  color: currentcolor;
   text-align: center;
   border: none;
 }
