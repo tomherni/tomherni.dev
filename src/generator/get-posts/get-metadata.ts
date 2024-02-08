@@ -39,7 +39,7 @@ export function getMetadata(
  */
 function calculateTimeToRead(content: string): number {
   const wordCount = stripHtml(content).match(/\b[\w'’-]+\b/g)?.length || 1;
-  return Math.round(wordCount / 200);
+  return Math.round(wordCount / 200) || 1;
 }
 
 function stripHtml(value: string): string {
