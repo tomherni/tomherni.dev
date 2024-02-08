@@ -3,7 +3,6 @@ title: The Specificity Of ::slotted()
 date: 2024-02-08 16:30:00
 tags:
   - css
-  - shadow dom
   - web components
 ---
 
@@ -46,7 +45,7 @@ And in case you were wondering, increasing the argument's specificity of `::slot
 
 ## Encapsulation contexts
 
-This behavior is not a bug. When explaining how declarations are sorted by the cascade, the spec says the following about [cascade contexts](https://www.w3.org/TR/css-cascade-5/#cascade-context):
+When explaining how declarations are sorted by the cascade, the CSS spec says the following about [cascade contexts](https://www.w3.org/TR/css-cascade-5/#cascade-context):
 
 > "When comparing two declarations that are sourced from different encapsulation contexts, then for normal rules the declaration from the outer context wins, and for important rules the declaration from the inner context wins."
 
@@ -87,4 +86,21 @@ Slotted styles without `!important` may not end up being applied as expected. If
 
 2. Steer clear of `::slotted()` altogether. Instead, document which styles consumers are recommended to set when slotting elements. Argument could be made that consumers should remain solely responsible for styling their elements.
 
-Choose an approach that aligns with your philosophy. Make a conscious decision that you can stand behind—and be consistent.
+Choose an approach that aligns with your philosophy. Make a conscious decision and be consistent.
+
+---
+
+It may be worth mentioning that the specificity of `::slotted()` still works as expected within the same encapsulation context. It helps determine which declarations are applied by the web component, even if they were to eventually be overridden by global styles.
+
+```css
+/* Wins from the selector below (but
+   still loses to global styles) */
+:host ::slotted(p) {
+  color: red;
+}
+
+::slotted(p) {
+  color: green;
+}
+
+```
