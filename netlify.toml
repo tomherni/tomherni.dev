@@ -42,6 +42,12 @@
   force = true
 
 [[redirects]]
+  from = "https://www.tomherni.dev"
+  to = "https://tomherni.dev"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://tomherni.com"
   to = "https://tomherni.dev"
   status = 301
