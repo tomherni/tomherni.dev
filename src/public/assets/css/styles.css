@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   /* Colors */
   --color-font: hsl(0deg 1% 15%);
@@ -17,6 +17,8 @@
 }
 
 :root[data-theme='dark'] {
+  color-scheme: dark;
+
   /* Colors */
   --color-font: hsl(30deg 27% 91%);
   --color-background: hsl(0deg 5% 9%);
