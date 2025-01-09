@@ -6,7 +6,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": "^18.0.0"
+    "node": "^20.0.0"
   },
   "scripts": {
     "start": "serve dist",
@@ -37,13 +37,13 @@
     "marked": "^11.1.0",
     "prettier": "^3.0.3",
     "prismjs": "^1.29.0",
-    "puppeteer": "^21.6.1",
+    "puppeteer": "^23.11.1",
     "serve": "^14.2.1",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
     "terser": "^5.26.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.7.3"
   },
   "lint-staged": {
     "**/*.css": "stylelint --fix",
