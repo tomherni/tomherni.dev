@@ -1,5 +1,6 @@
 import url from 'url';
 import { Layout, ImportedPageData, Post } from '../../../types/types';
+import { SOCIAL_MIME_TYPE } from '../../generator/constants';
 import { getState } from '../../generator/state';
 import { html, when } from '../../utils/render';
 import { siteHeader } from '../site-header';
@@ -62,7 +63,7 @@ function createOpenGraphTags(metadata: PageMetadata): string {
     <meta property="og:site_name" content="${metadata.name}" />
     <meta property="og:image" content="${metadata.image}" />
     <meta property="og:image:alt" content="${metadata.imageAlt}" />
-    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:type" content="${SOCIAL_MIME_TYPE}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="600" />
     <meta property="og:type" content="${metadata.type}" />
