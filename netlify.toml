@@ -2,8 +2,10 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "no-cache"
-    Cross-Origin-Opener-Policy = "same-origin"
+    Cache-Control = "public, max-age=0, must-revalidate"
+    # COOP header disabled due to iOS bug.
+    # https://answers.netlify.com/t/cross-origin-opener-policy-can-prevent-pages-from-loading/136620
+    # Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Embedder-Policy = "require-corp"
     X-Frame-Options = "DENY"
 
