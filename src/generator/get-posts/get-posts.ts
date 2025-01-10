@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'node:fs';
 import yamlToJs from 'js-yaml';
 import { BuildConfig, ParsedFrontMatter, Post } from '../../../types/types';
 import { DIR_SRC_PUBLIC } from '../constants';

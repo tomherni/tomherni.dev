@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 
 export const DIR_DIST = path.resolve('dist/');
 export const DIR_SRC_LAYOUTS = path.resolve('src/includes/layouts/');
