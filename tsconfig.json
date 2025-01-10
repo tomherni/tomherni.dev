@@ -12,10 +12,5 @@
     "esModuleInterop": true
   },
   "include": ["src", "types"],
-  "exclude": ["node_modules", "dist"],
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node",
-    "transpileOnly": true
-  }
+  "exclude": ["node_modules", "dist"]
 }

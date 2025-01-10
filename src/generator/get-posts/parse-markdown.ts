@@ -1,8 +1,10 @@
 import { marked, Renderer } from 'marked';
 import prism from 'prismjs';
-import loadLanguage from 'prismjs/components/';
 import { BuildConfig } from '../../../types/types';
 import { encodeHtml, slugify } from '../../utils/format';
+import 'prismjs/components/prism-bash.js';
+import 'prismjs/components/prism-json.js';
+import 'prismjs/components/prism-typescript.js';
 
 export function parseMarkdown(content: string, config: BuildConfig): string {
   const renderer = new Renderer();
@@ -26,14 +28,12 @@ function addSyntaxHighlighting(renderer: Renderer): void {
       return `<pre><code>${encodeHtml(code)}</code></pre>`;
     }
 
-    if (!prism.languages[infostring]) {
-      loadLanguage(infostring);
-    }
-
     const language = prism.languages[infostring];
 
     if (!language) {
-      throw new Error('Language not supported by Prism');
+      throw new Error(
+        `Language not supported by Prism: ${infostring}. It may needs to be imported.`,
+      );
     }
 
     const highlightedCode = prism.highlight(code, language, infostring);
