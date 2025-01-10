@@ -1,5 +1,5 @@
-import path from 'path';
-import url from 'url';
+import path from 'node:path';
+import url from 'node:url';
 import { html, map } from '../../utils/render';
 import { DIR_DIST } from '../constants';
 import { getState } from '../state';

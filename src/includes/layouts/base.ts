@@ -1,4 +1,4 @@
-import url from 'url';
+import url from 'node:url';
 import { Layout, ImportedPageData, Post } from '../../../types/types';
 import { SOCIAL_MIME_TYPE } from '../../generator/constants';
 import { getState } from '../../generator/state';

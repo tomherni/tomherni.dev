@@ -1,7 +1,7 @@
 import CleanCSS from 'clean-css';
-import crypto from 'crypto';
-import fs from 'fs';
-import path from 'path';
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
 import { minify as minifyJs } from 'terser';
 import { minify as minifyHtml } from 'html-minifier-terser';
 import { DIR_DIST } from '../constants';

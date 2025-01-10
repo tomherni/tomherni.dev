@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import { siteConfig } from '../config';
 import { getPosts } from './get-posts/get-posts';
 import { createAtomFeed } from './feeds/create-atom-feed';
