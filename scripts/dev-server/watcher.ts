@@ -24,7 +24,10 @@ function isRelevantFile(file: string | null): file is string {
 }
 
 function scheduleBuild() {
-  timeout && clearTimeout(timeout);
+  if (timeout) {
+    clearTimeout(timeout);
+  }
+
   timeout = setTimeout(() => {
     building = true;
     build();
