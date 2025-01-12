@@ -9,9 +9,9 @@
     "node": "^20.0.0"
   },
   "scripts": {
-    "start": "serve dist",
+    "start": "tsx scripts/dev-server.ts",
     "build": "tsc -noEmit && tsx src/generator/build-prod.ts",
-    "build:dev": "tsc -noEmit && tsx src/generator/build-dev.ts",
+    "build:dev": "tsx src/generator/build-dev.ts",
     "lint": "eslint \"**/*.{js,ts}\" --fix --ignore-path .gitignore && stylelint \"src/**/*.css\" --fix",
     "lint:check": "eslint \"**/*.{js,ts}\" --ignore-path .gitignore && stylelint \"src/**/*.css\"",
     "format": "prettier \"**/*.{css,html,js,json,ts}\" --write --ignore-path .gitignore",
@@ -38,7 +38,6 @@
     "marked": "^11.1.0",
     "prettier": "^3.0.3",
     "prismjs": "^1.29.0",
-    "serve": "^14.2.1",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
     "terser": "^5.26.0",
