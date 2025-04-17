@@ -9,7 +9,7 @@ tags:
 
 I'm pleased to announce the first stable release of QuoteQuote—a library that converts boring, straight quotes to beautiful, typographically correct curly quotes, also known as _smart quotes_.
 
-QuoteQuote is available on [GitHub](https://github.com/tomherni/quote-quote) and [npm](https://www.npmjs.com/package/quote-quote). Feel free to download it using your favorite package manager, such as npm, pnpm, or yarn.
+QuoteQuote is available on [GitHub](https://github.com/tomherni/quote-quote) and [npm](https://www.npmjs.com/package/quote-quote). Download it using your favorite package manager, such as npm, pnpm, or yarn.
 
 ```sh
 npm install quote-quote
