@@ -1,10 +1,4 @@
-import { replacements } from './smartquotes';
-
-function smartQuotes(content: string): string {
-  return replacements.reduce((acc, [regex, replacement]) => {
-    return acc.replace(regex, replacement);
-  }, content);
-}
+import { convert } from 'quote-quote';
 
 /**
  * Make content look better by replacing straight quotes with curly quotes,
@@ -26,10 +20,7 @@ export function formatMarkdown(content: string): string {
     });
 
   // Add smart quotes and ellipses.
-  const smartContent = smartQuotes(contentWithoutCode).replace(
-    /\.\.\./g,
-    '\u2026',
-  );
+  const smartContent = convert(contentWithoutCode).replace(/\.\.\./g, '\u2026');
 
   // Add back the code snippets.
   const contentWithCode = smartContent

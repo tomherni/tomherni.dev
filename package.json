@@ -39,6 +39,7 @@
     "marked": "^11.1.0",
     "prettier": "^3.4.2",
     "prismjs": "^1.29.0",
+    "quote-quote": "^1.0.0",
     "stylelint": "^16.13.0",
     "stylelint-config-standard": "^37.0.0",
     "terser": "^5.26.0",
