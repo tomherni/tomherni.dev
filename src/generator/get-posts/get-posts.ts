@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import yamlToJs from 'js-yaml';
+import { convert } from 'quote-quote';
 import { BuildConfig, ParsedFrontMatter, Post } from '../../../types/types';
 import { DIR_SRC_PUBLIC } from '../constants';
 import { findFilesByExtension, isObject } from '../utils';
-import { formatMarkdown } from './format-markdown';
 import { getMetadata } from './get-metadata';
 import { parseMarkdown } from './parse-markdown';
 
@@ -22,7 +22,8 @@ export function getPosts(config: BuildConfig): Post[] {
 function transformMarkdownFileToPost(file: string, config: BuildConfig): Post {
   // Important to format contents before extracting front matter. The front
   // matter may need to be formatted as well (like the description).
-  const contents = formatMarkdown(fs.readFileSync(file, 'utf-8'));
+  const contents = convert(fs.readFileSync(file, 'utf-8'), { ellipsis: true });
+
   const frontMatter = parseFrontMatter(contents.match(frontMatterRegex)?.[1]);
   const contentWithoutFrontMatter = contents.replace(frontMatterRegex, '');
   const parsedContent = parseMarkdown(contentWithoutFrontMatter, config);
