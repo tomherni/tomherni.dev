@@ -9,7 +9,10 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@types": ["./src/types"]
+    }
   },
   "include": ["src", "types"],
   "exclude": ["node_modules", "dist"]

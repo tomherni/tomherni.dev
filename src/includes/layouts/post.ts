@@ -1,4 +1,4 @@
-import { LayoutPost } from '../../../types/types';
+import type { LayoutPost } from '@types';
 import { formatDate, formatDateIso } from '../../utils/format';
 import { html, when } from '../../utils/render';
 import { profilePicture } from '../profile-picture';

@@ -1,4 +1,4 @@
-import { SiteConfig } from '../types/types';
+import type { SiteConfig } from '@types';
 
 export const siteConfig: SiteConfig = {
   /* The name of the website. Used in page titles and feeds. */

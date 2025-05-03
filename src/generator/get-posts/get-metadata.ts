@@ -1,10 +1,6 @@
+import type { BuildConfig, ParsedFrontMatter, PostMetadata } from '@types';
 import path from 'node:path';
 import url from 'node:url';
-import {
-  BuildConfig,
-  ParsedFrontMatter,
-  PostMetadata,
-} from '../../../types/types';
 import { slugify } from '../../utils/format';
 import { DIR_SRC_PUBLIC, SOCIAL_FILE_NAME } from '../constants';
 

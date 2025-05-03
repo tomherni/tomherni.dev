@@ -1,4 +1,4 @@
-import { Page } from '../../../types/types';
+import type { Page } from '@types';
 import { getState } from '../../generator/state';
 import { html, map } from '../../utils/render';
 import { postPreview } from '../../includes/post-preview';

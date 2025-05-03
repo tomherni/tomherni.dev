@@ -1,4 +1,4 @@
-import { Post, LayoutTag } from '../../../types/types';
+import type { Post, LayoutTag } from '@types';
 import { getState } from '../../generator/state';
 import { html, map } from '../../utils/render';
 import { postPreview } from '../post-preview';

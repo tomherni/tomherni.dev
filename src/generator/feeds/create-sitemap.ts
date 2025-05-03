@@ -1,5 +1,5 @@
+import type { ImportedPageData, RenderedPages } from '@types';
 import path from 'node:path';
-import { ImportedPageData, RenderedPages } from '../../../types/types';
 import { formatDateIso } from '../../utils/format';
 import { html, map } from '../../utils/render';
 import { DIR_DIST } from '../constants';

@@ -1,4 +1,4 @@
-import { Post } from '../../types/types';
+import type { Post } from '@types';
 import { formatDateShort, formatDateIso } from '../utils/format';
 import { html, when } from '../utils/render';
 import { tagList } from './tag-list';

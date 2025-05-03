@@ -1,4 +1,4 @@
-import { GlobalState } from '../../types/types';
+import type { GlobalState } from '@types';
 
 let state: GlobalState;
 

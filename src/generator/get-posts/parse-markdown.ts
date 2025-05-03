@@ -1,6 +1,6 @@
+import type { BuildConfig } from '@types';
 import { marked, Renderer } from 'marked';
 import prism from 'prismjs';
-import { BuildConfig } from '../../../types/types';
 import { encodeHtml, slugify } from '../../utils/format';
 import 'prismjs/components/prism-bash.js';
 import 'prismjs/components/prism-json.js';

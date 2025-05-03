@@ -1,4 +1,4 @@
-import { PageConfig } from '../../types/types';
+import type { PageConfig } from '@types';
 import { html } from '../utils/render';
 
 export const siteHeader = (config: PageConfig = {}) => html`

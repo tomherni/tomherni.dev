@@ -1,7 +1,7 @@
+import type { BuildConfig, ParsedFrontMatter, Post } from '@types';
 import fs from 'node:fs';
 import yamlToJs from 'js-yaml';
 import { convert } from 'quote-quote';
-import { BuildConfig, ParsedFrontMatter, Post } from '../../../types/types';
 import { DIR_SRC_PUBLIC } from '../constants';
 import { findFilesByExtension, isObject } from '../utils';
 import { getMetadata } from './get-metadata';

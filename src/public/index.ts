@@ -1,4 +1,4 @@
-import { Page } from '../../types/types';
+import type { Page } from '@types';
 import { profilePicture } from '../includes/profile-picture';
 import { html } from '../utils/render';
 

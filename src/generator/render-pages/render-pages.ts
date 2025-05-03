@@ -1,11 +1,11 @@
-import path from 'node:path';
-import {
+import type {
   BaseLayoutPostData,
   BaseLayoutTagData,
   ImportedPageData,
   Post,
   RenderedPages,
-} from '../../../types/types';
+} from '@types';
+import path from 'node:path';
 import { DIR_DIST, DIR_SRC_PUBLIC } from '../constants';
 import { getState } from '../state';
 import { findFilesByExtension, getLayoutPath } from '../utils';

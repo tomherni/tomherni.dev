@@ -1,10 +1,10 @@
-import {
+import type {
   BaseLayoutPostData,
   BaseLayoutTagData,
   BasePageData,
   ImportedPageData,
   Page,
-} from '../../../types/types';
+} from '@types';
 import { createFile, getLayoutPath, resolveUrl } from '../utils';
 
 export async function renderPage(

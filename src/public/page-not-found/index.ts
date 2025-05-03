@@ -1,4 +1,4 @@
-import { Page } from '../../../types/types';
+import type { Page } from '@types';
 import { html } from '../../utils/render';
 
 const page: Page = {

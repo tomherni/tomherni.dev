@@ -1,3 +1,4 @@
+import type { Post } from '@types';
 import fs from 'node:fs';
 import path from 'node:path';
 import url from 'node:url';
@@ -7,7 +8,6 @@ import {
   loadImage,
   registerFont,
 } from 'canvas';
-import { Post } from '../../../types/types';
 import { SOCIAL_FILE_NAME, SOCIAL_MIME_TYPE } from '../constants';
 
 const WIDTH = 1200;
