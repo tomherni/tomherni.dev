@@ -48,16 +48,18 @@ export async function build(buildConfig: PartialBuildConfig): Promise<void> {
 /**
  * Copy the source directory to the target directory.
  */
-export function copySourceToTarget(source: string, target: string): void {
+function copySourceToTarget(source: string, target: string): void {
   if (!fs.existsSync(target)) {
     fs.mkdirSync(target);
   }
 
-  for (const file of fs.readdirSync(source)) {
-    const sourcePath = path.join(source, file);
-    const targetPath = path.join(target, file);
+  const entries = fs.readdirSync(source, { withFileTypes: true });
 
-    if (fs.statSync(sourcePath).isDirectory()) {
+  for (const entry of entries) {
+    const sourcePath = path.join(source, entry.name);
+    const targetPath = path.join(target, entry.name);
+
+    if (entry.isDirectory()) {
       copySourceToTarget(sourcePath, targetPath);
     } else if (!['.md', '.ts'].includes(path.extname(sourcePath))) {
       fs.copyFileSync(sourcePath, targetPath);

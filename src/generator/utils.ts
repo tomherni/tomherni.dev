@@ -40,7 +40,7 @@ export function createFile(file: string, content: string): void {
 }
 
 /**
- * Find all files in a directory with a given extension.
+ * Deep find all files in a directory by file extension.
  */
 export function findFilesByExtension(
   extension: string,
@@ -48,16 +48,16 @@ export function findFilesByExtension(
 ): string[] {
   const filesFound: string[] = [];
 
-  function findFilesRecursively(currentDirectory: string): void {
-    const files = fs.readdirSync(currentDirectory);
+  function findFilesRecursively(dir: string): void {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
 
-    for (const file of files) {
-      const filePath = path.join(currentDirectory, file);
+    for (const entry of entries) {
+      const entryPath = path.join(dir, entry.name);
 
-      if (fs.statSync(filePath).isDirectory()) {
-        findFilesRecursively(filePath);
-      } else if (path.extname(file) === `.${extension}`) {
-        filesFound.push(filePath);
+      if (entry.isDirectory()) {
+        findFilesRecursively(entryPath);
+      } else if (path.extname(entry.name) === `.${extension}`) {
+        filesFound.push(entryPath);
       }
     }
   }
