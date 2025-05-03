@@ -1,6 +1,6 @@
 import { build } from './build';
 
-// Test: verifying envs in Netlify deploy preview and prod builds 
+// Test: verifying envs in Netlify deploy preview and prod builds
 console.log('NODE_ENV:', process.env.NODE_ENV);
 console.log('CONTEXT:', process.env.CONTEXT);
 console.log('DEPLOY_PRIME_URL:', process.env.DEPLOY_PRIME_URL);
