@@ -40,6 +40,28 @@ export function createFile(file: string, content: string): void {
 }
 
 /**
+ * Copy the source directory to the target directory.
+ */
+export function copySourceToTarget(source: string, target: string): void {
+  if (!fs.existsSync(target)) {
+    fs.mkdirSync(target);
+  }
+
+  const entries = fs.readdirSync(source, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const sourcePath = path.join(source, entry.name);
+    const targetPath = path.join(target, entry.name);
+
+    if (entry.isDirectory()) {
+      copySourceToTarget(sourcePath, targetPath);
+    } else if (!['.md', '.ts'].includes(path.extname(sourcePath))) {
+      fs.copyFileSync(sourcePath, targetPath);
+    }
+  }
+}
+
+/**
  * Deep find all files in a directory by file extension.
  */
 export function findFilesByExtension(

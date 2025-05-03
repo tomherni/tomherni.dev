@@ -10,8 +10,8 @@
   },
   "scripts": {
     "start": "tsx scripts/dev-server.ts",
-    "build": "tsc -noEmit && tsx src/generator/build-prod.ts",
-    "build:dev": "tsx src/generator/build-dev.ts",
+    "build": "tsc -noEmit && tsx src/generator/build.ts",
+    "build:dev": "tsx src/generator/build.ts",
     "lint": "eslint \"**/*.{js,ts}\" --fix && stylelint \"src/**/*.css\" --fix",
     "lint:check": "eslint \"**/*.{js,ts}\" && stylelint \"src/**/*.css\"",
     "format": "prettier \"**/*.{css,html,js,json,ts}\" --write --ignore-path .gitignore",
