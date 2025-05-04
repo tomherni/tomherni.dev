@@ -6,10 +6,10 @@ import type {
   RenderedPages,
 } from '@types';
 import path from 'node:path';
+import { createSocialImage } from '../social-image/create-social-image';
 import { DIR_DIST, DIR_SRC_PUBLIC } from '../constants';
 import { getState } from '../state';
 import { findFilesByExtension, getLayoutPath } from '../utils';
-import { createSocialImage } from './create-social-image';
 import { renderPage } from './render-page';
 
 export async function renderPages(): Promise<RenderedPages> {

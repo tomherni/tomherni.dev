@@ -1,21 +1,29 @@
 import type { Post } from '@types';
-import fs from 'node:fs';
-import path from 'node:path';
-import url from 'node:url';
 import {
-  CanvasRenderingContext2D,
+  type CanvasRenderingContext2D,
   createCanvas,
   loadImage,
   registerFont,
 } from 'canvas';
+import fs from 'node:fs';
+import path from 'node:path';
+import url from 'node:url';
 import { SOCIAL_FILE_NAME, SOCIAL_MIME_TYPE } from '../constants';
 
 const WIDTH = 1200;
 const HEIGHT = 600;
 const PADDING = 100;
 
+const COLOR_WHITE = '#ffffff';
+const COLOR_DARK_GRAY = '#272626';
+const COLOR_RED = '#e8422c';
+const FONT_FAMILY = 'Source Sans 3 Bold';
+
 let fontsRegistered = false;
 
+/**
+ * Create an image for social platforms that show page thumbnails.
+ */
 export async function createSocialImage(post: Post, postFile: string) {
   registerFonts();
 
@@ -23,46 +31,39 @@ export async function createSocialImage(post: Post, postFile: string) {
   const ctx = canvas.getContext('2d');
 
   // Create background and top border.
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = COLOR_WHITE;
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
-  ctx.fillStyle = '#E8422C';
+  ctx.fillStyle = COLOR_RED;
   ctx.fillRect(0, 0, WIDTH, 24);
 
-  // Write "tomherni.dev".
-  ctx.fillStyle = '#272626';
-  ctx.font = '44px "Source Sans 3 Bold"';
+  // Draw "tomherni.dev".
+  ctx.fillStyle = COLOR_DARK_GRAY;
+  ctx.font = `44px "${FONT_FAMILY}"`;
   ctx.fillText('tomherni', PADDING, 114);
-  ctx.fillStyle = '#E8422C';
-  ctx.font = '44px "Source Sans 3 Bold"';
+  ctx.fillStyle = COLOR_RED;
+  ctx.font = `44px "${FONT_FAMILY}"`;
   ctx.fillText('.dev', PADDING + ctx.measureText('tomherni').width, 114);
 
-  // Write the title that wraps when necessary.
-  ctx.fillStyle = '#272626';
-  ctx.font = '72px "Source Sans 3 Bold"';
-  writeWrappingTitle(post.meta.title, ctx);
+  // Draw the page title.
+  ctx.fillStyle = COLOR_DARK_GRAY;
+  ctx.font = `72px "${FONT_FAMILY}"`;
+  drawTitle(post.meta.title, ctx);
 
   // Insert the profile picture.
   const dirName = url.fileURLToPath(new URL('.', import.meta.url));
-  const pictureUri = 'resources-social-image/picture.png';
-  const image = await loadImage(path.join(dirName, pictureUri));
+  const image = await loadImage(path.join(dirName, 'resources/picture.png'));
   ctx.drawImage(image, 948, 348, 180, 180);
 
   // Save the social image.
   const buffer = canvas.toBuffer(SOCIAL_MIME_TYPE);
-  const foo = path.join(path.dirname(postFile), SOCIAL_FILE_NAME);
-  fs.writeFileSync(foo, buffer);
+  const filePath = path.join(path.dirname(postFile), SOCIAL_FILE_NAME);
+  fs.writeFileSync(filePath, buffer);
 }
 
-function registerFonts() {
-  if (!fontsRegistered) {
-    fontsRegistered = true;
-    const dirName = url.fileURLToPath(new URL('.', import.meta.url));
-    const fontUri = 'resources-social-image/source-sans-3-bold.ttf';
-    registerFont(path.join(dirName, fontUri), { family: 'Source Sans 3 Bold' });
-  }
-}
-
-function writeWrappingTitle(title: string, ctx: CanvasRenderingContext2D) {
+/**
+ * Draw the title with word wrapping.
+ */
+function drawTitle(title: string, ctx: CanvasRenderingContext2D) {
   const words = title.split(' ');
   let line = '';
   let offsetTop = 225;
@@ -80,4 +81,13 @@ function writeWrappingTitle(title: string, ctx: CanvasRenderingContext2D) {
   }
 
   ctx.fillText(line.trim(), PADDING, offsetTop);
+}
+
+function registerFonts() {
+  if (!fontsRegistered) {
+    const dirName = url.fileURLToPath(new URL('.', import.meta.url));
+    const filePath = path.join(dirName, 'resources/source-sans-3-bold.ttf');
+    registerFont(filePath, { family: FONT_FAMILY });
+    fontsRegistered = true;
+  }
 }
