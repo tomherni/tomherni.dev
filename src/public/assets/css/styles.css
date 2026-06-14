@@ -5,11 +5,11 @@
   --color-font: hsl(0deg 1% 15%);
   --color-background: #fff;
   --color-highlight: hsl(7deg 80% 54%);
-  --color-shade-7: hsla(0deg 1% 15% / 7%);
-  --color-shade-10: hsla(0deg 1% 15% / 10%);
-  --color-shade-40: hsla(0deg 1% 15% / 40%);
-  --color-shade-55: hsla(0deg 1% 15% / 55%);
-  --color-shade-75: hsla(0deg 1% 15% / 75%);
+  --color-shade-7: hsl(0deg 1% 15% / 7%);
+  --color-shade-10: hsl(0deg 1% 15% / 10%);
+  --color-shade-40: hsl(0deg 1% 15% / 40%);
+  --color-shade-55: hsl(0deg 1% 15% / 55%);
+  --color-shade-75: hsl(0deg 1% 15% / 75%);
 
   /* Layout */
   --wrapper-gutter-inline: 1.6rem;
@@ -25,11 +25,11 @@
   /* Colors */
   --color-font: hsl(30deg 27% 91%);
   --color-background: hsl(0deg 5% 9%);
-  --color-shade-7: hsla(30deg 27% 91% / 7%);
-  --color-shade-10: hsla(30deg 27% 91% / 10%);
-  --color-shade-40: hsla(30deg 27% 91% / 45%);
-  --color-shade-55: hsla(30deg 27% 91% / 55%);
-  --color-shade-75: hsla(30deg 27% 91% / 70%);
+  --color-shade-7: hsl(30deg 27% 91% / 7%);
+  --color-shade-10: hsl(30deg 27% 91% / 10%);
+  --color-shade-40: hsl(30deg 27% 91% / 45%);
+  --color-shade-55: hsl(30deg 27% 91% / 55%);
+  --color-shade-75: hsl(30deg 27% 91% / 70%);
 }
 
 @font-face {
@@ -114,7 +114,7 @@ a .link-effect {
   text-decoration-color: var(--color-highlight);
   text-decoration-thickness: 0.2rem;
   text-underline-offset: 0.3rem;
-  box-shadow: inset 0 0 hsla(7deg 80% 54% / 15%);
+  box-shadow: inset 0 0 hsl(7deg 80% 54% / 15%);
   transition:
     color var(--hover-transition-duration),
     text-decoration-color var(--hover-transition-duration);
@@ -149,6 +149,8 @@ a:hover:focus-visible .link-effect {
   padding: 0;
   margin: -1px;
   overflow: hidden;
+
+  /* stylelint-disable-next-line property-no-deprecated */
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
