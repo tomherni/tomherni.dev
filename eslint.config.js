@@ -1,18 +1,13 @@
-import { includeIgnoreFile } from '@eslint/compat';
-import eslint from '@eslint/js';
+import js from '@eslint/js';
 import globals from 'globals';
-import path from 'node:path';
-import url from 'node:url';
 import tseslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const gitignorePath = path.resolve(__dirname, '.gitignore');
-
-/** @type {import('eslint').Linter.Config[]} */
-const config = [
-  includeIgnoreFile(gitignorePath),
+export default defineConfig([
   {
+    files: ['**/*.{js,ts}'],
+    plugins: { js },
+    extends: ['js/recommended'],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -22,8 +17,5 @@ const config = [
       sourceType: 'module',
     },
   },
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-];
-
-export default config;
+  tseslint.configs.recommended,
+]);

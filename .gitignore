@@ -1,16 +1,13 @@
+# npm
+node_modules
+npm-debug.log
+
+# Build
+/dist/
+
 # Editors
 /.idea
 /.vscode
 
 # System files
 .DS_Store
-
-# npm
-/node_modules/
-/npm-debug.log
-
-## Testing
-/coverage/
-
-# Build
-/dist/
