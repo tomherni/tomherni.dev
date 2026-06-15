@@ -33,42 +33,29 @@
 }
 
 @font-face {
-  font-family: 'Source Sans 3';
+  font-family: Rubik;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300 900;
   font-display: swap;
-  src: url('https://fonts.gstatic.com/s/sourcesans3/v15/nwpStKy2OAdR1K-IwhWudF-R3w8aZejf5Hc.woff2')
+  src: url('https://fonts.gstatic.com/s/rubik/v31/iJWKBXyIfDnIV7nBrXyw023e.woff2')
     format('woff2');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Source Sans 3';
-  font-style: normal;
-  font-weight: 700;
+  font-family: Rubik;
+  font-style: italic;
+  font-weight: 300 900;
   font-display: swap;
-  src: url('https://fonts.gstatic.com/s/sourcesans3/v15/nwpStKy2OAdR1K-IwhWudF-R3w8aZejf5Hc.woff2')
+  src: url('https://fonts.gstatic.com/s/rubik/v31/iJWEBXyIfDnIV7nEnX661E_c5Ig.woff2')
     format('woff2');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/sourceserif4/v8/vEFI2_tTDB4M7-auWDN0ahZJW1gb8te1Xb7G.woff2')
-    format('woff2');
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 html {
@@ -86,8 +73,9 @@ body {
   padding: 0;
   color: var(--color-font);
   font:
-    normal 400 1.8rem/1.6 'Source Sans 3',
+    normal 400 1.8rem/1.7 Rubik,
     sans-serif;
+  font-optical-sizing: auto;
   background-color: var(--color-background);
   border-top: 0.4rem solid var(--color-highlight);
   text-rendering: optimizelegibility;
@@ -142,6 +130,12 @@ a:hover:focus-visible .link-effect {
   outline: 0.2rem dashed var(--color-highlight);
 }
 
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -157,7 +151,7 @@ a:hover:focus-visible .link-effect {
 }
 
 .wrapper {
-  max-width: 72rem;
+  max-width: 75rem;
   margin: 3.2rem auto 7.2rem;
   padding: 0 var(--wrapper-gutter-inline);
   box-sizing: content-box; /* Ensure the max-width doesn't change */
@@ -168,7 +162,7 @@ a:hover:focus-visible .link-effect {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 6.4rem;
 }
 
@@ -269,7 +263,7 @@ a:hover:focus-visible .link-effect {
 }
 
 .tag-list.condensed a {
-  padding: 0.4rem 1.4rem 0.4rem 1.2rem;
+  padding: 0.6rem 1.4rem 0.6rem 1.2rem;
 }
 
 .tag-list .hashtag {
@@ -292,7 +286,6 @@ a:hover:focus-visible .link-effect {
 /* Formatted content */
 .formatted-content {
   font-size: 2.2rem;
-  font-family: 'Source Serif 4', serif;
 }
 
 .formatted-content ol,
@@ -304,13 +297,11 @@ a:hover:focus-visible .link-effect {
 .formatted-content h2 {
   margin: 4.8rem 0 -1.2rem;
   font-size: 2.8rem;
-  font-family: 'Source Sans 3', sans-serif;
 }
 
 .formatted-content h3 {
   margin: 3.2rem 0 -1.6rem;
   font-size: 2.2rem;
-  font-family: 'Source Sans 3', sans-serif;
 }
 
 /* Regular links */
@@ -337,6 +328,7 @@ a:hover:focus-visible .link-effect {
   margin-inline: calc(var(--wrapper-gutter-inline) * -1);
   padding-block: 2.4rem;
   padding-inline: var(--wrapper-gutter-inline);
+  font-weight: 300;
   font-size: 2.6rem;
   text-align: center;
   background-color: var(--color-shade-7);
@@ -355,8 +347,8 @@ a:hover:focus-visible .link-effect {
   margin-inline: calc(var(--wrapper-gutter-inline) * -1);
   padding-block: 1.6rem;
   padding-inline: var(--wrapper-gutter-inline);
-  line-height: 1.7;
   font-size: 1.5rem;
+  line-height: 1.7;
   background-color: var(--color-shade-7);
   border-radius: 0.4rem;
   white-space: pre;
@@ -371,8 +363,8 @@ a:hover:focus-visible .link-effect {
 }
 
 .formatted-content pre code {
-  line-height: inherit;
   font-size: inherit;
+  line-height: inherit;
 }
 
 .formatted-content code {
@@ -428,8 +420,8 @@ a:hover:focus-visible .link-effect {
 
 .post-preview h2 {
   margin: 0 0 0.2rem;
-  line-height: 1.2;
   font-size: 3.4rem;
+  line-height: 1.2;
 }
 
 .post-preview h2 a {
@@ -462,9 +454,7 @@ a:hover:focus-visible .link-effect {
 
 .page-home h1 {
   margin: 2.8rem 0 0;
-  font: inherit;
   font-size: 4.4rem;
-  font-weight: 700;
   line-height: normal;
 }
 
@@ -487,8 +477,8 @@ a:hover:focus-visible .link-effect {
 
 .page-post h1 {
   margin: 0;
-  line-height: 1.2;
   font-size: 4.8rem;
+  line-height: 1.2;
 }
 
 .page-post .datetime {
@@ -532,7 +522,7 @@ a:hover:focus-visible .link-effect {
 }
 
 .page-post .author .name {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 2rem;
 }
 
@@ -575,8 +565,8 @@ a:hover:focus-visible .link-effect {
   font-size: 0.8rem;
   box-sizing: content-box;
 
-  --switch-width: 6.4em;
-  --switch-height: 3em;
+  --switch-width: 7.4em;
+  --switch-height: 3.5em;
   --switch-border-size: 0.2em;
   --switch-handle-offset: 0.24em;
   --switch-handle-size: calc(
@@ -682,15 +672,15 @@ a:hover:focus-visible .link-effect {
 
 .page h1 {
   margin: 0 0 4rem;
-  line-height: 1; /* Looks better on mobile and on individual tag pages */
   font-size: 4.8rem;
+  line-height: 1; /* Looks better on mobile and on individual tag pages */
 }
 
 .page h1.special span:first-of-type {
   display: block;
   margin-bottom: 0.8rem;
   color: var(--color-shade-55);
-  line-height: 1;
-  font-size: 1.8rem;
   font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1;
 }
