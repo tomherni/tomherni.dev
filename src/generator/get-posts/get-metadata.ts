@@ -2,7 +2,7 @@ import type { BuildConfig, ParsedFrontMatter, PostMetadata } from '@types';
 import path from 'node:path';
 import url from 'node:url';
 import { slugify } from '../../utils/format';
-import { DIR_SRC_PUBLIC, SOCIAL_FILE_NAME } from '../constants';
+import { DIR_SRC_STATIC, SOCIAL_FILE_NAME } from '../constants';
 
 export function getMetadata(
   content: string,
@@ -10,7 +10,7 @@ export function getMetadata(
   file: string,
   config: BuildConfig,
 ): PostMetadata {
-  const relativePath = path.dirname(path.relative(DIR_SRC_PUBLIC, file)) + '/';
+  const relativePath = path.dirname(path.relative(DIR_SRC_STATIC, file)) + '/';
   const _url = url.resolve(config.baseUrl, path.normalize(relativePath));
   const description = fm.description || content.split('\n').filter(Boolean)[0];
 

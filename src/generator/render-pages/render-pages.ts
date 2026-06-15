@@ -7,13 +7,13 @@ import type {
 } from '@types';
 import path from 'node:path';
 import { createSocialImage } from '../social-image/create-social-image';
-import { DIR_DIST, DIR_SRC_PUBLIC } from '../constants';
+import { DIR_DIST, DIR_SRC_STATIC } from '../constants';
 import { getState } from '../state';
 import { findFilesByExtension, getLayoutPath } from '../utils';
 import { renderPage } from './render-page';
 
 export async function renderPages(): Promise<RenderedPages> {
-  const tsFiles = findFilesByExtension('ts', DIR_SRC_PUBLIC);
+  const tsFiles = findFilesByExtension('ts', DIR_SRC_STATIC);
   const [content, posts, tags] = await Promise.all([
     Promise.all(tsFiles.map(renderContentPage)),
     Promise.all(getState().posts.map(renderPostPage)),
@@ -50,5 +50,5 @@ async function renderTagPage(tag: string): Promise<ImportedPageData> {
 }
 
 function resolveSrcDirToDistDir(file: string): string {
-  return path.join(DIR_DIST, path.relative(DIR_SRC_PUBLIC, file));
+  return path.join(DIR_DIST, path.relative(DIR_SRC_STATIC, file));
 }

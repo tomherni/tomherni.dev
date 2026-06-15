@@ -2,7 +2,7 @@ import type { BuildConfig, ParsedFrontMatter, Post } from '@types';
 import fs from 'node:fs';
 import yamlToJs from 'js-yaml';
 import { convert } from 'quote-quote';
-import { DIR_SRC_PUBLIC } from '../constants';
+import { DIR_SRC_STATIC } from '../constants';
 import { findFilesByExtension, isObject } from '../utils';
 import { getMetadata } from './get-metadata';
 import { parseMarkdown } from './parse-markdown';
@@ -14,7 +14,7 @@ const frontMatterRegex = /^---([\s\S]*?)---/;
  * Return all Markdown files transformed to posts.
  */
 export function getPosts(config: BuildConfig): Post[] {
-  return findFilesByExtension('md', DIR_SRC_PUBLIC)
+  return findFilesByExtension('md', DIR_SRC_STATIC)
     .map((file) => transformMarkdownFileToPost(file, config))
     .sort((a, b) => b.meta.date.getTime() - a.meta.date.getTime());
 }

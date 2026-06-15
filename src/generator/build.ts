@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { siteConfig } from '../config';
+import { siteConfig } from '../site-config';
 import { getPosts } from './get-posts/get-posts';
 import { createAtomFeed } from './feeds/create-atom-feed';
 import { createRssFeed } from './feeds/create-rss-feed';
@@ -9,7 +9,7 @@ import {
   BASE_URL_DEV,
   BASE_URL_PROD,
   DIR_DIST,
-  DIR_SRC_PUBLIC,
+  DIR_SRC_STATIC,
 } from './constants';
 import { optimize } from './optimize/optimize';
 import { setState } from './state';
@@ -30,7 +30,7 @@ fs.rmSync(DIR_DIST, { recursive: true, force: true });
 fs.mkdirSync(DIR_DIST);
 
 // Copy the content to DIST.
-copySourceToTarget(DIR_SRC_PUBLIC, DIR_DIST);
+copySourceToTarget(DIR_SRC_STATIC, DIR_DIST);
 
 // Prepare the site data object to be able to create HTML pages.
 const posts = getPosts(config.build);
