@@ -35,7 +35,7 @@ export const siteHeader = (config: PageConfig = {}) => html`
       </ul>
     </nav>
 
-    <div
+    <button
       id="theme-switch"
       class="theme-switch"
       role="switch"
@@ -44,11 +44,8 @@ export const siteHeader = (config: PageConfig = {}) => html`
       aria-label="Enable dark mode"
       aria-checked="false"
     >
-      <div class="switch">
-        <div class="icon sun"></div>
-        <div class="icon moon"></div>
-        <div class="handle"></div>
-      </div>
-    </div>
+      <div class="icon sun"></div>
+      <div class="icon moon"></div>
+    </button>
   </div>
 `;
