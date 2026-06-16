@@ -1,4 +1,4 @@
-import CleanCSS from 'clean-css';
+import { transform } from 'lightningcss';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -32,9 +32,10 @@ export async function optimize(): Promise<void> {
  */
 function optimizeCssFiles(): void {
   for (const file of findFilesByExtension('css', DIR_DIST)) {
-    const input = fs.readFileSync(file, 'utf8');
-    const minified = new CleanCSS().minify(input).styles;
-    fs.writeFileSync(file, minified);
+    const input = fs.readFileSync(file);
+    // `filename` is required but unused.
+    const { code } = transform({ filename: 'foo', code: input, minify: true });
+    fs.writeFileSync(file, code);
   }
 }
 
