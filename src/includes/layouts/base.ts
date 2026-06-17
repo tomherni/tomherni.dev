@@ -1,5 +1,4 @@
 import type { Layout, ImportedPageData, Post } from '@types';
-import url from 'node:url';
 import { SOCIAL_MIME_TYPE } from '../../generator/constants';
 import { getState } from '../../generator/state';
 import { html, when } from '../../utils/render';
@@ -30,7 +29,7 @@ function getPageMetadata(data: ImportedPageData): PageMetadata {
 
   const image = post
     ? post.meta.socialUrl
-    : url.resolve(build.baseUrl, '/assets/img/social-homepage.jpg');
+    : new URL('/assets/img/social-homepage.jpg', build.baseUrl).href;
 
   const imageAlt = post
     ? `Banner that introduces the blog post by its title: ${post.meta.title}`
@@ -151,13 +150,13 @@ const layout: Layout = {
             rel="alternate"
             type="application/atom+xml"
             title="Posts on ${metadata.title}"
-            href="${url.resolve(build.baseUrl, 'atom.xml')}"
+            href="${new URL('atom.xml', build.baseUrl).href}"
           />
           <link
             rel="alternate"
             type="application/rss+xml"
             title="Posts on ${metadata.title}"
-            href="${url.resolve(build.baseUrl, 'rss.xml')}"
+            href="${new URL('rss.xml', build.baseUrl).href}"
           />
           ${when(build.env === 'PROD', () => addAnalytics())}
         </head>
