@@ -12,76 +12,78 @@
   --prism-property: #871094;
   --prism-regex: #264eff;
   --prism-tag: #0033b3;
-}
 
-:root[data-theme='dark'] {
-  --prism-font: #bcbec4;
-  --prism-string: #6aab73;
-  --prism-comment: #7a7e85;
-  --prism-function: #56a8f5;
-  --prism-keyword: #cf8e6d;
-  --prism-number: #2aacb8;
-  --prism-property: #c77dbb;
-  --prism-regex: #42c3d4;
-  --prism-tag: #d5b778;
+  &[data-theme='dark'] {
+    --prism-font: #bcbec4;
+    --prism-string: #6aab73;
+    --prism-comment: #7a7e85;
+    --prism-function: #56a8f5;
+    --prism-keyword: #cf8e6d;
+    --prism-number: #2aacb8;
+    --prism-property: #c77dbb;
+    --prism-regex: #42c3d4;
+    --prism-tag: #d5b778;
+  }
 }
 
 code[class*='language-'] {
   color: var(--prism-font);
 }
 
-.token.attr-name,
-.token.punctuation,
-.token.operator,
-.token.doctype .token.name {
-  color: var(--prism-font);
-}
+.token {
+  &.attr-name,
+  &.punctuation,
+  &.operator,
+  &.doctype .token.name {
+    color: var(--prism-font);
+  }
 
-.token.attr-value,
-.token.string {
-  color: var(--prism-string);
-}
+  &.attr-value,
+  &.string {
+    color: var(--prism-string);
+  }
 
-.token.comment {
-  color: var(--prism-comment);
-}
+  &.comment {
+    color: var(--prism-comment);
+  }
 
-.token.function {
-  color: var(--prism-function);
-}
+  &.function {
+    color: var(--prism-function);
+  }
 
-.token.keyword,
-.token.rule {
-  color: var(--prism-keyword);
-}
+  &.keyword,
+  &.rule {
+    color: var(--prism-keyword);
+  }
 
-.token.number {
-  color: var(--prism-number);
-}
+  &.number {
+    color: var(--prism-number);
+  }
 
-.token.property {
-  color: var(--prism-property);
-}
+  &.property {
+    color: var(--prism-property);
+  }
 
-.token.regex {
-  color: var(--prism-regex);
-}
+  &.regex {
+    color: var(--prism-regex);
+  }
 
-.token.doctype,
-.token.tag {
-  color: var(--prism-tag);
+  &.doctype,
+  &.tag {
+    color: var(--prism-tag);
+  }
 }
 
 /* Language overwrites */
 
 code[class='language-css'] {
   color: var(--prism-string);
-}
 
-code[class='language-css'] .token.property {
-  color: var(--prism-font);
-}
+  .token.property {
+    color: var(--prism-font);
+  }
 
-code[class='language-css'] .token.selector {
-  color: var(--prism-tag);
+  .token.selector {
+    color: var(--prism-tag);
+  }
 }
