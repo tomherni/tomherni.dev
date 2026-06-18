@@ -1,5 +1,4 @@
 import path from 'node:path';
-import url from 'node:url';
 import { html, map } from '../../utils/render';
 import { DIR_DIST } from '../constants';
 import { getState } from '../state';
@@ -9,7 +8,7 @@ const FILE_NAME = 'rss.xml';
 
 export function createRssFeed(): void {
   const { build, config } = getState();
-  const fileHref = url.resolve(build.baseUrl, FILE_NAME);
+  const fileHref = new URL(FILE_NAME, build.baseUrl).href;
   const buildDate = build.buildDate.toUTCString();
 
   // It is important there is no whitespace before the XML tag.

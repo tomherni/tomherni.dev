@@ -1,5 +1,4 @@
 import path from 'node:path';
-import url from 'node:url';
 import { encodeHtml } from '../../utils/format';
 import { html, map } from '../../utils/render';
 import { DIR_DIST } from '../constants';
@@ -10,13 +9,13 @@ const FILE_NAME = 'atom.xml';
 
 export function createAtomFeed(): void {
   const { build, config } = getState();
-  const fileHref = url.resolve(build.baseUrl, FILE_NAME);
+  const fileHref = new URL(FILE_NAME, build.baseUrl).href;
 
   // It is important there is no whitespace before the XML tag.
   const contents = html`<?xml version="1.0" encoding="utf-8"?>
     <feed xmlns="http://www.w3.org/2005/Atom">
       <title>${config.title}</title>
-      <link href="${url.resolve(build.baseUrl, fileHref)}" rel="self" />
+      <link href="${new URL(fileHref, build.baseUrl).href}" rel="self" />
       <link href="${build.baseUrl}" />
       <updated>${build.buildDate.toISOString()}</updated>
       <id>${build.baseUrl}</id>

@@ -1,6 +1,5 @@
 import type { BuildConfig, ParsedFrontMatter, PostMetadata } from '@types';
 import path from 'node:path';
-import url from 'node:url';
 import { slugify } from '../../utils/format';
 import { DIR_SRC_STATIC, SOCIAL_FILE_NAME } from '../constants';
 
@@ -11,7 +10,7 @@ export function getMetadata(
   config: BuildConfig,
 ): PostMetadata {
   const relativePath = path.dirname(path.relative(DIR_SRC_STATIC, file)) + '/';
-  const _url = url.resolve(config.baseUrl, path.normalize(relativePath));
+  const url = new URL(relativePath, config.baseUrl).href;
   const description = fm.description || content.split('\n').filter(Boolean)[0];
 
   // Some properties could be added by spreading `frontMatter`. But now there is
@@ -25,8 +24,8 @@ export function getMetadata(
     updated: fm.updated,
     tags: fm.tags?.map((tag) => slugify(tag)),
     timeToRead: calculateTimeToRead(content),
-    url: _url,
-    socialUrl: url.resolve(_url, SOCIAL_FILE_NAME),
+    url,
+    socialUrl: new URL(SOCIAL_FILE_NAME, url).href,
   };
 }
 
