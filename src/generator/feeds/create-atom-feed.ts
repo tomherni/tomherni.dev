@@ -1,29 +1,29 @@
+import type { Post } from '@types';
 import path from 'node:path';
 import { encodeHtml } from '../../utils/format';
 import { html, map } from '../../utils/render';
-import { DIR_DIST } from '../constants';
-import { getState } from '../state';
+import { AUTHOR, BUILD, TITLE } from '../../config';
 import { createFile } from '../utils';
+import { DIR_DIST } from '../constants';
 
 const FILE_NAME = 'atom.xml';
 
-export function createAtomFeed(): void {
-  const { build, config } = getState();
-  const fileHref = new URL(FILE_NAME, build.baseUrl).href;
+export function createAtomFeed(posts: Post[]): void {
+  const fileHref = new URL(FILE_NAME, BUILD.baseUrl).href;
 
   // It is important there is no whitespace before the XML tag.
   const contents = html`<?xml version="1.0" encoding="utf-8"?>
     <feed xmlns="http://www.w3.org/2005/Atom">
-      <title>${config.title}</title>
-      <link href="${new URL(fileHref, build.baseUrl).href}" rel="self" />
-      <link href="${build.baseUrl}" />
-      <updated>${build.buildDate.toISOString()}</updated>
-      <id>${build.baseUrl}</id>
+      <title>${TITLE}</title>
+      <link href="${new URL(fileHref, BUILD.baseUrl).href}" rel="self" />
+      <link href="${BUILD.baseUrl}" />
+      <updated>${BUILD.date.toISOString()}</updated>
+      <id>${BUILD.baseUrl}</id>
       <author>
-        <name>${config.author.name}</name>
-        <email>${config.author.email}</email>
+        <name>${AUTHOR.name}</name>
+        <email>${AUTHOR.email}</email>
       </author>
-      ${map(getState().posts, (post) => {
+      ${map(posts, (post) => {
         const date = post.meta.date.toISOString();
         const updated = post.meta.updated?.toISOString() || date;
         return html`

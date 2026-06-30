@@ -1,7 +1,7 @@
 import type { Layout, ImportedPageData, Post } from '@types';
 import { SOCIAL_MIME_TYPE } from '../../generator/constants';
-import { getState } from '../../generator/state';
 import { html, when } from '../../utils/render';
+import { BUILD, DESCRIPTION, TITLE } from '../../config';
 import { siteHeader } from '../site-header';
 
 type PageMetadata = {
@@ -18,18 +18,15 @@ type PageMetadata = {
 };
 
 function getPageMetadata(data: ImportedPageData): PageMetadata {
-  const { build, config } = getState();
   const post = 'post' in data && data.post ? (data.post as Post) : undefined;
 
-  const title = data.config.title
-    ? `${data.config.title} — ${config.title}`
-    : config.title;
+  const title = data.config.title ? `${data.config.title} — ${TITLE}` : TITLE;
 
-  const description = data.config.description || config.description;
+  const description = data.config.description || DESCRIPTION;
 
   const image = post
     ? post.meta.socialUrl
-    : new URL('/assets/img/social-homepage.jpg', build.baseUrl).href;
+    : new URL('/assets/img/social-homepage.jpg', BUILD.baseUrl).href;
 
   const imageAlt = post
     ? `Banner that introduces the blog post by its title: ${post.meta.title}`
@@ -37,7 +34,7 @@ function getPageMetadata(data: ImportedPageData): PageMetadata {
 
   const date = data.config.date?.toISOString();
   const updated =
-    data.config.updated?.toISOString() || date || build.buildDate.toISOString();
+    data.config.updated?.toISOString() || date || BUILD.date.toISOString();
 
   return {
     title,
@@ -45,7 +42,7 @@ function getPageMetadata(data: ImportedPageData): PageMetadata {
     image,
     imageAlt,
     type: post ? 'article' : 'website',
-    name: config.title,
+    name: TITLE,
     url: data.url,
     tags: post ? post.meta.tags : undefined,
     date,
@@ -109,7 +106,6 @@ function addAnalytics(): string {
 
 const layout: Layout = {
   content: (data) => {
-    const { build } = getState();
     const metadata = getPageMetadata(data);
 
     return html`
@@ -150,15 +146,15 @@ const layout: Layout = {
             rel="alternate"
             type="application/atom+xml"
             title="Posts on ${metadata.title}"
-            href="${new URL('atom.xml', build.baseUrl).href}"
+            href="${new URL('atom.xml', BUILD.baseUrl).href}"
           />
           <link
             rel="alternate"
             type="application/rss+xml"
             title="Posts on ${metadata.title}"
-            href="${new URL('rss.xml', build.baseUrl).href}"
+            href="${new URL('rss.xml', BUILD.baseUrl).href}"
           />
-          ${when(build.env === 'PROD', () => addAnalytics())}
+          ${when(BUILD.env === 'PROD', () => addAnalytics())}
         </head>
         <body>
           <div class="wrapper">

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { BUILD } from '../config';
 import { DIR_DIST, DIR_SRC_LAYOUTS } from './constants';
-import { getState } from './state';
 
 export function isObject(arg: unknown): arg is object {
   return Object.prototype.toString.call(arg) === '[object Object]';
@@ -19,7 +19,7 @@ export function getLayoutPath(layout: string): string {
 export function resolveUrl(file: string): string {
   const relativePath = path.relative(DIR_DIST, file);
   const relativeUrl = path.normalize(path.dirname(relativePath) + '/');
-  return new URL(relativeUrl, getState().build.baseUrl).href;
+  return new URL(relativeUrl, BUILD.baseUrl).href;
 }
 
 /**

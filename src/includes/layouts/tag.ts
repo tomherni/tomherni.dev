@@ -1,10 +1,9 @@
 import type { Post, LayoutTag } from '@types';
-import { getState } from '../../generator/state';
 import { html, map } from '../../utils/render';
 import { postPreview } from '../post-preview';
 
-function findTaggedPosts(tag: string): Post[] {
-  return getState().posts.filter((post) => post.meta.tags?.includes(tag));
+function findTaggedPosts(posts: Post[], tag: string): Post[] {
+  return posts.filter((post) => post.meta.tags?.includes(tag));
 }
 
 const layout: LayoutTag = {
@@ -13,13 +12,13 @@ const layout: LayoutTag = {
     title: `Tagged “${tag}”`,
     activePage: 'tags',
   }),
-  content: ({ tag }) => html`
+  content: ({ posts, tag }) => html`
     <div class="page">
       <h1 class="special">
         <span>Posts tagged with</span> <span>“${tag}”</span>
       </h1>
 
-      ${map(findTaggedPosts(tag), (post) => postPreview(post))}
+      ${map(findTaggedPosts(posts, tag), (post) => postPreview(post))}
     </div>
   `,
 };

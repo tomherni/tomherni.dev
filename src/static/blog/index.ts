@@ -1,5 +1,4 @@
 import type { Page } from '@types';
-import { getState } from '../../generator/state';
 import { html, map } from '../../utils/render';
 import { postPreview } from '../../includes/post-preview';
 
@@ -9,11 +8,10 @@ const page: Page = {
     title: 'Blog',
     activePage: 'blog',
   }),
-  content: () => html`
+  content: ({ posts }) => html`
     <div class="page">
       <h1 class="sr-only">Blog posts</h1>
-
-      ${map(getState().posts, (post) => postPreview(post))}
+      ${map(posts, (post) => postPreview(post))}
     </div>
   `,
 };

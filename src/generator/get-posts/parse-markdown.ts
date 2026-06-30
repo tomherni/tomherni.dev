@@ -1,17 +1,17 @@
-import type { BuildConfig } from '@types';
 import { marked, Renderer } from 'marked';
 import prism from 'prismjs';
 import { encodeHtml, slugify } from '../../utils/format';
+import { BUILD } from '../../config';
 import 'prismjs/components/prism-bash.js';
 import 'prismjs/components/prism-json.js';
 import 'prismjs/components/prism-typescript.js';
 
-export function parseMarkdown(content: string, config: BuildConfig): string {
+export function parseMarkdown(content: string): string {
   const renderer = new Renderer();
 
   addSyntaxHighlighting(renderer);
   addHeadingAnchor(renderer);
-  secureExternalLinks(renderer, config);
+  secureExternalLinks(renderer);
 
   const parsed = marked(content, { renderer });
 
@@ -62,12 +62,12 @@ function addHeadingAnchor(renderer: Renderer): void {
   };
 }
 
-function secureExternalLinks(renderer: Renderer, config: BuildConfig): void {
+function secureExternalLinks(renderer: Renderer): void {
   const originalLinkRenderer = renderer.link;
 
   renderer.link = (href, ...args) => {
     const html = originalLinkRenderer.call(renderer, href, ...args);
-    return href && !href.startsWith(config.baseUrl)
+    return href && !href.startsWith(BUILD.baseUrl)
       ? html.replace(/<a/, '<a target="_blank" rel="noopener noreferrer"')
       : html;
   };

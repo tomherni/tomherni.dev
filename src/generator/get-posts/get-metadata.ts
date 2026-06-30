@@ -1,16 +1,16 @@
-import type { BuildConfig, ParsedFrontMatter, PostMetadata } from '@types';
+import type { ParsedFrontMatter, PostMetadata } from '@types';
 import path from 'node:path';
 import { slugify } from '../../utils/format';
+import { BUILD } from '../../config';
 import { DIR_SRC_STATIC, SOCIAL_FILE_NAME } from '../constants';
 
 export function getMetadata(
   content: string,
   fm: ParsedFrontMatter,
   file: string,
-  config: BuildConfig,
 ): PostMetadata {
   const relativePath = path.dirname(path.relative(DIR_SRC_STATIC, file)) + '/';
-  const url = new URL(relativePath, config.baseUrl).href;
+  const url = new URL(relativePath, BUILD.baseUrl).href;
   const description = fm.description || content.split('\n').filter(Boolean)[0];
 
   // Some properties could be added by spreading `frontMatter`. But now there is

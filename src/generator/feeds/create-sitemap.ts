@@ -2,13 +2,13 @@ import type { ImportedPageData, RenderedPages } from '@types';
 import path from 'node:path';
 import { formatDateIso } from '../../utils/format';
 import { html, map } from '../../utils/render';
+import { BUILD } from '../../config';
 import { DIR_DIST } from '../constants';
-import { getState } from '../state';
 import { createFile } from '../utils';
 
 function pagesToSitemapEntries(pages: ImportedPageData[]): string {
   return map(pages, ({ url, config }) => {
-    const date = config?.updated || config?.date || getState().build.buildDate;
+    const date = config?.updated || config?.date || BUILD.date;
     return html`
       <url>
         <loc>${url}</loc>

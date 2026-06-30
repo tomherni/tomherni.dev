@@ -1,4 +1,4 @@
-import type { BuildConfig, ParsedFrontMatter, Post } from '@types';
+import type { ParsedFrontMatter, Post } from '@types';
 import fs from 'node:fs';
 import yamlToJs from 'js-yaml';
 import { convert } from 'quote-quote';
@@ -13,24 +13,24 @@ const frontMatterRegex = /^---([\s\S]*?)---/;
 /**
  * Return all Markdown files transformed to posts.
  */
-export function getPosts(config: BuildConfig): Post[] {
+export function getPosts(): Post[] {
   return findFilesByExtension('md', DIR_SRC_STATIC)
-    .map((file) => transformMarkdownFileToPost(file, config))
+    .map((file) => transformMarkdownFileToPost(file))
     .sort((a, b) => b.meta.date.getTime() - a.meta.date.getTime());
 }
 
-function transformMarkdownFileToPost(file: string, config: BuildConfig): Post {
+function transformMarkdownFileToPost(file: string): Post {
   // Important to format contents before extracting front matter. The front
   // matter may need to be formatted as well (like the description).
   const contents = convert(fs.readFileSync(file, 'utf-8'), { ellipsis: true });
 
   const frontMatter = parseFrontMatter(contents.match(frontMatterRegex)?.[1]);
   const contentWithoutFrontMatter = contents.replace(frontMatterRegex, '');
-  const parsedContent = parseMarkdown(contentWithoutFrontMatter, config);
+  const parsedContent = parseMarkdown(contentWithoutFrontMatter);
 
   return {
     content: parsedContent,
-    meta: getMetadata(parsedContent, frontMatter, file, config),
+    meta: getMetadata(parsedContent, frontMatter, file),
     file,
   };
 }

@@ -40,6 +40,8 @@ export type PageConfig = {
 
 export type BasePageData = {
   url: string;
+  posts: Post[];
+  tags: string[];
 };
 
 export type ImportedPageData = BasePageData & {
@@ -82,28 +84,6 @@ export type LayoutTagData = BasePageData & BaseLayoutTagData;
 export type LayoutTag = {
   config: (data: LayoutTagData) => PageConfig;
   content: (data: LayoutTagData) => string;
-};
-
-export type BuildConfig = {
-  baseUrl: string;
-  env: 'DEV' | 'PROD';
-  buildDate: Date;
-};
-
-export type SiteConfig = {
-  title: string;
-  description: string;
-  author: {
-    name: string;
-    email: string;
-  };
-};
-
-export type GlobalState = {
-  build: BuildConfig;
-  config: SiteConfig;
-  posts: Post[];
-  tags: string[];
 };
 
 export type RenderedPages = {
