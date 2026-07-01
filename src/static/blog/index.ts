@@ -1,6 +1,6 @@
 import type { Page } from '@types';
-import { html, map } from '../../utils/render';
 import { postPreview } from '../../includes/post-preview';
+import { html, map } from '../../utils/html';
 
 const page: Page = {
   config: () => ({

@@ -5,7 +5,7 @@ import { createSitemap } from './generator/feeds/create-sitemap';
 import { optimize } from './generator/optimize/optimize';
 import { getPosts } from './generator/posts/get-posts';
 import { renderPages } from './generator/render-pages/render-pages';
-import { copySourceToTarget } from './generator/utils';
+import { copySourceToTarget } from './utils/node';
 import { DIR_DIST, DIR_SRC_STATIC } from './constants';
 
 async function build() {

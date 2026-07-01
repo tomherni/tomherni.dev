@@ -1,5 +1,8 @@
 import type { BasePageData, ImportedPageData, Page } from '@types';
-import { createFile, getLayoutPath } from '../utils';
+import fs from 'node:fs';
+import path from 'node:path';
+import { createFile } from '../../utils/node';
+import { DIR_SRC_LAYOUTS } from '../../constants';
 
 export async function renderPage(
   source: string,
@@ -23,4 +26,13 @@ export async function renderPage(
 
   createFile(target, content);
   return { ...data, content, config: (data as ImportedPageData).config };
+}
+
+export function getLayoutPath(layout: string): string {
+  const layoutPath = path.join(DIR_SRC_LAYOUTS, `${layout}.ts`);
+
+  if (!fs.existsSync(layoutPath)) {
+    throw new Error('Layout does not exist');
+  }
+  return layoutPath;
 }

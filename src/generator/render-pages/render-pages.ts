@@ -7,10 +7,11 @@ import type {
   RenderedPages,
 } from '@types';
 import path from 'node:path';
+import { findFilesByExtension } from '../../utils/node';
+import { BUILD } from '../../config';
 import { DIR_DIST, DIR_SRC_STATIC } from '../../constants';
 import { createSocialImage } from '../social-image/create-social-image';
-import { findFilesByExtension, getLayoutPath, resolveUrl } from '../utils';
-import { renderPage } from './render-page';
+import { getLayoutPath, renderPage } from './render-page';
 
 export async function renderPages(
   posts: Post[],
@@ -71,4 +72,10 @@ async function renderTagPage(
 
 function resolveSrcDirToDistDir(file: string): string {
   return path.join(DIR_DIST, path.relative(DIR_SRC_STATIC, file));
+}
+
+export function resolveUrl(file: string): string {
+  const relativePath = path.relative(DIR_DIST, file);
+  const relativeUrl = path.normalize(path.dirname(relativePath) + '/');
+  return new URL(relativeUrl, BUILD.baseUrl).href;
 }

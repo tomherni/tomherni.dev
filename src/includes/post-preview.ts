@@ -1,6 +1,6 @@
 import type { Post } from '@types';
-import { formatDateShort, formatDateIso } from '../utils/format';
-import { html, when } from '../utils/render';
+import { formatDateIso, formatDateShort } from '../utils/date';
+import { html, when } from '../utils/html';
 import { tagList } from './tag-list';
 
 function showParagraphWithDate(post: Post): string {

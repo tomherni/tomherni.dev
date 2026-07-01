@@ -1,10 +1,10 @@
 import type { ImportedPageData, RenderedPages } from '@types';
 import path from 'node:path';
-import { formatDateIso } from '../../utils/format';
-import { html, map } from '../../utils/render';
+import { formatDateIso } from '../../utils/date';
+import { html, map } from '../../utils/html';
+import { createFile } from '../../utils/node';
 import { BUILD } from '../../config';
 import { DIR_DIST } from '../../constants';
-import { createFile } from '../utils';
 
 function pagesToSitemapEntries(pages: ImportedPageData[]): string {
   return map(pages, ({ url, config }) => {

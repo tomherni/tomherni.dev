@@ -1,26 +1,5 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { BUILD } from '../config';
-import { DIR_DIST, DIR_SRC_LAYOUTS } from '../constants';
-
-export function isObject(arg: unknown): arg is object {
-  return Object.prototype.toString.call(arg) === '[object Object]';
-}
-
-export function getLayoutPath(layout: string): string {
-  const layoutPath = path.join(DIR_SRC_LAYOUTS, `${layout}.ts`);
-
-  if (!fs.existsSync(layoutPath)) {
-    throw new Error('Layout does not exist');
-  }
-  return layoutPath;
-}
-
-export function resolveUrl(file: string): string {
-  const relativePath = path.relative(DIR_DIST, file);
-  const relativeUrl = path.normalize(path.dirname(relativePath) + '/');
-  return new URL(relativeUrl, BUILD.baseUrl).href;
-}
 
 /**
  * Ensure a directory exists (by creating it if necessary).

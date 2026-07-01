@@ -1,8 +1,8 @@
 import type { LayoutPost } from '@types';
 import { profilePicture } from '../includes/profile-picture';
 import { tagList } from '../includes/tag-list';
-import { formatDate, formatDateIso } from '../utils/format';
-import { html, when } from '../utils/render';
+import { formatDateIso, formatDateLong } from '../utils/date';
+import { html, when } from '../utils/html';
 
 const layout: LayoutPost = {
   config: ({ post }) => ({
@@ -20,7 +20,7 @@ const layout: LayoutPost = {
           <h1>${post.meta.title}</h1>
           <div class="datetime">
             <time datetime="${formatDateIso(post.meta.date)}">
-              ${formatDate(post.meta.date)}
+              ${formatDateLong(post.meta.date)}
             </time>
             &nbsp;&bull;&nbsp; ${post.meta.timeToRead} min read
           </div>

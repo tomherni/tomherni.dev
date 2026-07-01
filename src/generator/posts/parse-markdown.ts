@@ -1,6 +1,7 @@
 import { marked, Renderer } from 'marked';
 import prism from 'prismjs';
-import { encodeHtml, slugify } from '../../utils/format';
+import { encode } from '../../utils/html';
+import { slugify } from '../../utils/string';
 import { BUILD } from '../../config';
 import 'prismjs/components/prism-bash.js';
 import 'prismjs/components/prism-json.js';
@@ -25,7 +26,7 @@ export function parseMarkdown(content: string): string {
 function addSyntaxHighlighting(renderer: Renderer): void {
   renderer.code = (code, infostring) => {
     if (!infostring) {
-      return `<pre><code>${encodeHtml(code)}</code></pre>`;
+      return `<pre><code>${encode(code)}</code></pre>`;
     }
 
     const language = prism.languages[infostring];

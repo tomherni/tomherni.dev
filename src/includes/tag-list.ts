@@ -1,4 +1,4 @@
-import { html, map } from '../utils/render';
+import { html, map } from '../utils/html';
 
 type TagListOptions = {
   condensed?: boolean;

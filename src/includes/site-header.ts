@@ -1,5 +1,5 @@
 import type { PageConfig } from '@types';
-import { html } from '../utils/render';
+import { html } from '../utils/html';
 
 export const siteHeader = (config: PageConfig = {}) => html`
   <div class="site-header">

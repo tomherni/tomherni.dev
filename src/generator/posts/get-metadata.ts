@@ -1,6 +1,6 @@
 import type { ParsedFrontMatter, PostMetadata } from '@types';
 import path from 'node:path';
-import { slugify } from '../../utils/format';
+import { slugify } from '../../utils/string';
 import { BUILD } from '../../config';
 import { DIR_SRC_STATIC, SOCIAL_FILE_NAME } from '../../constants';
 

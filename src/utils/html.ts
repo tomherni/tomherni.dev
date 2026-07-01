@@ -24,3 +24,14 @@ export function when(
 ): string {
   return condition ? truthyContent() : falsyContent?.() || '';
 }
+
+/**
+ * Encode HTML to make it safe to display as text.
+ */
+export function encode(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}

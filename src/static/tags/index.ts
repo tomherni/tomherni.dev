@@ -1,6 +1,6 @@
 import type { Page } from '@types';
-import { html } from '../../utils/render';
 import { tagList } from '../../includes/tag-list';
+import { html } from '../../utils/html';
 
 const page: Page = {
   config: () => ({

@@ -1,6 +1,6 @@
 import type { Layout, ImportedPageData, Post } from '@types';
 import { siteHeader } from '../includes/site-header';
-import { html, when } from '../utils/render';
+import { html, when } from '../utils/html';
 import { BUILD, DESCRIPTION, TITLE } from '../config';
 import { SOCIAL_MIME_TYPE } from '../constants';
 

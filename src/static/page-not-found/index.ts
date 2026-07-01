@@ -1,5 +1,5 @@
 import type { Page } from '@types';
-import { html } from '../../utils/render';
+import { html } from '../../utils/html';
 
 const page: Page = {
   config: () => ({

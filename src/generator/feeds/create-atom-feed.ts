@@ -1,10 +1,9 @@
 import type { Post } from '@types';
 import path from 'node:path';
-import { encodeHtml } from '../../utils/format';
-import { html, map } from '../../utils/render';
+import { encode, html, map } from '../../utils/html';
+import { createFile } from '../../utils/node';
 import { AUTHOR, BUILD, TITLE } from '../../config';
 import { DIR_DIST } from '../../constants';
-import { createFile } from '../utils';
 
 const FILE_NAME = 'atom.xml';
 
@@ -34,7 +33,7 @@ export function createAtomFeed(posts: Post[]): void {
             <published>${date}</published>
             <updated>${updated}</updated>
             <summary>${post.meta.description}</summary>
-            <content type="html">${encodeHtml(post.content)}</content>
+            <content type="html">${encode(post.content)}</content>
           </entry>
         `;
       })}
