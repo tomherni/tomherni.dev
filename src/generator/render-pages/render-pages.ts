@@ -7,8 +7,8 @@ import type {
   RenderedPages,
 } from '@types';
 import path from 'node:path';
+import { DIR_DIST, DIR_SRC_STATIC } from '../../constants';
 import { createSocialImage } from '../social-image/create-social-image';
-import { DIR_DIST, DIR_SRC_STATIC } from '../constants';
 import { findFilesByExtension, getLayoutPath, resolveUrl } from '../utils';
 import { renderPage } from './render-page';
 

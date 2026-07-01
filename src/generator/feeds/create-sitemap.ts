@@ -3,7 +3,7 @@ import path from 'node:path';
 import { formatDateIso } from '../../utils/format';
 import { html, map } from '../../utils/render';
 import { BUILD } from '../../config';
-import { DIR_DIST } from '../constants';
+import { DIR_DIST } from '../../constants';
 import { createFile } from '../utils';
 
 function pagesToSitemapEntries(pages: ImportedPageData[]): string {

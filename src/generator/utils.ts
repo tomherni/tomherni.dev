@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { BUILD } from '../config';
-import { DIR_DIST, DIR_SRC_LAYOUTS } from './constants';
+import { DIR_DIST, DIR_SRC_LAYOUTS } from '../constants';
 
 export function isObject(arg: unknown): arg is object {
   return Object.prototype.toString.call(arg) === '[object Object]';

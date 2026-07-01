@@ -3,8 +3,8 @@ import path from 'node:path';
 import { encodeHtml } from '../../utils/format';
 import { html, map } from '../../utils/render';
 import { AUTHOR, BUILD, TITLE } from '../../config';
+import { DIR_DIST } from '../../constants';
 import { createFile } from '../utils';
-import { DIR_DIST } from '../constants';
 
 const FILE_NAME = 'atom.xml';
 

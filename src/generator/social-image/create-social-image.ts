@@ -8,7 +8,7 @@ import {
 import fs from 'node:fs';
 import path from 'node:path';
 import url from 'node:url';
-import { SOCIAL_FILE_NAME, SOCIAL_MIME_TYPE } from '../constants';
+import { SOCIAL_FILE_NAME, SOCIAL_MIME_TYPE } from '../../constants';
 
 const WIDTH = 1200;
 const HEIGHT = 600;

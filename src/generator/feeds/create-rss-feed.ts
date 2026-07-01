@@ -2,7 +2,7 @@ import type { Post } from '@types';
 import path from 'node:path';
 import { html, map } from '../../utils/render';
 import { AUTHOR, BUILD, TITLE } from '../../config';
-import { DIR_DIST } from '../constants';
+import { DIR_DIST } from '../../constants';
 import { createFile } from '../utils';
 
 const FILE_NAME = 'rss.xml';

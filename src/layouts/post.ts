@@ -1,8 +1,8 @@
 import type { LayoutPost } from '@types';
-import { formatDate, formatDateIso } from '../../utils/format';
-import { html, when } from '../../utils/render';
-import { profilePicture } from '../profile-picture';
-import { tagList } from '../tag-list';
+import { profilePicture } from '../includes/profile-picture';
+import { tagList } from '../includes/tag-list';
+import { formatDate, formatDateIso } from '../utils/format';
+import { html, when } from '../utils/render';
 
 const layout: LayoutPost = {
   config: ({ post }) => ({

@@ -1,8 +1,8 @@
 import type { Layout, ImportedPageData, Post } from '@types';
-import { SOCIAL_MIME_TYPE } from '../../generator/constants';
-import { html, when } from '../../utils/render';
-import { BUILD, DESCRIPTION, TITLE } from '../../config';
-import { siteHeader } from '../site-header';
+import { siteHeader } from '../includes/site-header';
+import { html, when } from '../utils/render';
+import { BUILD, DESCRIPTION, TITLE } from '../config';
+import { SOCIAL_MIME_TYPE } from '../constants';
 
 type PageMetadata = {
   title: string;
