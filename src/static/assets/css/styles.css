@@ -70,8 +70,8 @@ body {
     normal 400 1.8rem/1.7 Rubik,
     sans-serif;
   font-optical-sizing: auto;
-  background-color: var(--color-background);
   text-rendering: optimizelegibility;
+  background-color: var(--color-background);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

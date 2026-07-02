@@ -1,10 +1,10 @@
 import fs from 'node:fs';
-import { createAtomFeed } from './generator/feeds/create-atom-feed';
-import { createRssFeed } from './generator/feeds/create-rss-feed';
-import { createSitemap } from './generator/feeds/create-sitemap';
-import { optimize } from './generator/optimize/optimize';
-import { getPosts } from './generator/posts/get-posts';
-import { renderPages } from './generator/render-pages/render-pages';
+import { createAtomFeed } from './build/feeds/create-atom-feed';
+import { createRssFeed } from './build/feeds/create-rss-feed';
+import { createSitemap } from './build/feeds/create-sitemap';
+import { optimize } from './build/optimize';
+import { getPosts } from './build/posts/get-posts';
+import { renderPages } from './build/render-pages';
 import { copySourceToTarget } from './utils/node';
 import { DIR_DIST, DIR_SRC_STATIC } from './constants';
 
