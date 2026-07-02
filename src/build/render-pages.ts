@@ -1,17 +1,11 @@
-import type {
-  BasePageData,
-  ImportedPageData,
-  LayoutPostData,
-  LayoutTagData,
-  Post,
-  RenderedPages,
-} from '@types';
+import type { Layout, Page, PageData, Post, RenderedPages } from '@types';
 import path from 'node:path';
-import { findFilesByExtension } from '../../utils/node';
-import { BUILD } from '../../config';
-import { DIR_DIST, DIR_SRC_STATIC } from '../../constants';
-import { createSocialImage } from '../social-image/create-social-image';
-import { getLayoutPath, renderPage } from './render-page';
+import postLayout from '../layouts/post';
+import tagLayout from '../layouts/tag';
+import { createFile, findFilesByExtension } from '../utils/node';
+import { BUILD } from '../config';
+import { DIR_DIST, DIR_SRC_STATIC } from '../constants';
+import { createSocialImage } from './social-image/create-social-image';
 
 export async function renderPages(
   posts: Post[],
@@ -30,20 +24,20 @@ export async function renderContentPage(
   file: string,
   posts: Post[],
   tags: string[],
-): Promise<ImportedPageData> {
+): Promise<PageData> {
+  const layout = (await import(file)).default as Page;
   const target = resolveSrcDirToDistDir(file).replace('.ts', '.html');
-  const data: BasePageData = { url: resolveUrl(target), posts, tags };
-  return renderPage(file, target, data);
+  const data: PageData = { url: resolveUrl(target), posts, tags };
+  return renderPage(target, layout, data);
 }
 
 async function renderPostPage(
   post: Post,
   posts: Post[],
   tags: string[],
-): Promise<ImportedPageData> {
-  const layout = getLayoutPath('post');
+): Promise<PageData> {
   const target = resolveSrcDirToDistDir(post.file).replace('.md', '.html');
-  const data: LayoutPostData = {
+  const data: PageData = {
     url: resolveUrl(target),
     posts,
     tags,
@@ -52,7 +46,7 @@ async function renderPostPage(
   };
 
   const [page] = await Promise.all([
-    renderPage(layout, target, data),
+    renderPage(target, postLayout, data),
     createSocialImage(post, target),
   ]);
 
@@ -63,18 +57,30 @@ async function renderTagPage(
   tag: string,
   posts: Post[],
   tags: string[],
-): Promise<ImportedPageData> {
-  const layout = getLayoutPath('tag');
+): Promise<PageData> {
   const target = path.join(DIR_DIST, `/tags/${tag}/index.html`);
-  const data: LayoutTagData = { url: resolveUrl(target), posts, tags, tag };
-  return renderPage(layout, target, data);
+  const data: PageData = { url: resolveUrl(target), posts, tags, tag };
+  return renderPage(target, tagLayout, data);
+}
+
+function renderPage(
+  target: string,
+  pageOrLayout: Page | Layout,
+  data: PageData,
+): PageData {
+  const result = pageOrLayout(data);
+  if (!result.content) {
+    throw new Error('No content');
+  }
+  createFile(target, result.content);
+  return result;
 }
 
 function resolveSrcDirToDistDir(file: string): string {
   return path.join(DIR_DIST, path.relative(DIR_SRC_STATIC, file));
 }
 
-export function resolveUrl(file: string): string {
+function resolveUrl(file: string): string {
   const relativePath = path.relative(DIR_DIST, file);
   const relativeUrl = path.normalize(path.dirname(relativePath) + '/');
   return new URL(relativeUrl, BUILD.baseUrl).href;

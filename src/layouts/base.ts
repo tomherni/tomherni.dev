@@ -1,4 +1,4 @@
-import type { Layout, ImportedPageData, Post } from '@types';
+import type { Layout, PageData, Post } from '@types';
 import { siteHeader } from '../includes/site-header';
 import { html, when } from '../utils/html';
 import { BUILD, DESCRIPTION, TITLE } from '../config';
@@ -17,12 +17,12 @@ type PageMetadata = {
   tags?: string[];
 };
 
-function getPageMetadata(data: ImportedPageData): PageMetadata {
+function getPageMetadata(data: PageData): PageMetadata {
   const post = 'post' in data && data.post ? (data.post as Post) : undefined;
 
-  const title = data.config.title ? `${data.config.title} — ${TITLE}` : TITLE;
+  const title = data.title ? `${data.title} — ${TITLE}` : TITLE;
 
-  const description = data.config.description || DESCRIPTION;
+  const description = data.description || DESCRIPTION;
 
   const image = post
     ? post.meta.socialUrl
@@ -32,9 +32,9 @@ function getPageMetadata(data: ImportedPageData): PageMetadata {
     ? `Banner that introduces the blog post by its title: ${post.meta.title}`
     : 'Profile picture of Tom Herni—a front-end engineer passionate about designing and building creative solutions for the web';
 
-  const date = data.config.date?.toISOString();
+  const date = data.date?.toISOString();
   const updated =
-    data.config.updated?.toISOString() || date || BUILD.date.toISOString();
+    data.updated?.toISOString() || date || BUILD.date.toISOString();
 
   return {
     title,
@@ -104,11 +104,12 @@ function addAnalytics(): string {
   `;
 }
 
-const layout: Layout = {
-  content: (data) => {
-    const metadata = getPageMetadata(data);
+const layout: Layout = (data) => {
+  const metadata = getPageMetadata(data);
 
-    return html`
+  return {
+    ...data,
+    content: html`
       <!doctype html>
       <html lang="en-US" dir="ltr">
         <head>
@@ -158,14 +159,14 @@ const layout: Layout = {
         </head>
         <body>
           <div class="wrapper">
-            ${siteHeader(data.config)}
+            ${siteHeader(data)}
             <main>${data.content}</main>
           </div>
           <script src="/assets/js/index.js"></script>
         </body>
       </html>
-    `;
-  },
+    `,
+  };
 };
 
 export default layout;

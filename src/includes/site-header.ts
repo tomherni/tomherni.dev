@@ -1,7 +1,7 @@
-import type { PageConfig } from '@types';
+import type { PageData } from '@types';
 import { html } from '../utils/html';
 
-export const siteHeader = (config: PageConfig = {}) => html`
+export const siteHeader = (data: PageData) => html`
   <div class="site-header">
     <nav role="navigation" aria-label="Main navigation">
       <ul aria-label="Main navigation">
@@ -9,7 +9,7 @@ export const siteHeader = (config: PageConfig = {}) => html`
           <a
             href="/"
             class="logo"
-            aria-current="${String(config.activePage === 'home')}"
+            aria-current="${String(data.activePage === 'home')}"
           >
             tomherni<span>.dev</span>
           </a>
@@ -17,8 +17,8 @@ export const siteHeader = (config: PageConfig = {}) => html`
         <li>
           <a
             href="/blog/"
-            class="${config.activePage === 'blog' ? 'link active' : 'link'}"
-            aria-current="${String(config.activePage === 'blog')}"
+            class="${data.activePage === 'blog' ? 'link active' : 'link'}"
+            aria-current="${String(data.activePage === 'blog')}"
           >
             Blog
           </a>
@@ -26,8 +26,8 @@ export const siteHeader = (config: PageConfig = {}) => html`
         <li>
           <a
             href="/tags/"
-            class="${config.activePage === 'tags' ? 'link active' : 'link'}"
-            aria-current="${String(config.activePage === 'tags')}"
+            class="${data.activePage === 'tags' ? 'link active' : 'link'}"
+            aria-current="${String(data.activePage === 'tags')}"
           >
             Tags
           </a>

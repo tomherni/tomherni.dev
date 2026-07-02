@@ -2,10 +2,10 @@ import { transform } from 'lightningcss';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { minify as minifyJs } from 'terser';
 import { minify as minifyHtml } from 'html-minifier-terser';
-import { findFilesByExtension } from '../../utils/node';
-import { DIR_DIST } from '../../constants';
+import { minify as minifyJs } from 'terser';
+import { findFilesByExtension } from '../utils/node';
+import { DIR_DIST } from '../constants';
 
 // A map of asset file paths to their hashed file names.
 const fileHashMap: Record<string, string> = {};

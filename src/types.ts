@@ -1,4 +1,20 @@
-/* Post */
+export type PageData = {
+  url: string;
+  posts: Post[];
+  tags: string[];
+  content?: string;
+  post?: Post;
+  tag?: string;
+  title?: string;
+  description?: string;
+  date?: Date;
+  updated?: Date;
+  activePage?: 'home' | 'blog' | 'tags';
+  excludeFromSitemap?: boolean;
+};
+
+export type Page = (data: PageData) => PageData;
+export type Layout = (data: PageData) => PageData;
 
 export type ParsedFrontMatter = {
   title: string;
@@ -26,68 +42,8 @@ export type Post = {
   file: string;
 };
 
-/* Global */
-
-export type PageConfig = {
-  layout?: string;
-  title?: string;
-  description?: string;
-  date?: Date;
-  updated?: Date;
-  activePage?: 'home' | 'blog' | 'tags';
-  excludeFromSitemap?: boolean;
-};
-
-export type BasePageData = {
-  url: string;
-  posts: Post[];
-  tags: string[];
-};
-
-export type ImportedPageData = BasePageData & {
-  config: PageConfig;
-  content: string;
-};
-
-/* Page */
-
-export type Page = {
-  config: (data: BasePageData) => PageConfig;
-  content: (data: BasePageData) => string;
-};
-
-/* Layouts & Data */
-
-export type Layout = {
-  config?: (data: ImportedPageData) => PageConfig;
-  content: (data: ImportedPageData) => string;
-};
-
-export type BaseLayoutPostData = {
-  post: Post;
-  content: string;
-};
-
-export type LayoutPostData = BasePageData & BaseLayoutPostData;
-
-export type LayoutPost = {
-  config: (data: LayoutPostData) => PageConfig;
-  content: (data: LayoutPostData) => string;
-};
-
-export type BaseLayoutTagData = {
-  tag: string;
-};
-
-export type LayoutTagData = BasePageData & BaseLayoutTagData;
-
-export type LayoutTag = {
-  config: (data: LayoutTagData) => PageConfig;
-  content: (data: LayoutTagData) => string;
-};
-
 export type RenderedPages = {
-  content: ImportedPageData[];
-  posts: ImportedPageData[];
-  tags: ImportedPageData[];
+  content: PageData[];
+  posts: PageData[];
+  tags: PageData[];
 };
