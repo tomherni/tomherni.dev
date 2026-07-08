@@ -1,5 +1,5 @@
 import type { ParsedFrontMatter, Post } from '@types';
-import fs from 'node:fs';
+import { promises as fs } from 'node:fs';
 import yamlToJs from 'js-yaml';
 import { convert } from 'quote-quote';
 import { findFilesByExtension } from '../../utils/node';
@@ -14,16 +14,20 @@ const frontMatterRegex = /^---([\s\S]*?)---/;
 /**
  * Return all Markdown files transformed to posts.
  */
-export function getPosts(): Post[] {
-  return findFilesByExtension('md', DIR_SRC_STATIC)
-    .map((file) => transformMarkdownFileToPost(file))
-    .sort((a, b) => b.meta.date.getTime() - a.meta.date.getTime());
+export async function getPosts(): Promise<Post[]> {
+  const mdFiles = await findFilesByExtension('md', DIR_SRC_STATIC);
+  const result = await Promise.all(
+    mdFiles.map((file) => transformMarkdownFileToPost(file)),
+  );
+  return result.sort((a, b) => b.meta.date.getTime() - a.meta.date.getTime());
 }
 
-function transformMarkdownFileToPost(file: string): Post {
+async function transformMarkdownFileToPost(file: string): Promise<Post> {
+  const mdFileContent = await fs.readFile(file, 'utf-8');
+
   // Important to format contents before extracting front matter. The front
   // matter may need to be formatted as well (like the description).
-  const contents = convert(fs.readFileSync(file, 'utf-8'), { ellipsis: true });
+  const contents = convert(mdFileContent, { ellipsis: true });
 
   const frontMatter = parseFrontMatter(contents.match(frontMatterRegex)?.[1]);
   const contentWithoutFrontMatter = contents.replace(frontMatterRegex, '');

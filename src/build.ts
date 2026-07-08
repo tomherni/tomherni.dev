@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import { promises as fs } from 'node:fs';
 import { createAtomFeed } from './build/feeds/create-atom-feed';
 import { createRssFeed } from './build/feeds/create-rss-feed';
 import { createSitemap } from './build/feeds/create-sitemap';
@@ -10,14 +10,14 @@ import { DIR_DIST, DIR_SRC_STATIC } from './constants';
 
 async function build() {
   // Prepare the DIST directory.
-  fs.rmSync(DIR_DIST, { recursive: true, force: true });
-  fs.mkdirSync(DIR_DIST);
+  await fs.rm(DIR_DIST, { recursive: true, force: true });
+  await fs.mkdir(DIR_DIST);
 
   // Copy the content to DIST.
-  copySourceToTarget(DIR_SRC_STATIC, DIR_DIST);
+  await copySourceToTarget(DIR_SRC_STATIC, DIR_DIST);
 
   // Collect all blog posts and tags.
-  const posts = getPosts();
+  const posts = await getPosts();
   const tags = [...new Set(posts.map((post) => post.meta.tags || []).flat())];
 
   // Create the HTML pages.
@@ -27,9 +27,9 @@ async function build() {
   await optimize();
 
   // Create feeds.
-  createAtomFeed(posts);
-  createRssFeed(posts);
-  createSitemap(pages);
+  await createAtomFeed(posts);
+  await createRssFeed(posts);
+  await createSitemap(pages);
 }
 
 await build();
