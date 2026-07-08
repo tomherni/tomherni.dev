@@ -5,7 +5,7 @@ import {
   loadImage,
   registerFont,
 } from 'canvas';
-import fs from 'node:fs';
+import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import url from 'node:url';
 import { SOCIAL_FILE_NAME, SOCIAL_MIME_TYPE } from '../../constants';
@@ -57,7 +57,7 @@ export async function createSocialImage(post: Post, postFile: string) {
   // Save the social image.
   const buffer = canvas.toBuffer(SOCIAL_MIME_TYPE);
   const filePath = path.join(path.dirname(postFile), SOCIAL_FILE_NAME);
-  fs.writeFileSync(filePath, buffer);
+  await fs.writeFile(filePath, buffer);
 }
 
 /**

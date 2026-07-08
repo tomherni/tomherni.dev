@@ -11,7 +11,7 @@ export async function renderPages(
   posts: Post[],
   tags: string[],
 ): Promise<RenderedPages> {
-  const tsFiles = findFilesByExtension('ts', DIR_SRC_STATIC);
+  const tsFiles = await findFilesByExtension('ts', DIR_SRC_STATIC);
   const [content, _posts, _tags] = await Promise.all([
     Promise.all(tsFiles.map((file) => renderContentPage(file, posts, tags))),
     Promise.all(posts.map((post) => renderPostPage(post, posts, tags))),
@@ -53,7 +53,7 @@ async function renderPostPage(
   return page;
 }
 
-async function renderTagPage(
+function renderTagPage(
   tag: string,
   posts: Post[],
   tags: string[],
@@ -63,16 +63,16 @@ async function renderTagPage(
   return renderPage(target, tagLayout, data);
 }
 
-function renderPage(
+async function renderPage(
   target: string,
   pageOrLayout: Page | Layout,
   data: PageData,
-): PageData {
+): Promise<PageData> {
   const result = pageOrLayout(data);
   if (!result.content) {
     throw new Error('No content');
   }
-  createFile(target, result.content);
+  await createFile(target, result.content);
   return result;
 }
 

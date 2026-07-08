@@ -7,7 +7,7 @@ import { DIR_DIST } from '../../constants';
 
 const FILE_NAME = 'rss.xml';
 
-export function createRssFeed(posts: Post[]): void {
+export async function createRssFeed(posts: Post[]): Promise<void> {
   const fileHref = new URL(FILE_NAME, BUILD.baseUrl).href;
   const buildDate = BUILD.date.toUTCString();
 
@@ -48,5 +48,5 @@ export function createRssFeed(posts: Post[]): void {
     </rss>
   `;
 
-  createFile(path.join(DIR_DIST, FILE_NAME), contents);
+  await createFile(path.join(DIR_DIST, FILE_NAME), contents);
 }

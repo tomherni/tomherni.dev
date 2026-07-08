@@ -7,7 +7,7 @@ import { DIR_DIST } from '../../constants';
 
 const FILE_NAME = 'atom.xml';
 
-export function createAtomFeed(posts: Post[]): void {
+export async function createAtomFeed(posts: Post[]): Promise<void> {
   const fileHref = new URL(FILE_NAME, BUILD.baseUrl).href;
 
   // It is important there is no whitespace before the XML tag.
@@ -39,5 +39,5 @@ export function createAtomFeed(posts: Post[]): void {
       })}
     </feed>`;
 
-  createFile(path.join(DIR_DIST, FILE_NAME), contents);
+  await createFile(path.join(DIR_DIST, FILE_NAME), contents);
 }

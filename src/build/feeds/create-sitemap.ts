@@ -18,7 +18,7 @@ function pagesToSitemapEntries(pages: PageData[]): string {
   );
 }
 
-export function createSitemap(pages: RenderedPages): void {
+export async function createSitemap(pages: RenderedPages): Promise<void> {
   const { content, posts, tags } = pages;
 
   // It is important there is no whitespace before the XML tag.
@@ -31,5 +31,5 @@ export function createSitemap(pages: RenderedPages): void {
       ])}
     </urlset>`.trim();
 
-  createFile(path.join(DIR_DIST, 'sitemap.xml'), contents);
+  await createFile(path.join(DIR_DIST, 'sitemap.xml'), contents);
 }
