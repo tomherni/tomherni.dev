@@ -13,8 +13,8 @@
     "start": "tsx scripts/dev-server.ts",
     "build": "tsc -noEmit && tsx src/build.ts",
     "build:dev": "tsx src/build.ts",
-    "lint": "eslint \"**/*.{js,ts}\" --fix && stylelint \"src/**/*.css\" --fix",
-    "lint:check": "eslint \"**/*.{js,ts}\" && stylelint \"src/**/*.css\"",
+    "lint": "eslint \"**/*.{js,ts}\" --fix && stylelint \"**/*.css\" --fix",
+    "lint:check": "eslint \"**/*.{js,ts}\" && stylelint \"**/*.css\"",
     "format": "prettier \"**/*.{css,html,js,json,ts}\" --write --ignore-path .gitignore",
     "format:check": "prettier \"**/*.{css,html,js,json,ts}\" --check --ignore-path .gitignore",
     "prepare": "husky"
