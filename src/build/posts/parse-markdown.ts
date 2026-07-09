@@ -69,7 +69,7 @@ function secureExternalLinks(renderer: Renderer): void {
   renderer.link = (href, ...args) => {
     const html = originalLinkRenderer.call(renderer, href, ...args);
     return href && !href.startsWith(BUILD.baseUrl)
-      ? html.replace(/<a/, '<a target="_blank" rel="noopener noreferrer"')
+      ? html.replace('<a', '<a target="_blank" rel="noopener noreferrer"')
       : html;
   };
 }
