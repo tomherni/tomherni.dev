@@ -1,6 +1,6 @@
-import type { Page } from '@types';
-import baseLayout from '../../layouts/base';
-import { html } from '../../utils/html';
+import type { Page } from '#types';
+import baseLayout from '../../layouts/base.js';
+import { html } from '../../utils/html.js';
 
 const page: Page = (data) =>
   baseLayout({

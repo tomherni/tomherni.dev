@@ -1,4 +1,4 @@
-import { html } from '../utils/html';
+import { html } from '../utils/html.js';
 
 export const profilePicture = () => html`
   <div class="profile-picture">

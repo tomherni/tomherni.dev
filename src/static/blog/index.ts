@@ -1,7 +1,7 @@
-import type { Page } from '@types';
-import { postPreview } from '../../includes/post-preview';
-import baseLayout from '../../layouts/base';
-import { html, map } from '../../utils/html';
+import type { Page } from '#types';
+import { postPreview } from '../../includes/post-preview.js';
+import baseLayout from '../../layouts/base.js';
+import { html, map } from '../../utils/html.js';
 
 const page: Page = (data) =>
   baseLayout({

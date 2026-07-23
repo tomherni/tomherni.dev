@@ -1,7 +1,7 @@
-import type { Page } from '@types';
-import { tagList } from '../../includes/tag-list';
-import baseLayout from '../../layouts/base';
-import { html } from '../../utils/html';
+import type { Page } from '#types';
+import { tagList } from '../../includes/tag-list.js';
+import baseLayout from '../../layouts/base.js';
+import { html } from '../../utils/html.js';
 
 const page: Page = (data) =>
   baseLayout({

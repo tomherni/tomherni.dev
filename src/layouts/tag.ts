@@ -1,7 +1,7 @@
-import type { Layout, Post } from '@types';
-import { postPreview } from '../includes/post-preview';
-import { html, map } from '../utils/html';
-import baseLayout from './base';
+import type { Layout, Post } from '#types';
+import { postPreview } from '../includes/post-preview.js';
+import { html, map } from '../utils/html.js';
+import baseLayout from './base.js';
 
 function findTaggedPosts(posts: Post[], tag: string): Post[] {
   return posts.filter((post) => post.meta.tags?.includes(tag));

@@ -1,9 +1,9 @@
-import type { Layout } from '@types';
-import { profilePicture } from '../includes/profile-picture';
-import { tagList } from '../includes/tag-list';
-import { formatDateIso, formatDateLong } from '../utils/date';
-import { html, when } from '../utils/html';
-import baseLayout from './base';
+import type { Layout } from '#types';
+import { profilePicture } from '../includes/profile-picture.js';
+import { tagList } from '../includes/tag-list.js';
+import { formatDateIso, formatDateLong } from '../utils/date.js';
+import { html, when } from '../utils/html.js';
+import baseLayout from './base.js';
 
 const layout: Layout = (data) => {
   const { post, content } = data;

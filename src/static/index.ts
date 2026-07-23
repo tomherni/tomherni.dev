@@ -1,7 +1,7 @@
-import type { Page } from '@types';
-import { profilePicture } from '../includes/profile-picture';
-import baseLayout from '../layouts/base';
-import { html } from '../utils/html';
+import type { Page } from '#types';
+import { profilePicture } from '../includes/profile-picture.js';
+import baseLayout from '../layouts/base.js';
+import { html } from '../utils/html.js';
 
 const page: Page = (data) =>
   baseLayout({

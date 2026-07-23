@@ -1,8 +1,8 @@
-import type { Layout, PageData, Post } from '@types';
-import { siteHeader } from '../includes/site-header';
-import { html, when } from '../utils/html';
-import { BUILD, DESCRIPTION, TITLE } from '../config';
-import { SOCIAL_MIME_TYPE } from '../constants';
+import type { Layout, PageData, Post } from '#types';
+import { siteHeader } from '../includes/site-header.js';
+import { html, when } from '../utils/html.js';
+import { BUILD, DESCRIPTION, TITLE } from '../config.js';
+import { SOCIAL_MIME_TYPE } from '../constants.js';
 
 type PageMetadata = {
   title: string;

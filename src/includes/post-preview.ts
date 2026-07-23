@@ -1,7 +1,7 @@
-import type { Post } from '@types';
-import { formatDateIso, formatDateShort } from '../utils/date';
-import { html, when } from '../utils/html';
-import { tagList } from './tag-list';
+import type { Post } from '#types';
+import { formatDateIso, formatDateShort } from '../utils/date.js';
+import { html, when } from '../utils/html.js';
+import { tagList } from './tag-list.js';
 
 function showParagraphWithDate(post: Post): string {
   return post.meta.descriptionWithHtml.replace(

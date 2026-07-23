@@ -1,11 +1,11 @@
-import type { Layout, Page, PageData, Post, RenderedPages } from '@types';
+import type { Layout, Page, PageData, Post, RenderedPages } from '#types';
 import path from 'node:path';
-import postLayout from '../layouts/post';
-import tagLayout from '../layouts/tag';
-import { createFile, findFilesByExtension } from '../utils/node';
-import { BUILD } from '../config';
-import { DIR_DIST, DIR_SRC_STATIC } from '../constants';
-import { createSocialImage } from './social-image/create-social-image';
+import postLayout from '../layouts/post.js';
+import tagLayout from '../layouts/tag.js';
+import { createFile, findFilesByExtension } from '../utils/node.js';
+import { BUILD } from '../config.js';
+import { DIR_DIST, DIR_SRC_STATIC } from '../constants.js';
+import { createSocialImage } from './social-image/create-social-image.js';
 
 export async function renderPages(
   posts: Post[],

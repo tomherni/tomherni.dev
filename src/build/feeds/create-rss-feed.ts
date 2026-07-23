@@ -1,9 +1,9 @@
-import type { Post } from '@types';
+import type { Post } from '#types';
 import path from 'node:path';
-import { html, map } from '../../utils/html';
-import { createFile } from '../../utils/node';
-import { AUTHOR, BUILD, TITLE } from '../../config';
-import { DIR_DIST } from '../../constants';
+import { html, map } from '../../utils/html.js';
+import { createFile } from '../../utils/node.js';
+import { AUTHOR, BUILD, TITLE } from '../../config.js';
+import { DIR_DIST } from '../../constants.js';
 
 const FILE_NAME = 'rss.xml';
 

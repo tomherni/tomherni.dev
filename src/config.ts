@@ -1,4 +1,4 @@
-import { BASE_URL_DEV, BASE_URL_PROD } from './constants';
+import { BASE_URL_DEV, BASE_URL_PROD } from './constants.js';
 
 // Website title and description. Used in page meta tags and feeds.
 export const TITLE = 'tomherni.dev';

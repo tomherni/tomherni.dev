@@ -1,8 +1,8 @@
 import { marked, Renderer } from 'marked';
 import prism from 'prismjs';
-import { encode } from '../../utils/html';
-import { slugify } from '../../utils/string';
-import { BUILD } from '../../config';
+import { encode } from '../../utils/html.js';
+import { slugify } from '../../utils/string.js';
+import { BUILD } from '../../config.js';
 import 'prismjs/components/prism-bash.js';
 import 'prismjs/components/prism-json.js';
 import 'prismjs/components/prism-typescript.js';

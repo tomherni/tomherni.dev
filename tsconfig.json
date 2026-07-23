@@ -3,16 +3,13 @@
     "strict": true,
     "lib": ["ES2022", "DOM"],
     "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "esModuleInterop": true,
-    "paths": {
-      "@types": ["./src/types"]
-    }
+    "types": ["node"]
   },
   "include": ["src"]
 }

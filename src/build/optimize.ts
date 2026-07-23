@@ -4,8 +4,8 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { minify as minifyHtml } from 'html-minifier-terser';
 import { minify as minifyJs } from 'terser';
-import { findFilesByExtension } from '../utils/node';
-import { DIR_DIST } from '../constants';
+import { findFilesByExtension } from '../utils/node.js';
+import { DIR_DIST } from '../constants.js';
 
 // A map of asset file paths to their hashed file names. This prevents issues
 // when multiple async operations try to change the same file at the same time.

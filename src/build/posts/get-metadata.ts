@@ -1,8 +1,8 @@
-import type { ParsedFrontMatter, PostMetadata } from '@types';
+import type { ParsedFrontMatter, PostMetadata } from '#types';
 import path from 'node:path';
-import { slugify } from '../../utils/string';
-import { BUILD } from '../../config';
-import { DIR_SRC_STATIC, SOCIAL_FILE_NAME } from '../../constants';
+import { slugify } from '../../utils/string.js';
+import { BUILD } from '../../config.js';
+import { DIR_SRC_STATIC, SOCIAL_FILE_NAME } from '../../constants.js';
 
 export function getMetadata(
   content: string,

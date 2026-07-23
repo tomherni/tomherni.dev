@@ -1,5 +1,5 @@
-import type { PageData } from '@types';
-import { html } from '../utils/html';
+import type { PageData } from '#types';
+import { html } from '../utils/html.js';
 
 export const siteHeader = (data: PageData) => html`
   <div class="site-header">

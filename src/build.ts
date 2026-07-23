@@ -1,12 +1,12 @@
 import { promises as fs } from 'node:fs';
-import { createAtomFeed } from './build/feeds/create-atom-feed';
-import { createRssFeed } from './build/feeds/create-rss-feed';
-import { createSitemap } from './build/feeds/create-sitemap';
-import { optimize } from './build/optimize';
-import { getPosts } from './build/posts/get-posts';
-import { renderPages } from './build/render-pages';
-import { copySourceToTarget } from './utils/node';
-import { DIR_DIST, DIR_SRC_STATIC } from './constants';
+import { createAtomFeed } from './build/feeds/create-atom-feed.js';
+import { createRssFeed } from './build/feeds/create-rss-feed.js';
+import { createSitemap } from './build/feeds/create-sitemap.js';
+import { optimize } from './build/optimize.js';
+import { getPosts } from './build/posts/get-posts.js';
+import { renderPages } from './build/render-pages.js';
+import { copySourceToTarget } from './utils/node.js';
+import { DIR_DIST, DIR_SRC_STATIC } from './constants.js';
 
 async function build() {
   // Prepare the DIST directory.

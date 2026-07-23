@@ -9,6 +9,9 @@
     "node": "^24.0.0",
     "npm": "^11.0.0"
   },
+  "imports": {
+    "#types": "./src/types.js"
+  },
   "scripts": {
     "start": "tsx scripts/dev-server.ts",
     "build": "tsc -noEmit && tsx src/build.ts",

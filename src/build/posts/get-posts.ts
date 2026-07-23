@@ -1,12 +1,12 @@
-import type { ParsedFrontMatter, Post } from '@types';
+import type { ParsedFrontMatter, Post } from '#types';
 import { promises as fs } from 'node:fs';
 import yamlToJs from 'js-yaml';
 import { convert } from 'quote-quote';
-import { findFilesByExtension } from '../../utils/node';
-import { isObject } from '../../utils/object';
-import { DIR_SRC_STATIC } from '../../constants';
-import { getMetadata } from './get-metadata';
-import { parseMarkdown } from './parse-markdown';
+import { findFilesByExtension } from '../../utils/node.js';
+import { isObject } from '../../utils/object.js';
+import { DIR_SRC_STATIC } from '../../constants.js';
+import { getMetadata } from './get-metadata.js';
+import { parseMarkdown } from './parse-markdown.js';
 
 // Markdown front matter is at the top of the file between triple-dashed lines.
 const frontMatterRegex = /^---([\s\S]*?)---/;
