@@ -14,7 +14,7 @@ export function parseMarkdown(content: string): string {
   addHeadingAnchor(renderer);
   secureExternalLinks(renderer);
 
-  const parsed = marked(content, { renderer });
+  const parsed = marked.parse(content, { renderer });
 
   // Safeguard in case an async plugin ever makes it return a Promise.
   if (typeof parsed !== 'string') {
@@ -24,52 +24,38 @@ export function parseMarkdown(content: string): string {
 }
 
 function addSyntaxHighlighting(renderer: Renderer): void {
-  renderer.code = (code, infostring) => {
-    if (!infostring) {
-      return `<pre><code>${encode(code)}</code></pre>`;
+  renderer.code = ({ text, lang }) => {
+    if (!lang) {
+      return `<pre><code>${encode(text)}</code></pre>`;
     }
 
-    const language = prism.languages[infostring];
-
+    const language = prism.languages[lang];
     if (!language) {
       throw new Error(
-        `Language not supported by Prism: ${infostring}. It may needs to be imported.`,
+        `Language "${lang}" is not supported by Prism; it may need to be imported.`,
       );
     }
 
-    const highlightedCode = prism.highlight(code, language, infostring);
-    return `<pre><code class="language-${infostring}">${highlightedCode}</code></pre>`;
+    const highlighted = prism.highlight(text, language, lang);
+    return `<pre><code class="language-${lang}">${highlighted}</code></pre>`;
   };
 }
 
 function addHeadingAnchor(renderer: Renderer): void {
-  const originalHeadingRenderer = renderer.heading;
-
-  renderer.heading = (text, level, raw) => {
-    const html = originalHeadingRenderer.call(renderer, text, level, raw);
-
+  renderer.heading = ({ text, depth }) => {
     // Don't add anchors to the smaller headings.
-    if (level > 3) {
-      return html;
+    if (depth > 3) {
+      return `<h${depth}>${text}</h${depth}>`;
     }
-
-    const headingId = slugify(raw);
-    return html
-      .replace(/<h(\d)/, (match) => `${match} id="${headingId}"`)
-      .replace(
-        /<\/h(\d)>/,
-        (match) => `<a href="#${headingId}" class="anchor">#</a>${match}`,
-      );
+    const id = slugify(text);
+    return `<h${depth} id="${id}">${text}<a href="#${id}" class="anchor">#</a></h${depth}>\n`;
   };
 }
 
 function secureExternalLinks(renderer: Renderer): void {
-  const originalLinkRenderer = renderer.link;
-
-  renderer.link = (href, ...args) => {
-    const html = originalLinkRenderer.call(renderer, href, ...args);
-    return href && !href.startsWith(BUILD.baseUrl)
-      ? html.replace('<a', '<a target="_blank" rel="noopener noreferrer"')
-      : html;
+  renderer.link = ({ text, href }) => {
+    return href.startsWith(BUILD.baseUrl)
+      ? `<a href="${href}">${text}</a>`
+      : `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
   };
 }
