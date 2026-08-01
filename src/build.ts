@@ -1,5 +1,6 @@
 import { promises as fs } from 'node:fs';
 import { createAtomFeed } from './build/feeds/create-atom-feed.js';
+import { createLlmsTxt } from './build/feeds/create-llms-txt.js';
 import { createRssFeed } from './build/feeds/create-rss-feed.js';
 import { createSitemap } from './build/feeds/create-sitemap.js';
 import { optimize } from './build/optimize.js';
@@ -27,9 +28,12 @@ async function build() {
   await optimize();
 
   // Create feeds.
-  await createAtomFeed(posts);
-  await createRssFeed(posts);
-  await createSitemap(pages);
+  await Promise.all([
+    createAtomFeed(posts),
+    createRssFeed(posts),
+    createLlmsTxt(posts),
+    createSitemap(pages),
+  ]);
 }
 
 await build();
