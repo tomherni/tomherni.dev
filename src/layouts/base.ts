@@ -118,7 +118,6 @@ const layout: Layout = (data) => {
           <title>${metadata.title}</title>
           <meta name="description" content="${metadata.description}" />
           <meta name="robots" content="index,follow" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
           <link rel="canonical" href="${metadata.url}" />
           ${createOpenGraphTags(metadata)}
           <meta name="twitter:card" content="summary_large_image" />
