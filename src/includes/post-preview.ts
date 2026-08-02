@@ -18,7 +18,7 @@ function showParagraphWithDate(post: Post): string {
 export const postPreview = (post: Post) => html`
   <article class="post-preview">
     <header>
-      <h2><a href="${post.meta.url}">${post.meta.title}</a></h2>
+      <h2><a href="${post.meta.url}" data-prefetch>${post.meta.title}</a></h2>
     </header>
     <div class="formatted-content">${showParagraphWithDate(post)}</div>
     ${when(post.meta.tags, () => tagList(post.meta.tags!, { condensed: true }))}

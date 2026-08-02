@@ -45,3 +45,23 @@ function updateCheckedState(theme) {
     themeSwitch.setAttribute('checked', '');
   }
 }
+
+// Prefetch links.
+const observer = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (entry.isIntersecting) {
+      const anchor = entry.target;
+      if (anchor.href && window.location.href !== anchor.href) {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = anchor.href;
+        document.head.append(link);
+      }
+      observer.unobserve(anchor);
+    }
+  }
+});
+
+document
+  .querySelectorAll('a[data-prefetch]')
+  .forEach((a) => observer.observe(a));

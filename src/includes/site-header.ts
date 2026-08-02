@@ -10,6 +10,7 @@ export const siteHeader = (data: PageData) => html`
             href="/"
             class="logo"
             aria-current="${String(data.activePage === 'home')}"
+            data-prefetch
           >
             tomherni<span>.dev</span>
           </a>
@@ -19,6 +20,7 @@ export const siteHeader = (data: PageData) => html`
             href="/blog/"
             class="${data.activePage === 'blog' ? 'link active' : 'link'}"
             aria-current="${String(data.activePage === 'blog')}"
+            data-prefetch
           >
             Blog
           </a>
@@ -28,6 +30,7 @@ export const siteHeader = (data: PageData) => html`
             href="/tags/"
             class="${data.activePage === 'tags' ? 'link active' : 'link'}"
             aria-current="${String(data.activePage === 'tags')}"
+            data-prefetch
           >
             Tags
           </a>
