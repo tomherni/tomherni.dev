@@ -140,7 +140,7 @@ const layout: Layout = (data) => {
           <meta name="twitter:creator" content="@tomherni" />
           <meta name="twitter:image" content="${metadata.image}" />
           <meta name="twitter:image:alt" content="${metadata.image}" />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.ico" type="image/x-icon" />
           <link
             rel="icon"
             href="/favicon.svg"

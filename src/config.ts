@@ -1,5 +1,7 @@
 import { BASE_URL_DEV, BASE_URL_PROD } from './constants.js';
 
+type Env = 'DEV' | 'TEST' | 'PROD';
+
 // Website title and description. Used in page meta tags and feeds.
 export const TITLE = 'tomherni.dev';
 export const DESCRIPTION = 'Personal website of Tom Herni.';
@@ -15,12 +17,12 @@ export const BUILD = {
   date: new Date(),
 };
 
-function getBaseUrlAndEnv(): { env: 'DEV' | 'PROD'; baseUrl: string } {
+function getBaseUrlAndEnv(): { env: Env; baseUrl: string } {
   const { CONTEXT, DEPLOY_PRIME_URL } = process.env;
 
   // Detect Netlify's Deploy Preview deployment.
   if (CONTEXT === 'deploy-preview' && DEPLOY_PRIME_URL) {
-    return { baseUrl: DEPLOY_PRIME_URL, env: 'PROD' };
+    return { baseUrl: DEPLOY_PRIME_URL, env: 'TEST' };
   }
 
   // Detect Netlify's production deployment.
