@@ -92,9 +92,8 @@ async function hashRelativeAssetUrlsInHtml(contents: string): Promise<string> {
       matches
         .filter((match) => {
           const [, , value] = match;
-          // TODO: search & replace in all files (e.g. cache .woff2 and update CSS usage)
           // Ideally in the regex, but that gets quite complex and hard to read.
-          return !value.includes('favicon.') && !value.includes('.woff2');
+          return !value.includes('favicon.');
         })
         .map(async (match) => {
           const [fullMatch, prefix, value, suffix] = match;

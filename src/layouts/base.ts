@@ -118,14 +118,14 @@ const layout: Layout = (data) => {
           <title>${metadata.title}</title>
           <link
             rel="preload"
-            href="/assets/fonts/rubik-iJWKBXyIfDnIV7nBrXyw023e.woff2"
+            href="https://fonts.gstatic.com/s/rubik/v31/iJWKBXyIfDnIV7nBrXyw023e.woff2"
             as="font"
             type="font/woff2"
             crossorigin="anonymous"
           />
           <link
             rel="preload"
-            href="/assets/fonts/rubik-iJWEBXyIfDnIV7nEnX661E_c5Ig.woff2"
+            href="https://fonts.gstatic.com/s/rubik/v31/iJWEBXyIfDnIV7nEnX661E_c5Ig.woff2"
             as="font"
             type="font/woff2"
             crossorigin="anonymous"
