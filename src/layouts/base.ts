@@ -126,7 +126,8 @@ const layout: Layout = (data) => {
           <meta name="twitter:creator" content="@tomherni" />
           <meta name="twitter:image" content="${metadata.image}" />
           <meta name="twitter:image:alt" content="${metadata.image}" />
-          <link rel="icon" href="/assets/img/favicon.ico" />
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
           <script>
             // Set up the theme before loading the CSS so that the correct
             // CSS properties can be used from the start.

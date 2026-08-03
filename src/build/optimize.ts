@@ -89,17 +89,23 @@ async function hashRelativeAssetUrlsInHtml(contents: string): Promise<string> {
 
     // Find all replacements.
     const replacements = await Promise.all(
-      matches.map(async (match) => {
-        const [fullMatch, prefix, value, suffix] = match;
-        return {
-          start: match.index,
-          end: match.index + fullMatch.length,
-          replacement:
-            value.startsWith('.') || value.startsWith('/')
-              ? `${prefix}${await hashFile(value)}${suffix}`
-              : fullMatch,
-        };
-      }),
+      matches
+        .filter((match) => {
+          const [, , value] = match;
+          // Ideally in the regex, but that gets quite complex and hard to read.
+          return !value.includes('favicon.');
+        })
+        .map(async (match) => {
+          const [fullMatch, prefix, value, suffix] = match;
+          return {
+            start: match.index,
+            end: match.index + fullMatch.length,
+            replacement:
+              value.startsWith('.') || value.startsWith('/')
+                ? `${prefix}${await hashFile(value)}${suffix}`
+                : fullMatch,
+          };
+        }),
     );
 
     // Apply replacements.
