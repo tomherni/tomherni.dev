@@ -116,6 +116,20 @@ const layout: Layout = (data) => {
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
           <title>${metadata.title}</title>
+          <link
+            rel="preload"
+            href="/assets/fonts/rubik-iJWKBXyIfDnIV7nBrXyw023e.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/assets/fonts/rubik-iJWEBXyIfDnIV7nEnX661E_c5Ig.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+          />
           <meta name="description" content="${metadata.description}" />
           <meta name="robots" content="index,follow" />
           <link rel="canonical" href="${metadata.url}" />
@@ -127,7 +141,12 @@ const layout: Layout = (data) => {
           <meta name="twitter:image" content="${metadata.image}" />
           <meta name="twitter:image:alt" content="${metadata.image}" />
           <link rel="icon" href="/favicon.ico" />
-          <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+          <link
+            rel="icon"
+            href="/favicon.svg"
+            type="image/svg+xml"
+            sizes="any"
+          />
           <script>
             // Set up the theme before loading the CSS so that the correct
             // CSS properties can be used from the start.
