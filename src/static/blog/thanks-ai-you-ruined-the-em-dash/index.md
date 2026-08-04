@@ -5,7 +5,7 @@ tags:
   - ai
 ---
 
-An em dash is the long "—" punctuation character. And whenever an online post includes one, there's always someone who replies with "Em dash detected", implying the text was written by AI.
+An em dash is the long "—" punctuation character. And whenever an online post includes one, there's always someone who replies with "Em dash detected," implying the text was written by AI.
 
 I use AI every day. I don't mind anyone knowing that. But if I write something myself, I just don't want people to assume I pasted it from a generative AI response.
 
