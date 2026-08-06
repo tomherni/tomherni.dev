@@ -74,7 +74,7 @@ const layout: Layout = (data) => {
                   <div class="img">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 32 32"
+                      viewBox="2 2 28 28"
                       focusable="false"
                       aria-hidden="true"
                     >
