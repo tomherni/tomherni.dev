@@ -25,6 +25,13 @@ export function formatDateShort(date: Temporal.Instant): string {
 /**
  * Format a `Temporal.Instant` to YYYY-MM-DD.
  */
-export function formatDateIso(date: Temporal.Instant): string {
+export function formatPlainDate(date: Temporal.Instant): string {
   return date.toZonedDateTimeISO('UTC').toPlainDate().toString();
+}
+
+/**
+ * Format a `Temporal.Instant` to a UTC string. (Example: Mon, 01 Jan 2024 00:00:00 GMT)
+ */
+export function formatDateUtcString(date: Temporal.Instant): string {
+  return new Date(date.epochMilliseconds).toUTCString();
 }

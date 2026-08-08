@@ -1,7 +1,7 @@
 import type { Layout } from '#types';
 import { profilePicture } from '../includes/profile-picture.js';
 import { tagList } from '../includes/tag-list.js';
-import { formatDateIso, formatDateLong } from '../utils/date.js';
+import { formatDateLong, formatPlainDate } from '../utils/date.js';
 import { html, when } from '../utils/html.js';
 import baseLayout from './base.js';
 
@@ -23,7 +23,7 @@ const layout: Layout = (data) => {
           <header>
             <h1>${post.meta.title}</h1>
             <div class="datetime">
-              <time datetime="${formatDateIso(post.meta.date)}">
+              <time datetime="${formatPlainDate(post.meta.date)}">
                 ${formatDateLong(post.meta.date)}
               </time>
               &nbsp;&bull;&nbsp; ${post.meta.timeToRead} min read
