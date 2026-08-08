@@ -32,9 +32,11 @@ function getPageMetadata(data: PageData): PageMetadata {
     ? `Banner that introduces the blog post by its title: ${post.meta.title}`
     : 'Profile picture of Tom Herni—a front-end engineer passionate about designing and building creative solutions for the web';
 
-  const date = data.date?.toISOString();
+  const date = data.date?.toString();
   const updated =
-    data.updated?.toISOString() || date || BUILD.date.toISOString();
+    data.updated?.toString() ||
+    date ||
+    BUILD.date.toString({ smallestUnit: 'millisecond' });
 
   return {
     title,
