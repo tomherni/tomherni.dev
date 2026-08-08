@@ -1,6 +1,6 @@
 ---
 title: And So It Begins
-date: 2024-01-03 17:00:00
+date: 2024-01-03 16:00:00
 tags:
   - blog
   - tomherni.dev

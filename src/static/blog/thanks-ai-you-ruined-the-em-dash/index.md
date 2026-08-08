@@ -1,6 +1,6 @@
 ---
 title: Thanks AI, You Ruined the Em Dash
-date: 2026-08-03 22:24:00
+date: 2026-08-03 20:24:00
 tags:
   - ai
 ---

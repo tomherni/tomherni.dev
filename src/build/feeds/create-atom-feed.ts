@@ -16,15 +16,15 @@ export async function createAtomFeed(posts: Post[]): Promise<void> {
       <title>${TITLE}</title>
       <link href="${new URL(fileHref, BUILD.baseUrl).href}" rel="self" />
       <link href="${BUILD.baseUrl}" />
-      <updated>${BUILD.date.toISOString()}</updated>
+      <updated>${BUILD.date.toString({ smallestUnit: 'millisecond' })}</updated>
       <id>${BUILD.baseUrl}</id>
       <author>
         <name>${AUTHOR.name}</name>
         <email>${AUTHOR.email}</email>
       </author>
       ${map(posts, (post) => {
-        const date = post.meta.date.toISOString();
-        const updated = post.meta.updated?.toISOString() || date;
+        const date = post.meta.date.toString();
+        const updated = post.meta.updated?.toString() || date;
         return html`
           <entry>
             <title>${post.meta.title}</title>

@@ -1,6 +1,6 @@
 import type { PageData, RenderedPages } from '#types';
 import path from 'node:path';
-import { formatDateIso } from '../../utils/date.js';
+import { formatPlainDate } from '../../utils/date.js';
 import { html, map } from '../../utils/html.js';
 import { createFile } from '../../utils/node.js';
 import { BUILD } from '../../config.js';
@@ -12,7 +12,7 @@ function pagesToSitemapEntries(pages: PageData[]): string {
     ({ url, updated, date }) => html`
       <url>
         <loc>${url}</loc>
-        <lastmod>${formatDateIso(updated || date || BUILD.date)}</lastmod>
+        <lastmod>${formatPlainDate(updated || date || BUILD.date)}</lastmod>
       </url>
     `,
   );

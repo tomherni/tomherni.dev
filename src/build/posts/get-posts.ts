@@ -1,6 +1,7 @@
 import type { ParsedFrontMatter, Post } from '#types';
 import { promises as fs } from 'node:fs';
-import yamlToJs from 'js-yaml';
+import { Temporal } from '@js-temporal/polyfill';
+import { load } from 'js-yaml';
 import { convert } from 'quote-quote';
 import { findFilesByExtension } from '../../utils/node.js';
 import { isObject } from '../../utils/object.js';
@@ -11,6 +12,9 @@ import { parseMarkdown } from './parse-markdown.js';
 // Markdown front matter is at the top of the file between triple-dashed lines.
 const frontMatterRegex = /^---([\s\S]*?)---/;
 
+// Verify a string is in the format of `yyyy-mm-dd hh:mm:ss`.
+const dateTimeRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/;
+
 /**
  * Return all Markdown files transformed to posts.
  */
@@ -19,7 +23,9 @@ export async function getPosts(): Promise<Post[]> {
   const result = await Promise.all(
     mdFiles.map((file) => transformMarkdownFileToPost(file)),
   );
-  return result.sort((a, b) => b.meta.date.getTime() - a.meta.date.getTime());
+  return result.sort((a, b) =>
+    Temporal.Instant.compare(b.meta.date, a.meta.date),
+  );
 }
 
 async function transformMarkdownFileToPost(file: string): Promise<Post> {
@@ -40,29 +46,33 @@ async function transformMarkdownFileToPost(file: string): Promise<Post> {
   };
 }
 
-function parseFrontMatter(fm: string | undefined): ParsedFrontMatter {
-  if (fm) {
-    const parsed = yamlToJs.load(fm);
-    if (isValidFrontMatter(parsed)) {
-      return parsed;
+function parseFrontMatter(rawFm: string | undefined): ParsedFrontMatter {
+  if (rawFm) {
+    const fm = load(rawFm);
+
+    if (
+      isObject(fm) &&
+      'title' in fm &&
+      'date' in fm &&
+      dateTimeRegex.test(fm.date as string) &&
+      (!('tags' in fm) || isValidTags(fm.tags))
+    ) {
+      fm.date = stringToUtcDateTime(fm.date as string);
+
+      if ('updated' in fm && dateTimeRegex.test(fm.updated as string)) {
+        fm.updated = stringToUtcDateTime(fm.updated as string);
+      }
+
+      return fm as ParsedFrontMatter;
     }
   }
   throw new Error('Invalid front matter');
 }
 
-/**
- * Check if front matter has all required properties in the correct format. This
- * ensures data is complete, but also parsed as expected by `js-yaml`.
- */
-function isValidFrontMatter(fm: unknown): fm is ParsedFrontMatter {
-  return (
-    isObject(fm) &&
-    'title' in fm &&
-    'date' in fm &&
-    fm.date instanceof Date &&
-    (!('tags' in fm) || isValidTags(fm.tags)) &&
-    (!('updated' in fm) || fm.updated instanceof Date)
-  );
+function stringToUtcDateTime(fmTimestamp: string): Temporal.Instant {
+  return Temporal.PlainDateTime.from(fmTimestamp.replace(' ', 'T'))
+    .toZonedDateTime('UTC')
+    .toInstant();
 }
 
 function isValidTags(tags: unknown): tags is string[] {

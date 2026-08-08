@@ -1,7 +1,9 @@
+import { Intl, Temporal } from '@js-temporal/polyfill';
+
 /**
- * Format a `Date` to a human-readable string. (Example: 1 January 2024)
+ * Format a `Temporal.Instant` to a human-readable string. (Example: 1 January 2024)
  */
-export function formatDateLong(date: Date): string {
+export function formatDateLong(date: Temporal.Instant): string {
   return new Intl.DateTimeFormat('en-GB', {
     year: 'numeric',
     month: 'long',
@@ -10,9 +12,9 @@ export function formatDateLong(date: Date): string {
 }
 
 /**
- * Format a `Date` to a short human-readable string. (Example: 01 Jan 2024)
+ * Format a `Temporal.Instant` to a short human-readable string. (Example: 01 Jan 2024)
  */
-export function formatDateShort(date: Date): string {
+export function formatDateShort(date: Temporal.Instant): string {
   return new Intl.DateTimeFormat('en-GB', {
     year: 'numeric',
     month: 'short',
@@ -21,11 +23,15 @@ export function formatDateShort(date: Date): string {
 }
 
 /**
- * Format a `Date` to YYYY-MM-DD.
+ * Format a `Temporal.Instant` to YYYY-MM-DD.
  */
-export function formatDateIso(date: Date): string {
-  const year = date.getFullYear();
-  const month = `${date.getMonth() + 1}`.padStart(2, '0');
-  const day = `${date.getDate()}`.padStart(2, '0');
-  return `${year}-${month}-${day}`;
+export function formatPlainDate(date: Temporal.Instant): string {
+  return date.toZonedDateTimeISO('UTC').toPlainDate().toString();
+}
+
+/**
+ * Format a `Temporal.Instant` to a UTC string. (Example: Mon, 01 Jan 2024 00:00:00 GMT)
+ */
+export function formatDateUtcString(date: Temporal.Instant): string {
+  return new Date(date.epochMilliseconds).toUTCString();
 }

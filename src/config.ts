@@ -1,3 +1,4 @@
+import { Temporal } from '@js-temporal/polyfill';
 import { BASE_URL_DEV, BASE_URL_PROD } from './constants.js';
 
 type Env = 'DEV' | 'TEST' | 'PROD';
@@ -14,7 +15,7 @@ export const AUTHOR = {
 
 export const BUILD = {
   ...getBaseUrlAndEnv(),
-  date: new Date(),
+  date: Temporal.Now.instant(),
 };
 
 function getBaseUrlAndEnv(): { env: Env; baseUrl: string } {

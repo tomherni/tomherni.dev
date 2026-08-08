@@ -24,8 +24,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@js-temporal/polyfill": "^0.5.1",
     "@types/html-minifier-terser": "^7.0.2",
-    "@types/js-yaml": "^4.0.9",
     "@types/node": "^24.13.2",
     "@types/prismjs": "^1.26.3",
     "canvas": "^3.0.1",
@@ -33,7 +33,7 @@
     "globals": "^17.6.0",
     "html-minifier-terser": "^7.2.0",
     "husky": "^9.1.7",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^5.2.3",
     "lightningcss": "^1.32.0",
     "lint-staged": "^17.0.7",
     "marked": "^18.0.7",

@@ -1,5 +1,5 @@
 import type { Post } from '#types';
-import { formatDateIso, formatDateShort } from '../utils/date.js';
+import { formatDateShort, formatPlainDate } from '../utils/date.js';
 import { html, when } from '../utils/html.js';
 import { tagList } from './tag-list.js';
 
@@ -8,7 +8,7 @@ function showParagraphWithDate(post: Post): string {
     '<p>',
     (paragraphTag) => html`
       ${paragraphTag}
-      <time datetime="${formatDateIso(post.meta.date)}">
+      <time datetime="${formatPlainDate(post.meta.date)}">
         ${formatDateShort(post.meta.date)} —&nbsp;
       </time>
     `,

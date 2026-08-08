@@ -1,3 +1,5 @@
+import type { Temporal } from '@js-temporal/polyfill';
+
 export type PageData = {
   url: string;
   posts: Post[];
@@ -7,8 +9,8 @@ export type PageData = {
   tag?: string;
   title?: string;
   description?: string;
-  date?: Date;
-  updated?: Date;
+  date?: Temporal.Instant;
+  updated?: Temporal.Instant;
   activePage?: 'home' | 'blog' | 'tags';
   excludeFromSitemap?: boolean;
 };
@@ -18,22 +20,22 @@ export type Layout = (data: PageData) => PageData;
 
 export type ParsedFrontMatter = {
   title: string;
-  date: Date;
+  date: Temporal.Instant;
   description?: string;
   tags?: string[];
-  updated?: Date;
+  updated?: Temporal.Instant;
 };
 
 export type PostMetadata = {
   title: string;
   description: string;
   descriptionWithHtml: string;
-  date: Date;
+  date: Temporal.Instant;
   timeToRead: number;
   url: string;
   socialUrl: string;
   tags?: string[];
-  updated?: Date;
+  updated?: Temporal.Instant;
 };
 
 export type Post = {
