@@ -1,5 +1,4 @@
 import type { Layout, PageData, Post } from '#types';
-import { siteHeader } from '../includes/site-header.js';
 import { html, when } from '../utils/html.js';
 import { BUILD, DESCRIPTION, TITLE } from '../config.js';
 import { SOCIAL_MIME_TYPE } from '../constants.js';
@@ -180,7 +179,48 @@ const layout: Layout = (data) => {
         </head>
         <body>
           <div class="wrapper">
-            ${siteHeader(data)}
+            <header class="site-header">
+              <nav aria-label="Main navigation">
+                <a
+                  href="/"
+                  class="logo"
+                  aria-current="${String(data.activePage === 'home')}"
+                  data-prefetch
+                >
+                  tomherni<span>.dev</span>
+                </a>
+                <a
+                  href="/blog/"
+                  class="${data.activePage === 'blog' ? 'link active' : 'link'}"
+                  aria-current="${String(data.activePage === 'blog')}"
+                  data-prefetch
+                >
+                  Blog
+                </a>
+                <a
+                  href="/tags/"
+                  class="${data.activePage === 'tags' ? 'link active' : 'link'}"
+                  aria-current="${String(data.activePage === 'tags')}"
+                  data-prefetch
+                >
+                  Tags
+                </a>
+              </nav>
+
+              <button
+                id="theme-switch"
+                class="theme-switch"
+                role="switch"
+                tabindex="0"
+                title="Enable dark mode"
+                aria-label="Enable dark mode"
+                aria-checked="false"
+              >
+                <div class="icon sun"></div>
+                <div class="icon moon"></div>
+              </button>
+            </header>
+
             <main>${data.content}</main>
           </div>
           <script src="/assets/js/index.js"></script>
