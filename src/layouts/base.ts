@@ -191,7 +191,7 @@ const layout: Layout = (data) => {
                 </a>
                 <a
                   href="/blog/"
-                  class="${data.activePage === 'blog' ? 'link active' : 'link'}"
+                  class="link ${data.activePage === 'blog' ? 'active' : ''}"
                   aria-current="${String(data.activePage === 'blog')}"
                   data-prefetch
                 >
@@ -199,7 +199,7 @@ const layout: Layout = (data) => {
                 </a>
                 <a
                   href="/tags/"
-                  class="${data.activePage === 'tags' ? 'link active' : 'link'}"
+                  class="link ${data.activePage === 'tags' ? 'active' : ''}"
                   aria-current="${String(data.activePage === 'tags')}"
                   data-prefetch
                 >

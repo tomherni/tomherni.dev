@@ -88,9 +88,9 @@ body {
   background-color: var(--color-highlight);
 }
 
-a,
-a .link-effect {
+a {
   color: var(--color-font);
+  font-weight: 600;
   text-decoration: underline;
   text-decoration-color: var(--color-highlight);
   text-decoration-thickness: 0.2rem;
@@ -98,27 +98,24 @@ a .link-effect {
   transition:
     color var(--hover-transition-duration),
     text-decoration-color var(--hover-transition-duration);
-}
 
-/* Some devices (mostly Samsung) have their touchscreen set up as a trackpad
+  /* Some devices (mostly Samsung) have their touchscreen set up as a trackpad
    (which implies hover capability), and need an additional (pointer) check. */
-@media (hover: hover) and (pointer: fine) {
-  a:hover,
-  a:hover .link-effect {
-    color: var(--color-highlight);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--color-highlight);
 
-    /* Explicit color assignment instead of e.g. `currentcolor`. In some cases,
-       the underline is e.g. transparent. Then you don't want a flash of the font
-       color, but rather transition from transparent to the hover color. */
-    text-decoration-color: var(--color-highlight);
+      /* Explicit color assignment instead of e.g. `currentcolor`. In some cases,
+         the underline is e.g. transparent. Then you don't want a flash of the font
+         color, but rather transition from transparent to the hover color. */
+      text-decoration-color: var(--color-highlight);
+    }
   }
-}
 
-a:focus-visible,
-a:hover:focus-visible .link-effect {
-  text-decoration-color: var(--color-highlight);
-  border-radius: 0.4rem;
-  outline: 0.2rem dashed var(--color-highlight);
+  &:focus-visible {
+    border-radius: 0.4rem;
+    outline: 0.2rem dashed var(--color-highlight);
+  }
 }
 
 h1,
@@ -231,7 +228,7 @@ h3 {
     display: block;
     padding: 0.2rem 1.4rem;
     font-weight: 400;
-    text-decoration: none;
+    text-decoration-color: transparent;
     background-color: var(--color-shade-7);
     border-radius: 0.4rem;
   }
@@ -241,17 +238,6 @@ h3 {
     color: var(--color-shade-75);
     pointer-events: none;
     opacity: 0.7;
-  }
-
-  .link-effect {
-    text-decoration-color: transparent;
-    text-decoration-thickness: 0.1rem;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    a:hover .link-effect {
-      text-decoration-color: var(--color-highlight);
-    }
   }
 }
 
@@ -275,15 +261,11 @@ h3 {
     font-size: 2.2rem;
   }
 
-  /* Regular links */
-  a:not(.anchor) {
-    font-weight: 600;
-  }
-
   a.anchor {
     margin-left: 0.2rem;
     padding: 0 0.6rem;
     color: var(--color-shade-40);
+    font-weight: 400;
     font-size: 0.8em;
     text-decoration: none;
 
@@ -511,7 +493,7 @@ h3 {
       a {
         display: flex;
         align-items: center;
-        text-decoration: none;
+        font-weight: 400;
 
         .img {
           flex: 1 1 auto;

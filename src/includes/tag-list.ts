@@ -15,7 +15,7 @@ export const tagList = (tags: string[], options: TagListOptions = {}) => html`
         <li>
           <a href="/tags/${tag}/">
             <span class="hashtag" aria-hidden="true">#</span
-            ><!-- no space! --><span class="link-effect">${tag}</span>
+            ><!-- no space! -->${tag}
           </a>
         </li>
       `,
