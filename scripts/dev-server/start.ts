@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { createHttpServer } from './http-server';
-import { green, log } from './utils';
-import { buildOnFileChanges } from './watcher';
+import { createHttpServer } from './http-server.js';
+import { green, log } from './utils.js';
+import { buildOnFileChanges } from './watcher.js';
 
 type DevServerConfig = {
   src: string; // Directory to watch for file changes.

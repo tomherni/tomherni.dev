@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
-import { getMimeType } from './mime-types';
-import { cyan, formatMs, green, log, red } from './utils';
+import { getMimeType } from './mime-types.js';
+import { cyan, formatMs, green, log, red } from './utils.js';
 
 export function createHttpServer(distDir: string): http.Server {
   return http.createServer((req, res) => {

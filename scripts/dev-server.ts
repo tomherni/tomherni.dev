@@ -1,4 +1,4 @@
-import { startDevServer } from './dev-server/start';
+import { startDevServer } from './dev-server/start.js';
 
 startDevServer({
   src: './src',

@@ -1,6 +1,6 @@
 import { ExecException, execSync } from 'node:child_process';
 import fs from 'node:fs';
-import { formatMs, green, log, red } from './utils';
+import { formatMs, green, log, red } from './utils.js';
 
 const BUILD_CMD = 'npm run build:dev';
 
