@@ -1,34 +1,29 @@
 :root {
   color-scheme: light;
 
-  /* Colors */
-  --color-font: hsl(0deg 1% 15%);
-  --color-background: #fff;
-  --color-highlight: hsl(7deg 80% 54%);
-  --color-shade-7: hsl(0deg 1% 15% / 7%);
-  --color-shade-10: hsl(0deg 1% 15% / 10%);
-  --color-shade-40: hsl(0deg 1% 15% / 40%);
-  --color-shade-55: hsl(0deg 1% 15% / 55%);
-  --color-shade-75: hsl(0deg 1% 15% / 75%);
+  /* Core colors */
+  --color-text: oklch(24% 0.007 0.88deg);
+  --color-background: oklch(100% 0 0deg);
+  --color-highlight: oklch(63% 0.235 16deg);
 
-  /* Layout */
+  /* Color variations */
+  --color-text-07: oklch(from var(--color-text) l c h / 7%);
+  --color-text-10: oklch(from var(--color-text) l c h / 10%);
+  --color-text-45: oklch(from var(--color-text) l c h / 45%);
+  --color-text-55: oklch(from var(--color-text) l c h / 55%);
+  --color-text-75: oklch(from var(--color-text) l c h / 75%);
+
+  /* Misc. tokens */
+  --pre-color-background: oklch(25.3% 0.007 0.88deg);
   --wrapper-gutter-inline: 1.6rem;
-
-  /* Effects */
   --hover-transition-duration: 150ms;
   --theme-transition-duration: 250ms;
 
   &[data-theme='dark'] {
     color-scheme: dark;
 
-    /* Colors */
-    --color-font: hsl(30deg 27% 91%);
-    --color-background: hsl(0deg 5% 9%);
-    --color-shade-7: hsl(30deg 27% 91% / 7%);
-    --color-shade-10: hsl(30deg 27% 91% / 10%);
-    --color-shade-40: hsl(30deg 27% 91% / 45%);
-    --color-shade-55: hsl(30deg 27% 91% / 55%);
-    --color-shade-75: hsl(30deg 27% 91% / 70%);
+    --color-text: oklch(96% 0.007 0.88deg);
+    --color-background: oklch(18.75% 0.007 0.88deg);
   }
 }
 
@@ -65,7 +60,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  color: var(--color-font);
+  color: var(--color-text);
   font:
     normal 400 1.8rem/1.7 Rubik,
     sans-serif;
@@ -84,12 +79,12 @@ body {
 }
 
 *::selection {
-  color: var(--color-font);
+  color: var(--color-text);
   background-color: var(--color-highlight);
 }
 
 a {
-  color: var(--color-font);
+  color: var(--color-text);
   font-weight: 600;
   text-decoration: underline;
   text-decoration-color: var(--color-highlight);
@@ -182,7 +177,7 @@ h3 {
     border-radius: 0.4rem;
 
     &.active {
-      background-color: var(--color-shade-10);
+      background-color: var(--color-text-10);
     }
   }
 }
@@ -229,13 +224,13 @@ h3 {
     padding: 0.2rem 1.4rem;
     font-weight: 400;
     text-decoration-color: transparent;
-    background-color: var(--color-shade-7);
+    background-color: var(--color-text-07);
     border-radius: 0.4rem;
   }
 
   .hashtag {
     margin-inline: -0.2rem 0.2rem;
-    color: var(--color-shade-75);
+    color: var(--color-text-75);
     pointer-events: none;
     opacity: 0.7;
   }
@@ -264,7 +259,7 @@ h3 {
   a.anchor {
     margin-left: 0.2rem;
     padding: 0 0.6rem;
-    color: var(--color-shade-40);
+    color: var(--color-text-45);
     font-weight: 400;
     font-size: 0.8em;
     text-decoration: none;
@@ -284,7 +279,7 @@ h3 {
     font-weight: 300;
     font-size: 2.6rem;
     text-align: center;
-    background-color: var(--color-shade-7);
+    background-color: var(--color-text-07);
 
     @media (width >= 480px) {
       margin-inline: 0;
@@ -308,7 +303,7 @@ h3 {
     padding-inline: var(--wrapper-gutter-inline);
     font-size: 1.5rem;
     line-height: 1.7;
-    background-color: var(--color-shade-7);
+    background-color: var(--pre-color-background);
     white-space: pre;
     overflow: auto;
 
@@ -326,7 +321,6 @@ h3 {
 
   code {
     font-family: Menlo, monospace;
-    text-shadow: 0.1rem 0.1rem 0 var(--color-background);
     word-spacing: normal;
     word-break: normal;
     tab-size: 2;
@@ -337,7 +331,7 @@ h3 {
       display: inline-block;
       padding: 0 0.6rem;
       font-size: 1.7rem;
-      background-color: var(--color-shade-10);
+      background-color: var(--color-text-10);
       border-radius: 0.4rem;
     }
   }
@@ -380,7 +374,7 @@ h3 {
 
   time {
     display: inline-block;
-    color: var(--color-shade-55);
+    color: var(--color-text-55);
 
     /* font-variant:all-small-caps is bugged in iOS (spacing issue) */
     font-size: 0.8em;
@@ -434,7 +428,7 @@ h3 {
 
   .datetime {
     margin: 1.4rem 0 -1rem;
-    color: var(--color-shade-55);
+    color: var(--color-text-55);
   }
 
   .tag-list {
@@ -585,7 +579,7 @@ h3 {
   &.special span:first-of-type {
     display: block;
     margin-bottom: 0.8rem;
-    color: var(--color-shade-55);
+    color: var(--color-text-55);
     font-weight: 400;
     font-size: 1.8rem;
     line-height: 1;

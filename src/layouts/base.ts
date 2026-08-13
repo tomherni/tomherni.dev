@@ -212,8 +212,8 @@ const layout: Layout = (data) => {
                 class="theme-switch"
                 role="switch"
                 tabindex="0"
-                title="Enable dark mode"
-                aria-label="Enable dark mode"
+                title="Toggle dark mode"
+                aria-label="Toggle dark mode"
                 aria-checked="false"
               >
                 <div class="icon sun"></div>
