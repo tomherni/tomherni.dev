@@ -21,11 +21,6 @@
     Cache-Control = "max-age=31536001"
 
 [[headers]]
-  for = "/**/*-cache.png"
-  [headers.values]
-    Cache-Control = "max-age=31536001"
-
-[[headers]]
   for = "/**/*-cache.webp"
   [headers.values]
     Cache-Control = "max-age=31536001"
