@@ -1,11 +1,5 @@
 'use strict';
 
-// Load the non-critical styles.
-const link = document.createElement('link');
-link.setAttribute('rel', 'stylesheet');
-link.setAttribute('href', window._paths_.lazyCss);
-document.head.append(link);
-
 const themeSwitch = document.getElementById('theme-switch');
 
 themeSwitch.addEventListener('click', () => toggleTheme());
