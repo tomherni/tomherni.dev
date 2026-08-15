@@ -131,6 +131,12 @@ const layout: Layout = (data) => {
             type="font/woff2"
             crossorigin="anonymous"
           />
+          <link
+            rel="preload"
+            href="/assets/css/styles-lazy.css"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+          />
           <meta name="description" content="${metadata.description}" />
           <meta name="robots" content="index,follow" />
           <link rel="canonical" href="${metadata.url}" />
@@ -157,12 +163,11 @@ const layout: Layout = (data) => {
                 ? 'dark'
                 : 'light');
             document.documentElement.setAttribute('data-theme', theme);
-
-            window._paths_ = {};
-            /* Note: the build looks for "window._paths_.*" URLs to hash them. */
-            window._paths_.lazyCss = '/assets/css/styles-lazy.css';
           </script>
           <link rel="stylesheet" href="/assets/css/styles.css" />
+          <noscript>
+            <link rel="stylesheet" href="/assets/css/styles-lazy.css" />
+          </noscript>
           <link
             rel="alternate"
             type="application/atom+xml"

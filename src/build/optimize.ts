@@ -79,7 +79,6 @@ async function hashRelativeAssetUrlsInHtml(contents: string): Promise<string> {
     /(<img[\s\S]*?src=)([^\s>]+)([\s\S]*?>)/g,
     /(<script[\s\S]*?src=)([^\s>]+)([\s\S]*?>)/g,
     /(<source[\s\S]*?srcset=)([^\s>]+)([\s\S]*?>)/g,
-    /(window\._paths_\..*?=")([\s\S]*?)(")/g,
   ];
 
   let html = contents;
