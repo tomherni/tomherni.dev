@@ -53,6 +53,19 @@
     U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: 'Google Sans Code';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/googlesanscode/v17/pxihyogzv91QhV44Z_GQBHsGf5PuckJMZfIVTPZaiXEp_ht12EVEHsN1sCQNcmTltAki9OLRSxQi.woff2')
+    format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+
 html {
   font-size: clamp(9px, 1.25vw, 10px);
 }
@@ -206,7 +219,7 @@ h3 {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  font-size: 1.6rem;
+  font-size: 0.9em;
   list-style: none;
 
   li {
@@ -301,7 +314,7 @@ h3 {
     margin-inline: calc(var(--wrapper-gutter-inline) * -1);
     padding-block: 1.6rem;
     padding-inline: var(--wrapper-gutter-inline);
-    font-size: 1.5rem;
+    font-size: 0.7em;
     line-height: 1.7;
     background-color: var(--pre-color-background);
     white-space: pre;
@@ -320,7 +333,7 @@ h3 {
   }
 
   code {
-    font-family: Menlo, monospace;
+    font-family: 'Google Sans Code', monospace;
     word-spacing: normal;
     word-break: normal;
     tab-size: 2;
@@ -330,7 +343,7 @@ h3 {
     &:not(pre &) {
       display: inline-block;
       padding: 0 0.6rem;
-      font-size: 1.7rem;
+      font-size: 0.8em;
       background-color: var(--color-text-10);
       border-radius: 0.4rem;
     }

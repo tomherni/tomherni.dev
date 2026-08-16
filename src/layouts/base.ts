@@ -133,6 +133,13 @@ const layout: Layout = (data) => {
           />
           <link
             rel="preload"
+            href="https://fonts.gstatic.com/s/googlesanscode/v17/pxihyogzv91QhV44Z_GQBHsGf5PuckJMZfIVTPZaiXEp_ht12EVEHsN1sCQNcmTltAki9OLRSxQi.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+          />
+          <link
+            rel="preload"
             href="/assets/css/styles-lazy.css"
             as="style"
             onload="this.onload=null;this.rel='stylesheet'"
