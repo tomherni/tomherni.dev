@@ -154,6 +154,7 @@ const layout: Layout = (data) => {
             type="image/svg+xml"
             sizes="any"
           />
+          <script defer src="/assets/js/script-lazy.js"></script>
           <script>
             // Set up the theme before loading the CSS so that the correct
             // CSS properties can be used from the start.
@@ -228,7 +229,6 @@ const layout: Layout = (data) => {
 
             <main>${data.content}</main>
           </div>
-          <script src="/assets/js/index.js"></script>
         </body>
       </html>
     `,
