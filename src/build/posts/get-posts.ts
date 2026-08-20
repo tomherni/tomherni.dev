@@ -37,7 +37,7 @@ async function transformMarkdownFileToPost(file: string): Promise<Post> {
 
   const frontMatter = parseFrontMatter(contents.match(frontMatterRegex)?.[1]);
   const contentWithoutFrontMatter = contents.replace(frontMatterRegex, '');
-  const parsedContent = parseMarkdown(contentWithoutFrontMatter);
+  const parsedContent = await parseMarkdown(contentWithoutFrontMatter, file);
 
   return {
     content: parsedContent,
